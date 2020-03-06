@@ -24,7 +24,7 @@ https://github.com/picoCTF/picoCTF/blob/master/README.md#quick-start
 
 If this succeeds, please go on to step 2., found here:
 
-[TODO: insert link to step 2 section]
+[2. Adding a problem to your picoCTF server](/#2-adding-a-problem-to-your-picoctf-server)
 
 Otherwise, some of the most common exceptions are listed in the following 
 sections.
@@ -84,6 +84,20 @@ If `vagrant` hangs with a screen like the following, you will need to Ctrl-C
 and do some manual config of the `shell` and `web` VM's
 
 ![Apt Hangup](/img/death-by-prompt.png)
+
+Once you've Ctrl-C'd out of being stuck in the apt prompt via vagrant, you will
+need to manually update each VM, by doing something like the following for both
+the shell and web VM's:
+
+```
+vagrant ssh shell
+sudo killall dpkg
+sudo apt update
+sudo apt install
+sudo apt upgrade
+exit
+vagrant up --provision shell
+```
 
 ## 2. Adding a problem to your picoCTF server
 
