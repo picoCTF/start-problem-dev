@@ -78,9 +78,12 @@ PS C:\Users\tron> vagrant up --provision shell web
 ### c. Provision dies at interactive prompt
 
 Apt asks to be able to restart services, but unfortunately sometimes this kills
-its ability to be provisioned automatically the first time.
+Vagrant's ability to provision automatically the first time.
 
-// WIP: BOOKMARK
+If `vagrant` hangs with a screen like the following, you will need to Ctrl-C
+and do some manual config of the `shell` and `web` VM's
+
+![Apt Hangup](/img/death-by-prompt.png)
 
 ## 2. Adding a problem to your picoCTF server
 
