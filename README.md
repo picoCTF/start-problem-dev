@@ -22,9 +22,9 @@ will probably be to follow the instructions found here:
 
 https://github.com/picoCTF/picoCTF/blob/master/README.md#quick-start
 
-If this succeeds, please go on to step 2., found here:
+If this succeeds, please go on to step 2., linked here:
 
-[2. Adding a problem to your picoCTF server](/#2-adding-a-problem-to-your-picoctf-server)
+[2. Adding a problem to your picoCTF server](https://github.com/picoCTF/start-problem-dev#2-adding-a-problem-to-your-picoctf-server)
 
 Otherwise, some of the most common exceptions are listed in the following 
 sections.
