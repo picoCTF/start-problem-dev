@@ -2,16 +2,16 @@
 
 Welcome to picoCTF problem-dev! This is the place to start.
 
-I (ltj) recommend 3 steps to acclimating to picoCTF problem-dev:
+We recommend 3 steps to acclimating to picoCTF problem-dev:
 
-1. Starting your own picoCTF server for local testing
-2. Adding a problem to your picoCTF server
-3. Reviewing relevant documentation
+1. Starting your own picoCTF server for local testing.
+2. Adding a problem to your picoCTF server.
+3. Reviewing relevant documentation.
 
 Documentation includes some more complex problems that can help bootstrap your
 knowledge of the capabilities of the "hacksport" CTF problem templating
-language in Python. More of that later. First, let's get our very own instance
-of picoCTF on our computer!
+language in Python. More of that later. First, let's get your very own instance
+of picoCTF on your computer!
 
 
 ## 1. Starting your own picoCTF server for local testing
@@ -81,7 +81,7 @@ Apt asks to be able to restart services, but unfortunately sometimes this kills
 Vagrant's ability to provision automatically the first time.
 
 If `vagrant` hangs with a screen like the following, you will need to Ctrl-C
-and do some manual config of the `shell` and `web` VM's
+and do some manual config of the `shell` and `web` VM's:
 
 ![Apt Hangup](/img/death-by-prompt.png)
 
@@ -119,7 +119,7 @@ web VM.
     provisioning was problematic, then they might not have auto-loaded
     correctly.
   * Hit the "Enable All Problems" button.
-4. Turn competition live. Navigate to `Management > Configuration`
+4. Turn competition live. Navigate to `Management > Configuration`.
   * By default, "Competition Start/End Time" are set to same time.
   * Move "Competition End Time" to some time in the distant future.
 5. Refresh browser.
@@ -151,11 +151,11 @@ web VM.
 
 ## 3. Review relevant documentation
 
-* Exceedingly relevant: [Problem directory structure overview](https://docs.picoctf.com/adding-your-own-content.html)
-* Exceedingly relevant: [Buffer overflow problem-dev tutorial](https://docs.picoctf.com/tutorials/buffer-overflow-challenge-beginner.html)
-* Exceedingly relevant: [Hacksport documentation of challenge.py](https://docs.picoctf.com/specs/challenge.py.html)
-* Relevant: [Top level docs](https://docs.picoctf.com/)
-* Relevant: [Overview of picoCTF servers architecture](https://github.com/picoCTF/picoCTF#project-overview)
+* Exceedingly relevant: [Problem directory structure overview](https://docs.picoctf.com/adding-your-own-content.html).
+* Exceedingly relevant: [Buffer overflow problem-dev tutorial](https://docs.picoctf.com/tutorials/buffer-overflow-challenge-beginner.html).
+* Exceedingly relevant: [Hacksport documentation of challenge.py](https://docs.picoctf.com/specs/challenge.py.html).
+* Relevant: [Top level docs](https://docs.picoctf.com/).
+* Relevant: [Overview of picoCTF servers architecture](https://github.com/picoCTF/picoCTF#project-overview).
 
 
 
@@ -174,5 +174,3 @@ problem-devs to master:
 Again, feel free to [email me](https://github.com/syreal17/) or join a [picoCTF
 community](https://www.picoctf.com/community) to get help outside of what is
 covered here!
-
---ltj
