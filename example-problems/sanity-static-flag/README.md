@@ -8,7 +8,7 @@ sanity check that your internet connection is working as intended, etc.
 
 
 
-# Pre-requisites:
+## Pre-requisites:
 
 1. You have setup `cmgr`.
   - Refer to [the README](https://github.com/syreal17/start-problem-dev#setup)
@@ -16,14 +16,29 @@ sanity check that your internet connection is working as intended, etc.
 
 
 
-# Overview
+## Overview
 
 We are going to create a "sanity check" problem, often refered to simply as
 "sanity". This problem would be one of the easiest in the CTF and would act
-as proof that at least your computer can talk to CTF web pages.
+as proof that at least your computer can talk to the CTF server.
 
 We're starting with the sanity problem with this walkthrough series because it
 is one of the simplest real world challenges that exist in every CTF.
+
+The following walkthough has 3 parts:
+
+1. File listing and explanation
+
+2. Playtest deploy demo
+
+3. Modification of problem source and redeploy
+
+After the walkthrough there is an Appendix that goes into more detail about
+what each line in both files does.
+
+## Walkthrough
+
+### File Listing and Explanation
 
 Using `cmgr`, the Sanity Download problem is just 2 files, 1. `problem.md`, 
 and, 2. `Makefile`:
