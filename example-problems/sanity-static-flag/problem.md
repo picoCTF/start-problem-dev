@@ -5,7 +5,6 @@
 - Category: General Skills
 - Points: 10
 - Templatable: no
-- MaxUsers: 0
 
 ## Description
 
