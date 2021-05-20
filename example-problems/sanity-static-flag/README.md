@@ -62,5 +62,12 @@ We are going to take this problem from just 2 files to actual deployment.
 4. Update cmgr with this problem: `sudo ./cmgr update sanity-static-flag/`
 5. Ensure problem appears in list: `sudo ./cmgr list`
 6. Deploy problem in playtest mode: `sudo ./cmgr playtest syreal/examples/sanity-download`
-7. Ensure you get the problem details by browsing to the listed host and port or using some http tool to download the page.
-8. TODO: wrap up
+    - NOTE: this command might take a few minutes.
+    - Expected output is something like: `challenge information available at: http://localhost:4242/`
+7. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
+    -![Successful deploy](/img/sanity-download-playtest.png)
+
+
+
+### Modification and Redeploy
+
