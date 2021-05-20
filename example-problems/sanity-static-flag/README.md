@@ -65,7 +65,7 @@ We are going to take this problem from just 2 files to actual deployment.
     - NOTE: this command might take a few minutes.
     - Expected output is something like: `challenge information available at: http://localhost:4242/`
 7. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
-    -![Successful deploy](/img/sanity-download-playtest.png)
+    - ![Successful deploy](/img/sanity-download-playtest.png)
 
 
 
