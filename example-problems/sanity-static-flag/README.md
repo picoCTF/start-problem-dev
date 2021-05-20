@@ -58,7 +58,7 @@ We are going to take this problem from just 2 files to actual deployment.
 
 1. Clone this repo.
 2. `cd start-problem-dev/example-problems`
-3. Get a copy of cmgr `example-problems` directory:
+3. Get a copy of cmgr in the `example-problems` directory:
     - `wget https://github.com/ArmyCyberInstitute/cmgr/releases/download/v0.9.0/cmgr.tar.gz && tar xvzf cmgr.tar.gz`
 4. Update cmgr with the sanity problem:
     - `sudo ./cmgr update sanity-static-flag/`
