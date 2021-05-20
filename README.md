@@ -1,7 +1,7 @@
 # Start Problem Development
 
 Welcome! At the time of writing, this documentation is maintained by [LT
-'syreal' Jones](https://pages.syreal.cc/portfolio/business-card) Feel free to
+'syreal' Jones](https://pages.syreal.cc/portfolio/business-card). Feel free to
 reach out with questions, comments or suggestions.
 
 
