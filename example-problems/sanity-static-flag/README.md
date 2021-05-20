@@ -44,7 +44,23 @@ Using `cmgr`, the Sanity Download problem is just 2 files, 1. `problem.md`,
 and, 2. `Makefile`:
 
   1. `problem.md` specifies the name of the problem, the description, and other
-      metadata about the problem.
+      metadata about the problem. Here is the [specification](https://github.com/ArmyCyberInstitute/cmgr/blob/master/examples/markdown_challenges.md)
+      for this file in general.
 
   2. `Makefile` specifies the creation of the 'artifacts' or files associated
       with the problem, including the flag.
+
+
+
+### Playtest deploy demo
+
+We are going to take this problem from just 2 files to actual deployment.
+
+1. Clone this repo.
+2. `cd start-problem-dev/example-problems`
+3. Get a copy of cmgr in this directory: `wget https://github.com/ArmyCyberInstitute/cmgr/releases/download/v0.9.0/cmgr.tar.gz && tar xvzf cmgr.tar.gz`
+4. Update cmgr with this problem: `sudo ./cmgr update sanity-static-flag/`
+5. Ensure problem appears in list: `sudo ./cmgr list`
+6. Deploy problem in playtest mode: `sudo ./cmgr playtest syreal/examples/sanity-download`
+7. Ensure you get the problem details by browsing to the listed host and port or using some http tool to download the page.
+8. TODO: wrap up
