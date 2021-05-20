@@ -28,7 +28,7 @@ challenge to most complex challenge. "Sanity" in this context refers to the
 easiest problem in a CTF that can be used as a sanity check. These are great
 problems to start problem development with.
 
-1. Sanity, static flag
+1. [Sanity, static flag](/example-problems/sanity-static-flag/)
 2. Sanity, dynamic flag
 3. Forensics, static artifact
 4. Forensics, dynamic artifact
