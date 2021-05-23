@@ -10,9 +10,12 @@ sanity check that your internet connection is working as intended, etc.
 
 ## Pre-requisites:
 
-1. You have setup `cmgr`.
-  - Refer to [the README](https://github.com/syreal17/start-problem-dev#setup)
+1. You have `cmgr`.
+  - Refer to the [Readme](https://github.com/syreal17/start-problem-dev#setup)
     if this is not the case for you.
+  - `cmgr` is in the PATH in Problem Development Playground machines,
+    otherwise you'll probably just reference `cmgr` relative to your working
+    directory.
 
 
 
