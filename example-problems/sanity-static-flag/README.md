@@ -77,7 +77,8 @@ We are going to take this problem from just 2 files to actual deployment.
   * Testing that an incorrect flag is incorrect
   * Testing that a correct flag is correct
   * Testing that the correct flag can be found by using the materials given for the problem.
-\[WIP\]
+
+\[WIP: Break testing into separate section and remove the modification part...\]
 
 
 
