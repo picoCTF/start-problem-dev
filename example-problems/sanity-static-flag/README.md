@@ -64,15 +64,20 @@ We are going to take this problem from just 2 files to actual deployment.
 3. Get a copy of cmgr in the `example-problems` directory:
     - `wget https://github.com/ArmyCyberInstitute/cmgr/releases/download/v0.9.0/cmgr.tar.gz && tar xvzf cmgr.tar.gz`
 4. Update cmgr with the sanity problem:
-    - `sudo ./cmgr update sanity-static-flag/`
+    - `sudo cmgr update sanity-static-flag/`
 5. Ensure problem appears in cmgr list:
-    - `sudo ./cmgr list`
+    - `sudo cmgr list`
 6. Deploy problem in playtest mode:
-    - `sudo ./cmgr playtest syreal/examples/sanity-download`
+    - `sudo cmgr playtest syreal/examples/sanity-download`
     - NOTE: this command might take a few minutes.
     - Expected output is something like: `challenge information available at: http://localhost:4242/`
 7. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
     - ![Successful deploy](/img/sanity-download-playtest.png)
+8. Testing of problem involves 3 things:
+  * An incorrect flag is incorrect
+  * A correct flag is correct
+  * The correct flag can be found by using the materials given for the problem.
+WIP
 
 
 
