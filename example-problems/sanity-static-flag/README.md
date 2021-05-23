@@ -73,11 +73,11 @@ We are going to take this problem from just 2 files to actual deployment.
     - Expected output is something like: `challenge information available at: http://localhost:4242/`
 7. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
     - ![Successful deploy](/img/sanity-download-playtest.png)
-8. Testing of problem involves 3 things:
-  * An incorrect flag is incorrect
-  * A correct flag is correct
-  * The correct flag can be found by using the materials given for the problem.
-WIP
+8. Testing of problems involves at least 3 things:
+  * Testing that an incorrect flag is incorrect
+  * Testing that a correct flag is correct
+  * Testing that the correct flag can be found by using the materials given for the problem.
+\[WIP\]
 
 
 
