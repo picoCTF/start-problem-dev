@@ -42,11 +42,11 @@ The following walkthough has 3 parts:
 
 ### File Listing
 
-Using `cmgr`, the Sanity Download problem is just 2 files, 1. `problem.md`, 
-and, 2. `Makefile`:
+Using `cmgr`, the Sanity Download problem is just 2 files:
 
-  1. `problem.md` specifies the name of the problem, the description, and other
-      metadata about the problem. Here is the [specification](https://github.com/ArmyCyberInstitute/cmgr/blob/master/examples/markdown_challenges.md)
+  1.  [problem.md](/example-problems/sanity-static-flag/problem.md) specifies 
+      the name of the problem, the description, and other metadata about the 
+      problem. Here is the [specification](https://github.com/ArmyCyberInstitute/cmgr/blob/master/examples/markdown_challenges.md)
       for this file in general.
 
   2. `Makefile` specifies the creation of the 'artifacts' or files associated
