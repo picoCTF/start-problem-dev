@@ -30,18 +30,17 @@ is one of the simplest real world challenges that exist in every CTF.
 
 The following walkthough has 3 parts:
 
-1. File listing and explanation
+1. File listing
 
-2. Playtest deploy demo
+2. Deploy
 
-3. Modification of problem source and redeploy
+3. Testing
 
-After the walkthrough there is an Appendix that goes into more detail about
-what each line in both files does.
+
 
 ## Walkthrough
 
-### File Listing and Explanation
+### File Listing
 
 Using `cmgr`, the Sanity Download problem is just 2 files, 1. `problem.md`, 
 and, 2. `Makefile`:
@@ -55,32 +54,42 @@ and, 2. `Makefile`:
 
 
 
-### Playtest deploy demo
+### Deploy
 
 We are going to take this problem from just 2 files to actual deployment.
 
 1. Clone this repo.
 2. `cd start-problem-dev/example-problems`
-3. Get a copy of cmgr in the `example-problems` directory:
-    - `wget https://github.com/ArmyCyberInstitute/cmgr/releases/download/v0.9.0/cmgr.tar.gz && tar xvzf cmgr.tar.gz`
-4. Update cmgr with the sanity problem:
+3. Update cmgr with the sanity problem:
     - `sudo cmgr update sanity-static-flag/`
-5. Ensure problem appears in cmgr list:
+4. Ensure problem appears in cmgr list:
     - `sudo cmgr list`
-6. Deploy problem in playtest mode:
+    - Expected output: `syreal/examples/sanity-download`
+5. Deploy problem in playtest mode:
     - `sudo cmgr playtest syreal/examples/sanity-download`
     - NOTE: this command might take a few minutes.
     - Expected output is something like: `challenge information available at: http://localhost:4242/`
-7. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
+6. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
     - ![Successful deploy](/img/sanity-download-playtest.png)
-8. Testing of problems involves at least 3 things:
+
+
+
+### Testing
+
+Testing of problems involves at least 3 things:
   * Testing that an incorrect flag is incorrect
   * Testing that a correct flag is correct
-  * Testing that the correct flag can be found by using the materials given for the problem.
+  * Testing that the correct flag can be found by using the materials given for
+    the problem.
 
-\[WIP: Break testing into separate section and remove the modification part...\]
+1. To test an incorrect flag, try submitting `aaa` as a flag to the problem.
+  * Expected output: `That is not the correct flag`
+2. To test the correct flag and that the correct flag can be found using the 
+   given materials, download the flag from the problem and submit it
+  * Expected output: `Correct`
 
 
 
-### Modification and Redeploy
+
+
 
