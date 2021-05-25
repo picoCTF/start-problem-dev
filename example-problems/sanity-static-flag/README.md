@@ -90,6 +90,19 @@ Testing of problems involves at least 3 things:
 
 
 
+## Conclusion
 
+With this walkthrough, we deployed a problem from the two most required files
+in a cmgr problem, creating a sanity problem that just involves downloading the
+flag.
 
+We also demonstrated some basic testing practices by proving that an incorrect
+flag is incorrect, a correct flag is correct, and that the player can get the
+correct flag from the materials given.
+
+This was the first tutorial in a series designed to familiarize challenge
+authors with the new cmgr format for picoCTF problems. Other tutorials in this
+series will demonstrate generating a dynamic flag, creating challenges for
+each of the traditional CTF categories and more! 
+[Return to the index](https://github.com/syreal17/start-problem-dev#walkthroughs)
 
