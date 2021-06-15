@@ -1,20 +1,21 @@
 # Sanity Problem Creation Walkthrough
 
 This walkthrough will step you through what's needed to get a working sanity 
-problem on a `cmgr` challenge server.
+problem on a cmgr challenge server.
 
 A sanity problem is one of the easiest problems in any CTF that is given as a
-sanity check that your internet connection is working as intended, etc.
+sanity check that your internet connection is working as intended and all
+other assumptions are being met as expected.
 
 
 
 ## Pre-requisites:
 
 1. You have `cmgr`.
-  - Refer to the [Readme](https://github.com/syreal17/start-problem-dev#setup)
+  - Refer to the [setup section in the index](https://github.com/syreal17/start-problem-dev#setup)
     if this is not the case for you.
-  - `cmgr` is in the PATH in Problem Development Playground machines,
-    otherwise you'll probably just reference `cmgr` relative to your working
+  - `cmgr` is in the PATH in Problem Development Playground boxes, but
+    otherwise, you'll probably just reference `cmgr` relative to your working
     directory.
 
 
@@ -32,7 +33,7 @@ The following walkthough has 3 parts:
 
 1. File listing
 
-2. Deploy
+2. Deployment
 
 3. Testing
 
@@ -42,19 +43,20 @@ The following walkthough has 3 parts:
 
 ### File Listing
 
-Using `cmgr`, the Sanity Download problem is just 2 files:
+Using cmgr, the Sanity Download problem is just 2 files:
 
-  1.  [problem.md](/example-problems/sanity-static-flag/problem.md) specifies 
-      the name of the problem, the description, and other metadata about the 
+  1.  [problem.md](/example-problems/sanity-static-flag/problem.md) specifies
+      the name of the problem, the description, and other metadata about the
       problem. Here is the [specification](https://github.com/ArmyCyberInstitute/cmgr/blob/master/examples/markdown_challenges.md)
       for this file in general.
 
-  2. `Makefile` specifies the creation of the 'artifacts' or files associated
-      with the problem, including the flag.
+  2.  [Makefile](/example-problems/sanity-static-flag/Makefile) specifies the
+      creation of the 'artifacts' or files associated with the problem,
+      including the flag.
 
 
 
-### Deploy
+### Deployment
 
 We are going to take this problem from just 2 files to actual deployment.
 
@@ -90,6 +92,19 @@ Testing of problems involves at least 3 things:
 
 
 
+## Conclusion
 
+With this walkthrough, we deployed a problem from the two most required files
+in a cmgr problem, creating a sanity problem that just involves downloading the
+flag.
 
+We also demonstrated some basic testing practices by proving that an incorrect
+flag is incorrect, a correct flag is correct, and that the player can get the
+correct flag from the materials given.
+
+This was the first tutorial in a series designed to familiarize challenge
+authors with the new cmgr format for picoCTF problems. Other tutorials in this
+series will demonstrate generating a dynamic flag, creating challenges for
+each of the traditional CTF categories and more! 
+[Return to the index](https://github.com/syreal17/start-problem-dev#walkthroughs)
 
