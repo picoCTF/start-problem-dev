@@ -24,18 +24,16 @@ Playground will help you get started as hassle-free as possible.
 ## Walkthroughs
 
 These walkthroughs proceed roughly in order of complexity, from least complex
-challenge to most complex challenge. "Sanity" in this context refers to the 
-easiest problem in a CTF that can be used as a sanity check. These are great
-problems to start problem development with.
+challenge to most complex challenge. These are great problems to start problem
+development with.
 
 1. [Sanity, static flag](/example-problems/sanity-static-flag/)
 2. Sanity, dynamic flag
-3. Forensics, static artifact
-4. Forensics, dynamic artifact
-5. Reverse Engineering
-6. Cryptography
-7. Binary Exploitation
-8. Web Exploitation
+3. Forensics
+4. Reverse Engineering
+5. Cryptography
+6. Binary Exploitation
+7. Web Exploitation
 
 In addition to these walkthroughs, you can also check the `cmgr` developers'
 [example problems,](https://github.com/ArmyCyberInstitute/cmgr/tree/master/examples)

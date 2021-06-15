@@ -3,7 +3,7 @@
 - Namespace: syreal/examples
 - Type: static-make
 - Category: General Skills
-- Points: 10
+- Points: 1
 - Templatable: no
 
 ## Description
