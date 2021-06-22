@@ -77,16 +77,22 @@ We are going to take this problem from just 2 files to actual deployment.
 ### Testing
 
 Testing of problems involves at least 3 things:
+
   * Testing that an incorrect flag is incorrect
+  
   * Testing that a correct flag is correct
+  
   * Testing that the correct flag can be found by using the materials given for
     the problem.
 
 1. To test an incorrect flag, try submitting `aaa` as a flag to the problem.
-  * Expected output: `That is not the correct flag`
+
+    - Expected output: `That is not the correct flag`
+    
 2. To test the correct flag and that the correct flag can be found using the 
    given materials, download the flag from the problem and submit it
-  * Expected output: `Correct`
+   
+    - Expected output: `Correct`
 
 
 
