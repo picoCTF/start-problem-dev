@@ -12,6 +12,7 @@ other assumptions are being met as expected.
 ## Pre-requisites:
 
 1. You have `cmgr`.
+
   - Refer to the [setup section in the index](/README.md#setup)
     if this is not the case for you.
 
