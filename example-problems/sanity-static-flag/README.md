@@ -14,9 +14,6 @@ other assumptions are being met as expected.
 1. You have `cmgr`.
   - Refer to the [setup section in the index](https://github.com/syreal17/start-problem-dev#setup)
     if this is not the case for you.
-  - `cmgr` is in the PATH in Problem Development Playground boxes, but
-    otherwise, you'll probably just reference `cmgr` relative to your working
-    directory.
 
 
 
