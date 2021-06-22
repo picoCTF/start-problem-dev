@@ -11,7 +11,7 @@
 Can you find the flag in this large file?
 
 ## Details
-Download War and Peace {{url_for("war-and-peace.txt", "here")}}.
+Download War and Peace {{url_for("war-and-peace.flag.txt", "here")}}.
 
 ## Hints
 
@@ -20,11 +20,11 @@ Download War and Peace {{url_for("war-and-peace.txt", "here")}}.
 
 ## Solution Overview
 
-Download war-and-peace.txt and grep for `pico`
+Download war-and-peace.flag.txt and grep for `pico`
 
 ## Learning Objective
 
-Basic usage of command line tools
+Usage of command line tools
 
 ## Tags
 

@@ -15,7 +15,7 @@ target_offset = int(sys.argv[3])
 
 
 payload = open(payload_file, 'r').read().encode()
-# NOTE : ^--- this is brief but does not explicitly close `ende` file
+# NOTE : ^--- this is brief but does not explicitly close payload_file
 
 
 with open(target_file, "r+b") as blob:
