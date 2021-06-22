@@ -8,16 +8,7 @@ reach out with questions, comments or suggestions.
 
 ## Setup
 
-There are 2 primary ways to start problem development for picoCTF: 1. Install
-[cmgr](https://github.com/ArmyCyberInstitute/cmgr) on one of your machines 2.
-Ask [LT](https://pages.syreal.cc/portfolio/business-card) for an account on the
-Problem Development Playground (which already has `cmgr` installed and its
-dependencies).
-
-Option 1 of installing `cmgr` on your own machine will give you the most
-freedom and flexibility, though you will need to install Docker on your 
-machine. Option 2 of contacting LT to get access to the Problem Development
-Playground will help you get started as hassle-free as possible.
+Install [cmgr](https://github.com/ArmyCyberInstitute/cmgr#quickstart).
 
 
 
