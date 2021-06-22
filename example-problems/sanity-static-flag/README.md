@@ -60,12 +60,12 @@ We are going to take this problem from just 2 files to actual deployment.
 1. Clone this repo.
 2. `cd start-problem-dev/example-problems`
 3. Update cmgr with the sanity problem:
-    - `sudo cmgr update sanity-static-flag/`
+    - `cmgr update sanity-static-flag/`
 4. Ensure problem appears in cmgr list:
-    - `sudo cmgr list`
+    - `cmgr list`
     - Expected output: `syreal/examples/sanity-download`
 5. Deploy problem in playtest mode:
-    - `sudo cmgr playtest syreal/examples/sanity-download`
+    - `cmgr playtest syreal/examples/sanity-download`
     - NOTE: this command might take a few minutes.
     - Expected output is something like: `challenge information available at: http://localhost:4242/`
 6. Ensure you get the problem details by browsing to the listed host and port. It should look like this:
