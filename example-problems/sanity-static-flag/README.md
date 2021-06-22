@@ -104,6 +104,7 @@ correct flag from the materials given.
 This was the first tutorial in a series designed to familiarize challenge
 authors with the new cmgr format for picoCTF problems. Other tutorials in this
 series will demonstrate generating a dynamic flag, creating challenges for
-each of the traditional CTF categories and more! 
-[Return to the index](https://github.com/syreal17/start-problem-dev#walkthroughs)
+each of the traditional CTF categories and more!
+
+[Return to the index](/README.md#walkthroughs)
 
