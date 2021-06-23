@@ -22,10 +22,11 @@ development with.
 2. Sanity, dynamic flag
 3. [Forensics Grep](/example-problems/forensics-grep/)
 4. Forensics Disk
-4. Reverse Engineering
-5. Cryptography
-6. Binary Exploitation
-7. Web Exploitation
+5. Reverse Engineering
+6. Cryptography
+7. Binary Exploitation
+8. Web Exploitation
+9. Custom
 
 In addition to these walkthroughs, you can also check the `cmgr` developers'
 [example problems,](https://github.com/ArmyCyberInstitute/cmgr/tree/master/examples)
