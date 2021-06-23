@@ -60,8 +60,8 @@ to hiding it deep within a large classic novel.
    1,600 lines in.
    
 3. [war-and-peace.txt](/example-problems/forensics-grep/war-and-peace.txt) is
-   just a large, public domain literary work that helps the CTF player need to
-   use grep or some other finding tool in order to get the flag. The file is
+   just a large, public domain, literary work that assures the CTF player needs
+   to use grep or some other finding tool in order to get the flag. The file is
    66,000 lines long, so it accomplishes this purpose well!
    
 4. 
