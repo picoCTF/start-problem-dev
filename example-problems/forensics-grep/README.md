@@ -41,6 +41,17 @@ to hiding it deep within a large classic novel.
 
 ### File Listing
 
+1. There's not much new in 
+   [problem.md](/example-problems/forensics-grep/problem.md). The only major
+   difference between this problem.md and the static sanity's problem.md is
+   that we specify that this problem is Templatable on 
+   [this line](/example-problems/forensics-grep/problem.md#L7). This means
+   that multiple instances of this problem can be ran and each will have a
+   different flag. Having multiple instances of the same problem gives many
+   benefits. Most importantly for problem developers, it means we can detect 
+   cheating and regenerate flags on the fly.
+   
+
 ### Deployment
 
 ### Testing
