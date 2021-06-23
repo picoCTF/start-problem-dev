@@ -1,7 +1,6 @@
 # Grep Problem Creation Walkthrough
 
 
-
 ## Pre-requisites:
 
 1. You have `cmgr` installed and configured.
@@ -41,6 +40,7 @@ to hiding it deep within a large classic novel.
 
 ## Walkthrough
 
+
 ### File Listing
 
 1. There's not much new in 
@@ -77,9 +77,40 @@ to hiding it deep within a large classic novel.
    programmatically at build-time.
    
 
-### Deployment
 
-### Testing
+### Testing Build Templating
+
+For typical problem playtest deployment and testing strategy, see 
+[this section](/example-problems/sanity-static-flag#Deployment) in the Static
+Sanity Walkthrough. The section in this walkthrough is going to demonstrate
+obtaining proof that two different instances of the same challenge have
+different flags.
+
+1. Clone this repo.
+2. `$ cd start-problem-dev/example-problems`
+3. Update cmgr with the grep problem:
+    - `$ cmgr update forensics-grep/`
+4. Ensure problem appears in cmgr list:
+    - `$ cmgr list`
+    - Expected output should include: `syreal/examples/forensics-grep`
+5. Build two instances of the problem:
+    - `cmgr build syreal/examples/forensics-grep 9001 9002`
+    - This builds two instances of the grep problem. One is seeded with 9001
+      and the other is seeded with 9002.
+    - Expected output:
+```
+Build IDs:
+    1
+    2
+```
+6. Dump build info and verify flags are different for each build:
+    - `cmgr system-dump --json | grep \"flag\"
+    - Expected output:
+```
+"flag": "flag{gr3p_15_4_5up3rp0w3r_72dce069}",
+"flag": "flag{gr3p_15_4_5up3rp0w3r_5f54c69e}",
+```
+
 
 ## Conclusion
 
