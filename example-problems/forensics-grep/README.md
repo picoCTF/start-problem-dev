@@ -136,5 +136,5 @@ series to teach the player about a tool and technique. The rest of the
 walkthroughs in this series will continue teaching the player about more and
 more advanced computer science and security practices.
 
-[Return to the index](/)
+[Return to the index](/README.md#walkthroughs)
 
