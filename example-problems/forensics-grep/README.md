@@ -37,6 +37,8 @@ There are 3 main changes in this problem that make it more interesting:
 By these changes we go from giving the flag out to anyone who can download it
 to hiding it deep within a large classic novel.
 
+
+
 ## Walkthrough
 
 ### File Listing
@@ -64,7 +66,15 @@ to hiding it deep within a large classic novel.
    to use grep or some other finding tool in order to get the flag. The file is
    66,000 lines long, so it accomplishes this purpose well!
    
-4. 
+4. [packages.txt](/example-problems/forensics-grep/packages.txt) is a list of
+   packages that the cmgr build environment must install for problem creation
+   to work. For this grep problem, we only need `python3` in order for this
+   problem to build correctly.
+   
+5. [byteblast.py](/example-problems/forensics-grep/byteblast.py) is a script
+   that I use in many problems that can insert bytes at arbitrary points in a
+   file. This comes in hand for inserting templated flags in artifacts 
+   programmatically at build-time.
    
 
 ### Deployment
