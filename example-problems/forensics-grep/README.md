@@ -45,11 +45,26 @@ to hiding it deep within a large classic novel.
    [problem.md](/example-problems/forensics-grep/problem.md). The only major
    difference between this problem.md and the static sanity's problem.md is
    that we specify that this problem is Templatable on 
-   [this line](/example-problems/forensics-grep/problem.md#L7). This means
-   that multiple instances of this problem can be ran and each will have a
-   different flag. Having multiple instances of the same problem gives many
-   benefits. Most importantly for problem developers, it means we can detect 
-   cheating and regenerate flags on the fly.
+   [in this section](/example-problems/forensics-grep/problem.md#forensics-grep).
+   This means that multiple instances of this problem can be ran and each will
+   have a different flag. Having multiple instances of the same problem gives
+   many benefits. Most importantly for problem developers, it means we can
+   detect cheating and regenerate flags on the fly.
+   
+2. There's a bit more new in 
+   [Makefile](/example-problems/forensics-grep/Makefile). Since we are not just
+   immediately handing over the flag like in the sanity problem, we create a
+   target for a challenge artifact that contains the flag, namely 
+   `war-and-peace.flag.txt`. This file is `war-and-peace.txt` with the flag
+   inserted in it 50,000 bytes into the file, which ends up only being roughly
+   1,600 lines in.
+   
+3. [war-and-peace.txt](/example-problems/forensics-grep/war-and-peace.txt) is
+   just a large, public domain literary work that helps the CTF player need to
+   use grep or some other finding tool in order to get the flag. The file is
+   66,000 lines long, so it accomplishes this purpose well!
+   
+4. 
    
 
 ### Deployment
