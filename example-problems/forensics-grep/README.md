@@ -114,3 +114,27 @@ Build IDs:
 
 ## Conclusion
 
+With this walkthrough, we created a classic problem that teaches the player
+about `grep`. Attempting to solve this problem manually is ill-advised, but it
+can be quickly solved using a finding tool.
+
+The Makefile of this problem is a bit more complex than the sanity check
+problem. It takes the flag and incorporates it into a large text, making it
+necessary to use a tool to efficiently solve this problem. We used a helper
+script of mine that I call 'byteblast'. This script can overwrite bytes of the
+file with the flag at arbitrary offsets. This script is useful (especially
+for forensics problems) but somewhat overpowered and should be used with
+caution.
+
+We needed a programmatic way to write the flag in our large file because the
+flag is templated and therefore different for each build of our problem.
+Finally, we used some cmgr commands to build our problem twice and dump the
+JSON information about each build to verify that the flags were different.
+
+This is the first walkthrough (in order of ascending difficulty) in the cmgr 
+series to teach the player about a tool and technique. The rest of the
+walkthroughs in this series will continue teaching the player about more and
+more advanced computer science and security practices.
+
+[Return to the index](/)
+
