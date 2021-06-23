@@ -1,6 +1,8 @@
 .PHONY: main
 main: war-and-peace.flag.txt
 
+FLAG_PHRASE := "gr3p_15_4_5up3rp0w3r_"
+FLAG := $(shell echo $(FLAG) | sed "s/{/{$(FLAG_PHRASE)/1")
 
 war-and-peace.flag.txt: flag
 	cp war-and-peace.txt war-and-peace.flag.txt
