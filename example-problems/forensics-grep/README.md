@@ -31,7 +31,8 @@ There are 3 main changes in this problem that make it more interesting:
 
 2. Makefile has more targets.
 
-3. Problem is marked as Templatable in problem.md.
+3. Problem is marked as Templatable in problem.md. This means that multiple
+   instances of this problem can be ran, each having a different flag.
 
 By these changes we go from giving the flag out to anyone who can download it
 to hiding it deep within a large classic novel.
