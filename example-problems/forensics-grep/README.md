@@ -104,7 +104,7 @@ Build IDs:
     2
 ```
 6. Dump build info and verify flags are different for each build:
-    - `cmgr system-dump --json | grep \"flag\"
+    - `cmgr system-dump --json | grep \"flag\"`
     - Expected output:
 ```
 "flag": "flag{gr3p_15_4_5up3rp0w3r_72dce069}",
