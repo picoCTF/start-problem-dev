@@ -8,6 +8,16 @@ RUN apt-get update && apt-get install -y \
     socat
 
 
+# Create challenge dir for metadata.json
+RUN mkdir /challenge
+
+ARG FLAG_FORMAT
+ARG FLAG
+
+RUN echo "{\"flag\":\"$FLAG\"}" > /challenge/metadata.json
+# TODO : add thirded flag here...
+
+
 # Create new dirs for flag parts
 RUN mkdir /home/ctf-player
 RUN mkdir /home/ctf-player/.ssh
