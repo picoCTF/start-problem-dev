@@ -35,13 +35,22 @@ flag_3of3 = flag_rand + "}"
 flag = flag_1of3 + flag_2of3 + flag_3of3
 
 
-# TODO : put in env vars
+# TODO : write flag parts and flag to file
 
-os.environ["FLAG_1OF3"] = flag_1of3
-os.environ["FLAG_2OF3"] = flag_2of3
-os.environ["FLAG_3OF3"] = flag_3of3
-os.environ["FLAG"] = flag
+with open("flag_1of3", "w") as f:
+    f.write(flag_1of3)
+
+with open("flag_2of3", "w") as f:
+    f.write(flag_2of3)
+
+with open("flag_3of3", "w") as f:
+    f.write(flag_3of3)
+    
+os.remove("flag")
+with open("flag", "w") as f:
+    f.write(flag)
 
 
 
 # DONE
+sys.exit()

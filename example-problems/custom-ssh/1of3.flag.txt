@@ -1,1 +1,1 @@
-{{flag_1of3}}
+{{lookup("flag_1of3")}}

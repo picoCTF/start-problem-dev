@@ -16,11 +16,15 @@ if seed == "":
 # TODO : compute password by crc32 on seed
 
 password = hex(zlib.crc32(seed.encode()))
+password = password[2:]
 
 
-# TODO : put in environment var
+# TODO : write password to file
 
-os.environ['PASSWORD'] = password
+with open("password", "w") as f:
+    f.write(password)
+
 
 
 # DONE
+sys.exit()
