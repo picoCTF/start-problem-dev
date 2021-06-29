@@ -53,7 +53,7 @@ RUN echo "ctf-player:$PASSWORD" | chpasswd
 
 
 # Copy flag parts and hints to filesystem
-COPY .profile /home/ctf-player/.profile
+COPY profile /home/ctf-player/.profile
 COPY 1of3.flag.txt /home/ctf-player/drop-in/1of3.flag.txt
 COPY instructions-to-2of3.txt /home/ctf-player/drop-in/instructions-to-2of3.txt
 COPY 2of3.flag.txt /2of3.flag.txt
