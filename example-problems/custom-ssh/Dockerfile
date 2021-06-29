@@ -32,11 +32,11 @@ ENV FLAG_2OF3="$(cat flag_2of3)"
 ENV FLAG_3OF3="$(cat flag_3of3)"
 RUN python3 gen-password.py
 ENV PASSWORD="$(cat password)"
-RUN echo "{\"flag\":\"$FLAG\"}" > metadata.json
-RUN echo "{\"flag_1of3\":\"$FLAG_1OF3\"}" >> metadata.json
-RUN echo "{\"flag_2of3\":\"$FLAG_2OF3\"}" >> metadata.json
-RUN echo "{\"flag_3of3\":\"$FLAG_3OF3\"}" >> metadata.json
-RUN echo "{\"password\":\"$PASSWORD\"}" >> metadata.json
+RUN echo "{\n\"flag\":\"$FLAG\",\n" > metadata.json
+RUN echo "\"flag_1of3\":\"$FLAG_1OF3\",\n" >> metadata.json
+RUN echo "\"flag_2of3\":\"$FLAG_2OF3\",\n" >> metadata.json
+RUN echo "\"flag_3of3\":\"$FLAG_3OF3\",\n" >> metadata.json
+RUN echo "\"password\":\"$PASSWORD\"\n}" >> metadata.json
 
 WORKDIR /
 
