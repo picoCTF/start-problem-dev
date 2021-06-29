@@ -43,12 +43,8 @@ RUN mkdir /home/ctf-player/drop-in
 
 
 # Create ctf-player user
-RUN useradd -U ctf-player -d /home/ctf-player -s /bin/bash && \
-    echo "ctf-player:$PASSWORD" | chpasswd && \
-    ssh-keygen -f /home/ctf-player/.ssh/id_rsa -C ctf-player@target -P "" && \
-    cat /home/ctf-player/.ssh/id_rsa.pub > /home/ctf-player/.ssh/authorized_keys && \
-    chown -R ctf-player:ctf-player /home/ctf-player/.ssh && \
-    chmod -R 600 /home/ctf-player/.ssh/
+RUN useradd -U ctf-player -d /home/ctf-player -s /bin/bash
+RUN echo "ctf-player:$PASSWORD" | chpasswd
 
 
 # Copy flag parts and hints to filesystem
