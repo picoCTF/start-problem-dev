@@ -24,13 +24,16 @@ RUN echo "$FLAG" > /challenge/flag
 RUN echo "$SEED" > /challenge/seed
 COPY split-flag.py /challenge/split-flag.py
 COPY gen-password.py /challenge/gen-password.py
-RUN python3 /challenge/split-flag.py
-RUN python3 /challenge/gen-password.py
-RUN echo "{\"flag\":\"$FLAG\"}" > /challenge/metadata.json
-RUN echo "{\"flag_1of3\":\"$FLAG_1OF3\"}" >> /challenge/metadata.json
-RUN echo "{\"flag_2of3\":\"$FLAG_2OF3\"}" >> /challenge/metadata.json
-RUN echo "{\"flag_3of3\":\"$FLAG_3OF3\"}" >> /challenge/metadata.json
-RUN echo "{\"password\":\"$PASSWORD\"} >> /challenge/metadata.json
+WORKDIR /challenge
+RUN python3 split-flag.py
+RUN python3 gen-password.py
+RUN echo "{\"flag\":\"$FLAG\"}" > metadata.json
+RUN echo "{\"flag_1of3\":\"$FLAG_1OF3\"}" >> metadata.json
+RUN echo "{\"flag_2of3\":\"$FLAG_2OF3\"}" >> metadata.json
+RUN echo "{\"flag_3of3\":\"$FLAG_3OF3\"}" >> metadata.json
+RUN echo "{\"password\":\"$PASSWORD\"} >> metadata.json
+
+WORKDIR /
 
 
 # Create new dirs for flag parts
