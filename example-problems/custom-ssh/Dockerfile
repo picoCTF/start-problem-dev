@@ -41,17 +41,17 @@ RUN mkdir /home/ctf-player/drop-in
 
 # Create ctf-player user
 RUN useradd -U ctf-player -d /home/ctf-player -s /bin/bash
-RUN echo "ctf-player:$PASSWORD" | chpasswd
+RUN echo "ctf-player:$(cat password)" | chpasswd
 
 
 # Copy flag parts and hints to filesystem
 COPY profile /home/ctf-player/.profile
 # FIXME : replace flag parts with python
-RUN echo $FLAG_1OF3 > /home/ctf-player/drop-in/1of3.flag.txt
+RUN echo $(cat flag_1of3) > /home/ctf-player/drop-in/1of3.flag.txt
 COPY instructions-to-2of3.txt /home/ctf-player/drop-in/instructions-to-2of3.txt
-RUN echo $FLAG_2OF3 > /2of3.flag.txt
+RUN echo $(cat flag_2of3) > /2of3.flag.txt
 COPY instructions-to-3of3.txt /instructions-to-3of3.txt
-RUN echo $FLAG_3OF3 > /home/ctf-player/3of3.flag.txt
+RUN echo $(cat flag_3of3) > /home/ctf-player/3of3.flag.txt
 
 
 RUN chown -R ctf-player:ctf-player /home/ctf-player/
