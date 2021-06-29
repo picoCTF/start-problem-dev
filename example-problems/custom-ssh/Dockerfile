@@ -15,7 +15,7 @@ ARG FLAG_FORMAT
 ARG FLAG
 
 RUN echo "{\"flag\":\"$FLAG\"}" > /challenge/metadata.json
-# TODO : add thirded flag here...
+# TODO : call to Python script that parses and splits $FLAG
 
 
 # Create new dirs for flag parts
