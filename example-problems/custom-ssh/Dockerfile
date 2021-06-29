@@ -26,14 +26,9 @@ COPY split-flag.py /challenge/split-flag.py
 COPY gen-password.py /challenge/gen-password.py
 WORKDIR /challenge
 RUN python3 split-flag.py
-ENV FLAG="$(cat flag)"
-ENV FLAG_1OF3="$(cat flag_1of3)"
-ENV FLAG_2OF3="$(cat flag_2of3)"
-ENV FLAG_3OF3="$(cat flag_3of3)"
 RUN python3 gen-password.py
-ENV PASSWORD="$(cat password)"
-RUN echo "{\n\"flag\":\"$FLAG\",\n" > metadata.json
-RUN echo "\"password\":\"$PASSWORD\"\n}" >> metadata.json
+RUN echo "{\n\"flag\":\"$(cat flag)\",\n" > metadata.json
+RUN echo "\"password\":\"$(cat password)\"\n}" >> metadata.json
 
 WORKDIR /
 
@@ -51,6 +46,7 @@ RUN echo "ctf-player:$PASSWORD" | chpasswd
 
 # Copy flag parts and hints to filesystem
 COPY profile /home/ctf-player/.profile
+# FIXME : replace flag parts with python
 RUN echo $FLAG_1OF3 > /home/ctf-player/drop-in/1of3.flag.txt
 COPY instructions-to-2of3.txt /home/ctf-player/drop-in/instructions-to-2of3.txt
 RUN echo $FLAG_2OF3 > /2of3.flag.txt
