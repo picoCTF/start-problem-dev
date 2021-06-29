@@ -1,5 +1,6 @@
 import zlib
 import os
+import sys
 
 
 seed = ""
@@ -10,7 +11,7 @@ with open("seed", "r") as f:
 
 if seed == "":
     print("Seed was not read from filesystem. Aborting.")
-    return -1
+    sys.exit(-1)
 
 # TODO : compute password by crc32 on seed
 
