@@ -9,29 +9,32 @@ RUN apt-get update && apt-get install -y \
     python3
 
 
-# Create challenge dir for metadata.json
+# Create challenge dir for metadata.json and other file artifacts
 RUN mkdir /challenge
 
 
-# Bring in env vars
+# Bring in all environment vars from cmgr
 ARG SEED
 ARG FLAG_FORMAT
 ARG FLAG
 
 
 # Create challenge metadata
-RUN echo "$FLAG" > /challenge/flag
+RUN echo "$FLAG" > /challenge/flag # This is the pre-generated flag, which
+                                   # we use as a starting point in split-flag
 RUN echo "$SEED" > /challenge/seed
-COPY split-flag.py /challenge/split-flag.py
-COPY gen-password.py /challenge/gen-password.py
+COPY split-flag.py /challenge/split-flag.py     # These python scripts create
+COPY gen-password.py /challenge/gen-password.py # and modify files to 
+                                                # communicate to the Docker
+                                                # build process
 WORKDIR /challenge
-RUN python3 split-flag.py
-RUN python3 gen-password.py
+RUN python3 split-flag.py # This modifies `flag` and creates flag_Xof3 files
+RUN python3 gen-password.py # This creates `password` to be put in metadata
 RUN echo "{\n\"flag\":\"$(cat flag)\",\n" > metadata.json
 RUN echo "\"password\":\"$(cat password)\"\n}" >> metadata.json
 
-WORKDIR /
 
+WORKDIR /
 
 # Create new dirs for flag parts
 RUN mkdir /home/ctf-player
@@ -44,7 +47,7 @@ RUN useradd -U ctf-player -d /home/ctf-player -s /bin/bash
 RUN echo "ctf-player:$(cat /challenge/password)" | chpasswd
 
 
-# Copy flag parts and hints to filesystem
+# Copy profile, flag parts and hints to filesystem
 COPY profile /home/ctf-player/.profile
 RUN echo $(cat /challenge/flag_1of3) > /home/ctf-player/drop-in/1of3.flag.txt
 COPY instructions-to-2of3.txt /home/ctf-player/drop-in/instructions-to-2of3.txt
