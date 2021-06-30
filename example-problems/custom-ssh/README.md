@@ -126,5 +126,18 @@ The command '/bin/sh -c echo "ctf-player:$(cat password)" | chpasswd' returned a
 
 ## Conclusion
 
+With this walkthrough, we created an advanced problem that used a custom
+Dockerfile to create a container that could be ssh'd to and had parts of a
+flag scattered across the filesystem.
+
+Using the custom problem type in cmgr opens the doors to creativity but also
+needs more powerful debugging. This walkthrough also demonstrated how to
+gain more debugging insight into custom cmgr problems by building the
+container manually with docker which provides a lot more information about
+build failures.
+
+This is the final walkthrough in our cmgr series. Go crazy! and don't forget
+to connect with us on Discord.
+
 [Return to the index](/README.md#walkthroughs)
 
