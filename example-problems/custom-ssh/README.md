@@ -45,15 +45,44 @@ how to do this.
 
 ### File Listing
 
-1. There's not much new in 
-   [problem.md](/example-problems/custom-ssh/problem.md).
+1. Besides problem details, the most important change in
+   [problem.md](/example-problems/custom-ssh/problem.md) is changing Type to
+   "custom".
+
+2. instructions-to-Xof3.txt's contain verbal instructions on how to find the
+   next part of the flag. The Dockerfile copies these into the container.
+
+3. [profile](/example-problems/custom-ssh/profile) is a bash profile that
+   places the newly logged in user into a different folder than their home
+   directory. This is done so that returning home from the root directory
+   yields the last part of the flag instead of the first.
    
+4. [start.sh](/example-problems/custom-ssh/start.sh) starts a listener that
+   receives ssh connections. This script is ran as the last step in the
+   Dockerfile.
+   
+5. [gen-password.py](/example-problems/custom-ssh/gen-password.py) generates
+   a short password based on a seed using crc32. This password is written to
+   a file named `password` which is read by the Dockerfile to be put in
+   `metadata.json`.
+   
+6. [split-flag.py](/example-problems/custom-ssh/split-flag.py) reads the
+   flag from the file, `flag`, modifies it, and splits it into 3 parts,
+   each of which are written to files that are later copied into different
+   parts of the filesystem of the container by the Dockerfile.
+   
+7. [Dockerfile](/example-problems/custom-ssh/Dockerfile) this file is quite
+   involved as it pulls an Ubuntu 18.04 image down, updates the container,
+   installs addtional packages and runs multiple other shell commands and
+   Python scripts to ready the container to be the Magikarp Ground Mission
+   challenge. Please view the file directly to view more specific comments
+   on its functionality.
 
 
 ### Debugging your Dockerfile
 
 For typical problem playtest deployment and testing strategy, see 
-[this section](/example-problems/sanity-static-flag#Deployment)
+[this section](/example-problems/sanity-static-flag#Deployment).
 
 
 
