@@ -96,16 +96,17 @@ process goes a long way in being able to determine what is going wrong.
 3. Switch Dockerfiles. `Dockerfile.test` has 1 discrepancy in it.
     - `mv Dockerfile Dockerfile.good`
     - `mv Dockerfile.test Dockerfile`
-4a. Try to build the problem with cmgr
-    - `cmgr update`
-    - `cmgr build syreal/examples/magikarp-ground-mission 9001`
-    - Expected output:
+4. 
+   * Try to build the problem with cmgr
+      - `cmgr update`
+      - `cmgr build syreal/examples/magikarp-ground-mission 9001`
+      - Expected output:
 ```
 cmgr: [ERROR:  failed to build image: The command '/bin/sh -c echo "ctf-player:$(cat password)" | chpasswd' returned a non-zero code: 1]
 error: failed to build image: The command '/bin/sh -c echo "ctf-player:$(cat password)" | chpasswd' returned a non-zero code: 1
 ```
-4b. We at least know what step failed, however, we can get much more info
-    by building the container manually with Docker
+   * We at least know what step failed, however, we can get much more info
+     by building the container manually with Docker
 5. Build the container manually.
     - `docker build .`
     - Expected output (tail):
