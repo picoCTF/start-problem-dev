@@ -51,7 +51,7 @@ RUN mkdir /home/ctf-player/drop-in
 
 # Create ctf-player user
 RUN useradd -U ctf-player -d /home/ctf-player -s /bin/bash
-RUN echo "ctf-player:$(cat /challenge/password)" | chpasswd
+RUN echo "ctf-player:$(cat password)" | chpasswd
 
 
 # Copy profile, flag parts and hints to filesystem
