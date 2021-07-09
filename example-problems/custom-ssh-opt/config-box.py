@@ -8,6 +8,7 @@ import os
 import subprocess
 import re
 import zlib
+import json
 
 
 
@@ -39,7 +40,7 @@ def main():
         # =====================================================================
 
 
-        
+
         # Create ctf-player user
         subprocess.run(
             [
@@ -55,15 +56,18 @@ def main():
         )
         
         # Set password of ctf-player user
-        subprocess.run(
-            [
-                "/usr/bin/echo",
-                f"ctf-player:{password}",
-                "|",
-                "chpasswd",
-            ],
-            check=True,
-        )
+        #subprocess.run(
+        #    [
+        #        "/usr/bin/echo",
+        #        f"ctf-player:{password}",
+        #        "|",
+        #        "chpasswd",
+        #    ],
+        #    check=True,
+        #)
+        pEcho = subprocess.Popen(('echo', f'ctf-player:{password}'), stdout=subprocess.PIPE)
+        output = subprocess.check_output(('chpasswd'), stdin=pEcho.stdout)
+        pEcho.wait()
         
         # Make sure ownership is changed to ctf-player
         subprocess.run(
@@ -75,10 +79,6 @@ def main():
             ],
             check=True,
         )
-
-
-
-        # TODO : copy hints to correct spots
         
         # Copy profile to ctf-player
         subprocess.run(
@@ -91,23 +91,23 @@ def main():
         )
         
         # Copy hints to right spots ===========================================
-        #subprocess.run(
-        #    [
-        #        "/usr/bin/cp",
-        #        "/challenge/profile",
-        #        "/home/ctf-player/.profile",
-        #    ],
-        #    check=True,
-        #)
+        subprocess.run(
+            [
+                "/usr/bin/cp",
+                "/challenge/instructions-to-2of3.txt",
+                "/home/ctf-player/drop-in/instructions-to-2of3.txt",
+            ],
+            check=True,
+        )
         
-        #subprocess.run(
-        #    [
-        #        "/usr/bin/cp",
-        #        "/challenge/profile",
-        #        "/home/ctf-player/.profile",
-        #    ],
-        #    check=True,
-        #)
+        subprocess.run(
+            [
+                "/usr/bin/cp",
+                "/challenge/instructions-to-3of3.txt",
+                "/instructions-to-3of3.txt",
+            ],
+            check=True,
+        )
         
         # =====================================================================
 
@@ -145,9 +145,15 @@ def main():
         # =====================================================================
 
 
-        # TODO : create and update metadata.json ==============================
+        # Create and update metadata.json =====================================
 
-
+        metadata = {}
+        metadata['flag'] = str(flag)
+        metadata['password'] = str(password)
+        json_metadata = json.dumps(metadata)
+        
+        with open("/challenge/metadata.json", "w") as f:
+            f.write(json_metadata)
 
         # =====================================================================
 

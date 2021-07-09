@@ -1,4 +1,4 @@
-# Magikarp Ground Mission
+# Custom SSH
 
 - Namespace: syreal/examples
 - Type: custom
