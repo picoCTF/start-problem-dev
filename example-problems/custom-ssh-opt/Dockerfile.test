@@ -1,0 +1,3 @@
+# This is a copy of Dockerfile that has a couple supporting lines and
+# 1 error in it. Try to build it and see if you can spot the discrepancy.
+
