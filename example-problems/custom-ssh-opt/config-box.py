@@ -55,16 +55,8 @@ def main():
             check=True,
         )
         
-        # Set password of ctf-player user
-        #subprocess.run(
-        #    [
-        #        "/usr/bin/echo",
-        #        f"ctf-player:{password}",
-        #        "|",
-        #        "chpasswd",
-        #    ],
-        #    check=True,
-        #)
+        # Pipe the output of echo into chpasswd to change password of
+        # ctf-user
         pEcho = subprocess.Popen(('echo', f'ctf-player:{password}'), stdout=subprocess.PIPE)
         output = subprocess.check_output(('chpasswd'), stdin=pEcho.stdout)
         pEcho.wait()

@@ -61,14 +61,17 @@ greater depth on how to do this.
    receives ssh connections. This script is ran as the last step in the
    Dockerfile.
    
-5. [config-box.py](/example-problems/custom-ssh-opt/config-box.py)
+5. [config-box.py](/example-problems/custom-ssh-opt/config-box.py) This script
+   is the meat of setting up the machine for our problem. It generates the
+   password for the ctf-player user, creates the user, creates supporting
+   directories and splits the flag into 3 parts, distributing them across the
+   filesystem.
    
 7. [Dockerfile](/example-problems/custom-ssh-opt/Dockerfile) this file is quite
    involved as it pulls an Ubuntu 18.04 image down, updates the container,
-   installs addtional packages and runs multiple other shell commands and
-   Python scripts to ready the container to be the Magikarp Ground Mission
-   challenge. Please view the file directly to view more specific comments
-   on its functionality.
+   installs addtional packages and runs the config-box.py Python script to
+   ready the container to be the Custom SSH challenge. Please view the file
+   directly to view more specific comments on its functionality.
 
 
 ### Debugging your Dockerfile
