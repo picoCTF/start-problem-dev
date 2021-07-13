@@ -17,9 +17,6 @@ RUN mkdir /challenge
 ARG SEED
 ARG FLAG_FORMAT
 ARG FLAG
-# TODO : remove below and uncomment above
-#ENV FLAG="picoCTF{12345678}"
-#ENV SEED="9001"
 
 
 COPY config-box.py /challenge/config-box.py

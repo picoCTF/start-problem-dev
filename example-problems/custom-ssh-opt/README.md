@@ -28,16 +28,16 @@ There is 1 main change in this problem that makes it more interesting:
    possibilities for problem development.
 
 Being able to specify a Dockerfile lets cmgr spin up container(s) specific for
-our challenge. In Magikarp Ground Mission, we spin up an Ubuntu container and
-make it an ssh server. Specifying our own Dockerfile gives us tremendous
-freedom but also comes at the cost of more frequent bugs. Building our own
-Docker container using our Dockerfile is key to properly debugging what is
-going wrong when we are developing a custom challenge for cmgr. Cmgr gives a
-decent error report, but the mechanics of the Docker build process remain 
-opaque to the problem developer. Manually building using your Dockerfile can
-give much greater insight into what is happening during your build. The final
-section in this walkthrough before the conclusion goes into greater depth on
-how to do this.
+our challenge. In Custom SSH, we spin up an Ubuntu container and make it an ssh
+server. Specifying our own Dockerfile gives us tremendous freedom but also
+comes at the cost of more frequent debugging. Building our own Docker container
+using our Dockerfile is key to properly debugging what is going wrong when we
+are developing a `custom` challenge for cmgr. Cmgr gives a decent error report,
+but the mechanics of the Docker build process remain opaque to the problem
+developer just looking at `cmgr build ...`. Manually building using your
+Dockerfile can give much greater insight into what is happening during your
+build. The final section in this walkthrough before the conclusion goes into
+greater depth on how to do this.
 
 
 ## Walkthrough
@@ -46,32 +46,24 @@ how to do this.
 ### File Listing
 
 1. Besides problem details, the most important change in
-   [problem.md](/example-problems/custom-ssh/problem.md) is changing Type to
+   [problem.md](/example-problems/custom-ssh-opt/problem.md) is changing Type to
    "custom".
 
 2. instructions-to-Xof3.txt's contain verbal instructions on how to find the
    next part of the flag. The Dockerfile copies these into the container.
 
-3. [profile](/example-problems/custom-ssh/profile) is a bash profile that
+3. [profile](/example-problems/custom-ssh-opt/profile) is a bash profile that
    places the newly logged in user into a different folder than their home
    directory. This is done so that returning home from the root directory
    yields the last part of the flag instead of the first.
    
-4. [start.sh](/example-problems/custom-ssh/start.sh) starts a listener that
+4. [start.sh](/example-problems/custom-ssh-opt/start.sh) starts a listener that
    receives ssh connections. This script is ran as the last step in the
    Dockerfile.
    
-5. [gen-password.py](/example-problems/custom-ssh/gen-password.py) generates
-   a short password based on a seed using crc32. This password is written to
-   a file named `password` which is read by the Dockerfile to be put in
-   `metadata.json`.
+5. [config-box.py](/example-problems/custom-ssh-opt/config-box.py)
    
-6. [split-flag.py](/example-problems/custom-ssh/split-flag.py) reads the
-   flag from the file, `flag`, modifies it, and splits it into 3 parts,
-   each of which are written to files that are later copied into different
-   parts of the filesystem of the container by the Dockerfile.
-   
-7. [Dockerfile](/example-problems/custom-ssh/Dockerfile) this file is quite
+7. [Dockerfile](/example-problems/custom-ssh-opt/Dockerfile) this file is quite
    involved as it pulls an Ubuntu 18.04 image down, updates the container,
    installs addtional packages and runs multiple other shell commands and
    Python scripts to ready the container to be the Magikarp Ground Mission
@@ -91,38 +83,33 @@ the cmgr user, and some more control and introspection of the docker build
 process goes a long way in being able to determine what is going wrong.
 
 1. Clone this repo
-2. Go to the custom-ssh directory
-    - `cd start-problem-dev/example-problems/custom-ssh/`
+2. Go to the custom-ssh-opt directory
+    - `cd start-problem-dev/example-problems/custom-ssh-opt/`
 3. Switch Dockerfiles. `Dockerfile.test` has 1 discrepancy in it.
     - `mv Dockerfile Dockerfile.good`
     - `mv Dockerfile.test Dockerfile`
 4. Build the problem with cmgr
       - `cmgr update`
-      - `cmgr build syreal/examples/magikarp-ground-mission 9001`
+      - `cmgr build syreal/examples/custom-ssh 9001`
       - Expected output:
 ```
-cmgr: [ERROR:  failed to build image: The command '/bin/sh -c echo "ctf-player:$(cat password)" | chpasswd' returned a non-zero code: 1]
-error: failed to build image: The command '/bin/sh -c echo "ctf-player:$(cat password)" | chpasswd' returned a non-zero code: 1
+cmgr: [ERROR:  failed to build image: The command '/bin/sh -c python3 config-box.py' returned a non-zero code: 2]
+error: failed to build image: The command '/bin/sh -c python3 config-box.py' returned a non-zero code: 2
 ```
 * We at least know which step failed, however, we can get much more info
-  by building the container manually with Docker
+  by building the container manually with Docker:
+
 5. Build the container manually.
     - `docker build .`
-    - Expected output (tail):
+    - Expected output (tail end):
 ```
-Step 20/30 : RUN echo "ctf-player:$(cat password)" | chpasswd
- ---> Running in 42c1b67b6e85
-cat: password: No such file or directory
-No password supplied
-No password supplied
-No password supplied
-chpasswd: (user ctf-player) pam_chauthtok() failed, error:
-Authentication token manipulation error
-chpasswd: (line 1, user ctf-player) password not changed
-The command '/bin/sh -c echo "ctf-player:$(cat password)" | chpasswd' returned a non-zero code: 1
+Step 11/13 : RUN python3 config-box.py
+ ---> Running in f696b2257959
+python3: can't open file 'config-box.py': [Errno 2] No such file or directory
+The command '/bin/sh -c python3 config-box.py' returned a non-zero code: 2
 ```
 6. Fix the issue.
-    - `$(cat password)` needs to be `$(cat /challenge/password)`
+    - `RUN python3 config-box.py` needs to be `RUN python3 /challenge/config-box.py`
 
 ## Conclusion
 
