@@ -1,4 +1,4 @@
-# Magikarp Ground Mission
+# Custom SSH
 
 - Namespace: syreal/examples
 - Type: custom
@@ -10,8 +10,8 @@
 Do you know how to move between directories and read files in the shell?
 
 ## Details
-`ssh` to `{{server}}:{{port}}`, and then `ls` once connected to begin. Login 
-as `ctf-player` with the password, `{{lookup("password")}}`
+`ssh` to `{{server("ssh")}}:{{port("ssh")}}`, and then `ls` once connected to 
+begin. Login as `ctf-player` with the password, `{{lookup("password")}}`
 
 ## Hints
 
