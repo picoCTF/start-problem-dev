@@ -46,28 +46,28 @@ greater depth on how to do this.
 ### File Listing
 
 1. Besides problem details, the most important change in
-   [problem.md](/example-problems/custom-ssh-opt/problem.md) is changing Type to
+   [problem.md](/example-problems/custom-ssh/problem.md) is changing Type to
    "custom".
 
 2. instructions-to-Xof3.txt's contain verbal instructions on how to find the
    next part of the flag. The Dockerfile copies these into the container.
 
-3. [profile](/example-problems/custom-ssh-opt/profile) is a bash profile that
+3. [profile](/example-problems/custom-ssh/profile) is a bash profile that
    places the newly logged in user into a different folder than their home
    directory. This is done so that returning home from the root directory
    yields the last part of the flag instead of the first.
    
-4. [start.sh](/example-problems/custom-ssh-opt/start.sh) starts a listener that
+4. [start.sh](/example-problems/custom-ssh/start.sh) starts a listener that
    receives ssh connections. This script is ran as the last step in the
    Dockerfile.
    
-5. [config-box.py](/example-problems/custom-ssh-opt/config-box.py) This script
+5. [config-box.py](/example-problems/custom-ssh/config-box.py) This script
    is the meat of setting up the machine for our problem. It generates the
    password for the ctf-player user, creates the user, creates supporting
    directories and splits the flag into 3 parts, distributing them across the
    filesystem.
    
-7. [Dockerfile](/example-problems/custom-ssh-opt/Dockerfile) this file is quite
+7. [Dockerfile](/example-problems/custom-ssh/Dockerfile) this file is quite
    involved as it pulls an Ubuntu 18.04 image down, updates the container,
    installs addtional packages and runs the config-box.py Python script to
    ready the container to be the Custom SSH challenge. Please view the file
@@ -86,8 +86,8 @@ the cmgr user, and some more control and introspection of the docker build
 process goes a long way in being able to determine what is going wrong.
 
 1. Clone this repo
-2. Go to the custom-ssh-opt directory
-    - `cd start-problem-dev/example-problems/custom-ssh-opt/`
+2. Go to the custom-ssh directory
+    - `cd start-problem-dev/example-problems/custom-ssh/`
 3. Switch Dockerfiles. `Dockerfile.test` has 1 discrepancy in it.
     - `mv Dockerfile Dockerfile.good`
     - `mv Dockerfile.test Dockerfile`

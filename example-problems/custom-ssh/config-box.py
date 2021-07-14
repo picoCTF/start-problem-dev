@@ -57,8 +57,16 @@ def main():
         
         # Pipe the output of echo into chpasswd to change password of
         # ctf-user
-        pEcho = subprocess.Popen(('echo', f'ctf-player:{password}'), stdout=subprocess.PIPE)
+        pEcho = subprocess.Popen(
+            (
+                'echo', 
+                f'ctf-player:{password}'
+            ),
+            stdout=subprocess.PIPE
+        )
+        
         output = subprocess.check_output(('chpasswd'), stdin=pEcho.stdout)
+        
         pEcho.wait()
         
         # Make sure ownership is changed to ctf-player
