@@ -21,7 +21,7 @@ development with.
 1. [Sanity, static flag](/example-problems/sanity-static-flag/)
 2. Sanity, dynamic flag
 3. [Forensics Grep](/example-problems/forensics-grep/)
-4. Forensics Disk
+4. [Forensics Disk WIP](/example-problems/forensics-disk/)
 5. Reverse Engineering
 6. Cryptography
 7. Binary Exploitation
