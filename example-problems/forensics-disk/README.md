@@ -22,8 +22,12 @@
 This problem is an example of creating a challenge that has significant work
 outside of cmgr. Creating a disk worthy of being imaged for a forensics 
 challenge is a difficult task, and this all happens outside of cmgr. After
-serious experimentation, my favorite way to create a disk for a forensics
-challenge is using a traditional virtual machine.
+broad experimentation, my favorite way to create a disk for a forensics
+challenge is using a traditional virtual machine. Even if we could, we probably
+wouldn't want to put this process of virtual machine creation in the
+cmgr/Docker pipeline. Instead, we copy the raw disk image to our problem folder
+when it is ready for templating. After that, the problem is much like previous
+walkthroughs such as [Forensics Grep](/example-problems/forensics-grep/).
 
 
 
