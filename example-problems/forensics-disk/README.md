@@ -70,7 +70,7 @@ method for this endeavor.
    [Makefile](/example-problems/forensics-disk/Makefile). Since we are not just
    immediately handing over the flag like in the sanity problem, we create a
    target for a challenge artifact that contains the flag, namely 
-   `disk.flag.img.gz`. We byteblast in the flag at the end of a suspicious file
+   `disk.flag.img.gz`. We byteblast in the flag past the end of a suspicious file
    and there are multiple ways to recover this using sleuthkit tools.
 
 3. [packages.txt](/example-problems/forensics-disk/packages.txt) specifies
