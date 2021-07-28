@@ -28,7 +28,7 @@ Usage of sleuthkit tools
 
 ## Tags
 
-- disk image
+- disk
 - example
 
 ## Attributes
