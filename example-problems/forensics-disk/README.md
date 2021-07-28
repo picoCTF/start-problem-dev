@@ -34,12 +34,11 @@ walkthroughs such as [Forensics Grep](/example-problems/forensics-grep/).
 ## Walkthrough
 
 
+### Disk Image Creation
+
+
 
 ### File Listing
-   
-
-
-### Debugging your Makefile
 
 
 
