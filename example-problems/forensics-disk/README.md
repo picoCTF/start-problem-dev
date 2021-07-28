@@ -36,6 +36,22 @@ walkthroughs such as [Forensics Grep](/example-problems/forensics-grep/).
 
 ### Disk Image Creation
 
+I'm capturing the high level notes on my disk image creation process here so
+that others can do something similar for creating disk images for CTF challenges.
+I initially tried many different methods for capturing a disk image such as
+imaging from a Docker container and using Vagrant, but I've found that using
+Virtualbox and creating a standard virtual machine (VM) is the most straightforward
+method for this endeavor.
+
+1. Create a virtual machine in Virtualbox
+     - I opt for VMDK virtual disks.
+2. Do something of forensic interest
+     - Create files, change timestamps, etc.
+3. Make a clone of the original VM
+     - This is needed because otherwise the virtual disk can be spread out over
+       multiple files. Cloning turns the VMDK into a single file.
+4. Convert virtual disk file into raw disk format
+     - `qemu-img convert -f vmdk -O raw disk.vmdk disk.img`
 
 
 ### File Listing
