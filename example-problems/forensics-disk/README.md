@@ -56,12 +56,45 @@ method for this endeavor.
 
 ### File Listing
 
+1. There's not much new in 
+   [problem.md](/example-problems/forensics-disk/problem.md). The only major
+   difference between this problem.md and the static sanity's problem.md is
+   that we specify that this problem is Templatable
+   [in this section](/example-problems/forensics-disk/problem.md#forensics-disk).
+   This means that multiple instances of this problem can be ran and each will
+   have a different flag. Having multiple instances of the same problem gives
+   many benefits. Most importantly for problem developers, it means we can
+   detect cheating and regenerate flags on the fly.
+
+2. There's a bit more new in 
+   [Makefile](/example-problems/forensics-disk/Makefile). Since we are not just
+   immediately handing over the flag like in the sanity problem, we create a
+   target for a challenge artifact that contains the flag, namely 
+   `disk.flag.img.gz`. We byteblast in the flag at the end of a suspicious file
+   and there are multiple ways to recover this using sleuthkit tools.
+
+3. [packages.txt](/example-problems/forensics-disk/packages.txt) specifies
+   installing python3 so that we can use my byteblast.py python script in the
+   make process.
+
+4. [disk.img.gz](/example-problems/forensics-disk/disk.img.gz) is the image of
+   the disk before it has the flag in it. For templating, adding the flag needs
+   to happen at build time so that the flag can be different for each build.
+
+5. [byteblast.py](/example-problems/forensics-disk/byteblast.py) is a script
+   that I use in many problems that can insert bytes at arbitrary points in a
+   file. This comes in hand for inserting templated flags in artifacts 
+   programmatically at build-time.
 
 
 ## Conclusion
 
-
-
+With this walkthrough, we demonstrated using highly developed computer system
+artifacts as part of a cmgr problem. Thankfully, the static-make cmgr problem
+type can be used for this advanced forensics problem but most of the work for
+this problem happens outside of cmgr. The Makefile for this problem
+demonstrates handling this large uncompressed file and compressing it again
+before giving it as an artifact to the player.
 
 [Return to the index](/README.md#walkthroughs)
 
