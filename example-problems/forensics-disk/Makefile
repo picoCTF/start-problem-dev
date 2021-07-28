@@ -4,14 +4,16 @@ main: disk.flag.img.gz
 FLAG_PHRASE := "d15k_513uth_"
 FLAG := $(shell echo $(FLAG) | sed "s/{/{$(FLAG_PHRASE)/1")
 
-war-and-peace.flag.txt: flag
-	cp war-and-peace.txt war-and-peace.flag.txt
-	python3 byteblast.py war-and-peace.flag.txt flag 50000
-	
+disk.flag.img.gz: flag
+	cp disk.img.gz disk.flag.img.gz
+	gunzip disk.flag.img.gz
+	python3 byteblast.py disk.flag.img flag 509014036
+	gzip -c disk.flag.img > disk.flag.img.gz
 
-artifacts.tar.gz: war-and-peace.flag.txt
+
+artifacts.tar.gz: disk.flag.img.gz
 	tar czvf $@ $^
-	
+
 
 flag:
 	@echo "$(FLAG)" > flag

@@ -11,7 +11,7 @@
 Can you find the flag in this disk image?
 
 ## Details
-Download the disk image {{url_for("disk.img.tar.gz", "here")}}.
+Download the disk image {{url_for("disk.flag.img.gz", "here")}}.
 
 ## Hints
 
