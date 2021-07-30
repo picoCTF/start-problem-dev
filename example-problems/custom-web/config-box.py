@@ -33,7 +33,7 @@ def main():
 
         new_flag = "picoCTF{1n5p3t0r_ftw_" + flag_rand + "}"
         
-        with open("/usr/local/apache2/htdocs/public-html/style.css", "a") as f:
+        with open("/usr/local/apache2/htdocs/style.css", "a") as f:
             f.write('/* ' + new_flag + ' */')
 
         # =====================================================================
