@@ -10,7 +10,7 @@
 Do you know how to use the web inspector?
 
 ## Details
-Browse `{{server("web")}}`, and find the flag!
+Browse `{{server("web")}}:{{port("web")}}`, and find the flag!
 
 ## Hints
 
