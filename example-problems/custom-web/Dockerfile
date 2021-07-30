@@ -15,5 +15,9 @@ ARG FLAG_FORMAT
 ARG FLAG
 
 
+COPY config-box.py /challenge/config-box.py
+RUN python3 /challenge/config-box.py
+
+
 EXPOSE 80
 # PUBLISH 80 AS web
