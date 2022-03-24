@@ -1,6 +1,6 @@
 # Custom SSH
 
-- Namespace: syreal/examples
+- Namespace: picoctf/examples
 - Type: custom
 - Category: General Skills
 - Points: 1

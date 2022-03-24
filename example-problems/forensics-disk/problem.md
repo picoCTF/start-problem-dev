@@ -1,6 +1,6 @@
 # Forensics Disk
 
-- Namespace: syreal/examples
+- Namespace: picoctf/examples
 - Type: static-make
 - Category: Forensics
 - Points: 1

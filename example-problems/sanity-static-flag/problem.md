@@ -1,6 +1,6 @@
 # Sanity Download
 
-- Namespace: syreal/examples
+- Namespace: picoctf/examples
 - Type: static-make
 - Category: General Skills
 - Points: 1

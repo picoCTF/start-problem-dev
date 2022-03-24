@@ -1,6 +1,6 @@
 # Custom Web
 
-- Namespace: syreal/examples
+- Namespace: picoctf/examples
 - Type: custom
 - Category: Web Exploitation
 - Points: 1
