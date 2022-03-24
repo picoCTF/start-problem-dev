@@ -126,8 +126,5 @@ gain more debugging insight into custom cmgr problems by building the
 container manually with docker which provides a lot more information about
 build failures.
 
-This is the final walkthrough in our cmgr series. Go crazy! and don't forget
-to connect with us on Discord.
-
 [Return to the index](/README.md#walkthroughs)
 
