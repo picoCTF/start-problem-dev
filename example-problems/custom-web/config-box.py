@@ -30,7 +30,7 @@ def main():
 
     new_flag = "picoCTF{1n5p3t0r_ftw_" + flag_rand + "}"
     
-    with open("/usr/local/apache2/htdocs/style.css", "a") as f:
+    with open("/usr/share/nginx/html/style.css", "a") as f:
         f.write('/* ' + new_flag + ' */')
 
     # =====================================================================
@@ -42,7 +42,7 @@ def main():
     metadata['flag'] = str(new_flag)
     json_metadata = json.dumps(metadata)
     
-    with open("/challenge/metadata.json", "w") as f:
+    with open("metadata.json", "w") as f:
         f.write(json_metadata)
 
     # =====================================================================

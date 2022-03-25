@@ -4,13 +4,14 @@
 - Type: custom
 - Category: Web Exploitation
 - Points: 1
+- Templatable: yes
 
 ## Description
 
 Do you know how to use the web inspector?
 
 ## Details
-Browse `{{server("web")}}:{{port("web")}}`, and find the flag!
+Browse {{link_as('/', 'here')}}, and find the flag!
 
 ## Hints
 
