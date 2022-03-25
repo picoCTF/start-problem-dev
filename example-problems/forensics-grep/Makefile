@@ -2,11 +2,11 @@
 main: war-and-peace.flag.txt
 
 FLAG_PHRASE := "gr3p_15_4_5up3rp0w3r_"
-FLAG := $(shell echo $(FLAG) | sed "s/{/{$(FLAG_PHRASE)/1")
+FLAG := $(shell echo $(FLAG) | sed "s/.*{/picoCTF{$(FLAG_PHRASE)/1")
 
 war-and-peace.flag.txt: flag
 	cp war-and-peace.txt war-and-peace.flag.txt
-	python3 byteblast.py war-and-peace.flag.txt flag 50000
+	python3 byteblast.py war-and-peace.flag.txt flag 49998
 	
 
 artifacts.tar.gz: war-and-peace.flag.txt

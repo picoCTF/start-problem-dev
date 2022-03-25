@@ -22,6 +22,18 @@ begin. Login as `ctf-player` with the password, `{{lookup("password")}}`
 Login to the remote machine and use `ls` to find pieces of the flag and hints
 to the next one.
 
+## Challenge Options
+
+```yaml
+cpus: 0.5
+memory: 128m
+pidslimit: 20
+ulimits:
+  - nofile=128:128
+diskquota: 64m
+init: true
+```
+
 ## Learning Objective
 
 Usage of ssh and bash commands
@@ -36,3 +48,4 @@ Usage of ssh and bash commands
 
 - author: LT 'syreal' Jones
 - organization: picoCTF
+- event: picoCTF Problem Developer Training

@@ -22,6 +22,18 @@ Download War and Peace {{url_for("war-and-peace.flag.txt", "here")}}.
 
 Download war-and-peace.flag.txt and grep for `pico`
 
+## Challenge Options
+
+```yaml
+cpus: 0.5
+memory: 128m
+pidslimit: 20
+ulimits:
+  - nofile=128:128
+diskquota: 64m
+init: true
+```
+
 ## Learning Objective
 
 Usage of command line tools
@@ -35,3 +47,4 @@ Usage of command line tools
 
 - author: LT 'syreal' Jones
 - organization: picoCTF
+- event: picoCTF Problem Developer Training

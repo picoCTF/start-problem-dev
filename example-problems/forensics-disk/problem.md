@@ -22,6 +22,18 @@ Download the disk image {{url_for("disk.flag.img.gz", "here")}}.
 
 Download the disk image and use `blkls -s` to find the flag in slack space.
 
+## Challenge Options
+
+```yaml
+cpus: 0.5
+memory: 128m
+pidslimit: 20
+ulimits:
+  - nofile=128:128
+diskquota: 64m
+init: true
+```
+
 ## Learning Objective
 
 Usage of sleuthkit tools
@@ -35,3 +47,4 @@ Usage of sleuthkit tools
 
 - author: LT 'syreal' Jones
 - organization: picoCTF
+- event: picoCTF Problem Developer Training
