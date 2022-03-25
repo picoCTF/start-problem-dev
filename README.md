@@ -1,176 +1,60 @@
-# You've come to the right place...
+# Start Problem Development
 
-Welcome to picoCTF problem-dev! This is the place to start.
-
-We recommend 3 steps to acclimating to picoCTF problem-dev:
-
-1. Starting your own picoCTF server for local testing.
-2. Adding a problem to your picoCTF server.
-3. Reviewing relevant documentation.
-
-Documentation includes some more complex problems that can help bootstrap your
-knowledge of the capabilities of the "hacksport" CTF problem templating
-language in Python. More of that later. First, let's get your very own instance
-of picoCTF on your computer!
-
-
-## 1. Starting your own picoCTF server for local testing
-
-If you're fairly confident with Vagrant and VirtualBox software, (and have them
-installed on your development/testing box), then the quickest option for you
-will probably be to follow the instructions found here:
-
-https://github.com/picoCTF/picoCTF/blob/master/README.md#quick-start
-
-If this succeeds, please go on to step 2., linked here:
-
-[2. Adding a problem to your picoCTF server](https://github.com/picoCTF/start-problem-dev#2-adding-a-problem-to-your-picoctf-server)
-
-Otherwise, some of the most common exceptions are listed in the following 
-few subsections.
-
-And please be aware that you can reach out for support in the venues listed 
-here:
-
-https://www.picoctf.com/community
-
-### a. Installing pre-requisites
-
-#### i. VirtualBox
-
-VirtualBox can host virtual machines on many sorts of hardware and operating
-systems. This is a dependency of Vagrant as Vagrant only provides easy creation
-of virtual machines, but does not provide software to run them.
-
-Install VirtualBox natively:
-
-https://www.virtualbox.org/wiki/Downloads
-
-#### ii. Vagrant
-
-Vagrant streamlines the creation of a new virtual machine.
-
-Install Vagrant natively:
-
-https://www.vagrantup.com/downloads.html
-
-
-### b. Avoiding network collision
-
-The default network address for the shell and web virtual machines (VM's) tend
-to conflict with personal WiFi networks. To avoid, provision again using the
-`SIP` (Shell IP) and `WIP` (Web IP) environment variables.
-
-Environment Variables are something most operating systems 
-(Windows/Mac/Linux/BSD/...) have, but setting them is quite different across
-systems. Setting environment variables for one's system is currently an 
-exercise left to reader.
-
-The following demonstration is for Powershell users on Windows:
-
-```
-PS C:\Users\tron> $Env:SIP = "192.168.13.37"
-PS C:\Users\tron> $Env:WIP = "192.168.13.38"
-PS C:\Users\tron> vagrant up --provision shell web
-```
-
-
-### c. Provision dies at interactive prompt
-
-Apt asks to be able to restart services, but unfortunately sometimes this kills
-Vagrant's ability to provision automatically the first time.
-
-If `vagrant` hangs with a screen like the following, you will need to Ctrl-C
-and do some manual config of the `shell` and `web` VM's:
-
-![Apt Hangup](/img/death-by-prompt.png)
-
-Once you've Ctrl-C'd out of being stuck in the apt prompt via vagrant, you will
-need to manually update each VM, by doing something like the following for both
-the shell and web VM's:
-
-```
-vagrant ssh shell
-sudo killall dpkg
-sudo apt update
-sudo apt install
-sudo apt upgrade
-exit
-vagrant up --provision shell
-```
+Welcome! At the time of writing, this documentation is maintained by LT
+'syreal' Jones. Feel free to reach out with questions, comments or 
+suggestions [here](mailto:other@picoctf.org).
 
 
 
+## Setup
 
-## 2. Adding a problem to your picoCTF server
-
-Adding a problem to your picoCTF server happens on both the shell VM and the
-web VM.
-
-### Creating web platform superuser
-
-1. Browse to your web VM's IP address (192.168.2.2 or the WIP environment var)
-2. Register the first user.
-  * This first user is the superuser for the web platform and has a lot of 
-    configuration options for the CTF.
-3. Enable default problems. Navigate to `Management > Manage Problems`
-  * This step can be skipped.
-  * There typically 3 default problems loaded but disabled, although if 
-    provisioning was problematic, then they might not have auto-loaded
-    correctly.
-  * Hit the "Enable All Problems" button.
-4. Turn competition live. Navigate to `Management > Configuration`.
-  * By default, "Competition Start/End Time" are set to same time.
-  * Move "Competition End Time" to some time in the distant future.
-5. Refresh browser.
-  * "Problems" tab should be visible now.
-  * If default problems loaded successfully, those should be visible as well,
-    under the "Problems" tab.
-
-### Create and deploy fresh problem on shell VM
-
-1. `vagrant ssh shell`
-  * On the host machine, Vagrant uses keys to log in, but for sudo use 
-    vagrant/vagrant
-  * NOTE: change vagrant's password before going live with CTF!
-2. `git clone https://github.com/picoCTF/picoCTF-2019-example-problems.git`
-3. `cd picoCTF-2019-example-problems`
-4. `sudo shell_manager install grep-1/`
-5. `sudo shell_manager status`
-6. `sudo shell_manager deploy grep-1-dc5ec3a`
-
-### Load and enable grep-1 on web platform
-
-1. Log in as superuser.
-2. Load new deployment. Navigate to `Management > Shell Server` and hit "Load Deployment" button.
-3. Enable grep-1 problem. Navigate to `Management > Manage Problems` and hit "Enable All Problems" button.
-4. Verify visibility. Navigate to `Challenge Problems` and make sure "grep 1" is visible.
+Install [cmgr](https://github.com/ArmyCyberInstitute/cmgr#quickstart).
 
 
 
+## Walkthroughs
 
-## 3. Review relevant documentation
+These walkthroughs proceed roughly in order of complexity, from least complex
+challenge to most complex challenge. These are great problems to start problem
+development with.
 
-* Exceedingly relevant: [Problem directory structure overview](https://docs.picoctf.com/adding-your-own-content.html).
-* Exceedingly relevant: [Buffer overflow problem-dev tutorial](https://docs.picoctf.com/tutorials/buffer-overflow-challenge-beginner.html).
-* Exceedingly relevant: [Hacksport documentation of challenge.py](https://docs.picoctf.com/specs/challenge.py.html).
-* Relevant: [Top level docs](https://docs.picoctf.com/).
-* Relevant: [Overview of picoCTF servers architecture](https://github.com/picoCTF/picoCTF#project-overview).
+1. [Sanity, static flag](/example-problems/sanity-static-flag/)
+2. [Forensics Grep](/example-problems/forensics-grep/)
+3. [Forensics Disk](/example-problems/forensics-disk/)
+4. [Custom Docker](/example-problems/custom-ssh/)
+5. [Custom Web](/example-problems/custom-web/)
+
+In addition to these walkthroughs, you can also check the `cmgr` developers'
+[example problems,](https://github.com/ArmyCyberInstitute/cmgr/tree/master/examples)
+which are a good source for more complex problem development.
 
 
 
+## Problem Developer Guidance
 
-# Conclusion
+- Try to avoid excessive computational complexity in challenges, and/or limit bruteforceability (via PoW wrapper and provided solver binary, etc.)
+- Also try to avoid challenges that require excessive client-side computation (especially for crypto challenges etc.), as some players will be using our webshell environment which has restricted CPU capacity and runtime limits
+- Whenever possible, use templating so that challenge instances have unique flags (this should be possible except for certain types of forensics challenges)
+   - If a challenge does have a static flag, please indicate this in the challenge files so that we can deploy only one instance
+   - Add Templatable: no to the block immediately after the title in problem.md.
+- When possible, try to make sure challenges are solvable via open-source command line tools and other web resources, as some users will only be able to use the webshell.
+   - If a challenge requires an obscure command line tool to solve, let us know so that we can add it to the webshell
+- If a challenge contains mutable state (such as an exploitable SQL database), please make this clear somewhere in the challenge files as we will need to deploy these as on-demand challenges
+- For challenges that run an interactive script that users interact with via netcat, please don’t wait indefinitely for user input, in case users leave connections open
+   - Add a timeout that exits the process if the user does not respond
+   - Automatically exit the process after printing the flag
+- For web challenges, make sure that it is not possible to read the flag via directory traversal
+- Avoid writing files to disk due to user interaction with challenges (treat the filesystem as read-only if possible, keep temporary files in memory or at least make sure they always get removed)
+- Please provide a commented solve script, or at least a walkthrough, explaining how the challenge is intended to be solved and what skills it is designed to teach
+- When challenges use templating to have unique flags per-instance, make sure that the challenge is always solvable with a variety of generated flags (having a solve script is helpful for this)
+- Use the standard picoCTF{} flag wrapper. Even if the flag must be displayed differently within the challenge due to technical limitations (e.g. can only return integers), make sure that this is clearly explained in the challenge description and that the standard wrapped form is the accepted flag
+- Ensure that challenges’ Markdown descriptions render properly
+- Do not make outbound Internet requests from challenges at runtime, as access will be blocked on our servers
+- When writing custom Dockerfiles, reference base images by SHA to avoid drift
+- For cmgr challenges, use challenge options to limit the challenge to the minimum necessary privileges/resources (we may make additional tweaks prior to deployment)
+- Avoid situations where “correct looking” or red herring flags can be found - this causes customer support issues later on.
+- Don’t include messages like “Flag file appears to be missing, please contact an admin!”. Operate under the assumption that the platform infrastructure is working correctly. These messages often lead to false reports from players running the challenge locally. In error cases like this, prefer a neutral message like “flag.txt not found in the current directory.”
+- For web challenges, vendor external scripts, stylesheets, etc. needed at runtime into the challenge source. We want to make sure files remain available and that players can access everything needed for a challenge via picoCTF-controlled domains.
+- Assume that challenges will not have outbound Internet access at runtime. (We may be able to make exceptions in specific cases.) Note that you can add another container to the challenge’s network to support exfiltrating data to another host.
+- Challenges should not rely on externally-hosted services (such as third-party APIs) at runtime. We cannot guarantee that these services will remain accessible or compatible, which can lead to challenges breaking over time.
 
-At the moment, problem developers not only create problems, but also deploy 
-their own picoCTF servers to be able to test and debug their problems. From my
-own experience with the picoCTF platform, I think there are 3 main skills for
-problem-devs to master:
-
-1. Deployment and operations on local picoCTF servers
-2. Understanding "hacksport" (problem directory structure and abilities within challenge.py)
-3. Creativity to make security issues interesting!
-
-Again, feel free to [email me](https://github.com/syreal17/) or join a [picoCTF
-community](https://www.picoctf.com/community) to get help outside of what is
-covered here!
