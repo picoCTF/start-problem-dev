@@ -22,16 +22,28 @@ Browse {{link_as('/', 'here')}}, and find the flag!
 Inspect the landing page to find the css file. Open the css file to find the 
 flag.
 
+## Challenge Options
+
+```yaml
+cpus: 0.5
+memory: 128m
+pidslimit: 20
+ulimits:
+  - nofile=128:128
+diskquota: 64m
+init: true
+```
+
 ## Learning Objective
 
 Usage of web inspector
 
 ## Tags
 
-- web
 - example
 
 ## Attributes
 
 - author: LT 'syreal' Jones
 - organization: picoCTF
+- event: picoCTF Problem Developer Training
