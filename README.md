@@ -54,7 +54,7 @@ which are a good source for more complex problem development.
 - For cmgr challenges, use challenge options to limit the challenge to the minimum necessary privileges/resources (we may make additional tweaks prior to deployment)
 - Avoid situations where “correct looking” or red herring flags can be found - this causes customer support issues later on.
 - Don’t include messages like “Flag file appears to be missing, please contact an admin!”. Operate under the assumption that the platform infrastructure is working correctly. These messages often lead to false reports from players running the challenge locally. In error cases like this, prefer a neutral message like “flag.txt not found in the current directory.”
-- For web challenges, vendor external scripts, stylesheets, etc. needed at runtime into the challenge source. We want to make sure files remain available and that players can access everything needed for a challenge via picoCTF-controlled domains.
+- For web challenges, include all vendor external scripts, stylesheets, etc. needed at runtime into the challenge source. We want to make sure files remain available and that players can access everything needed for a challenge via picoCTF-controlled domains.
 - Assume that challenges will not have outbound Internet access at runtime. (We may be able to make exceptions in specific cases.) Note that you can add another container to the challenge’s network to support exfiltrating data to another host.
 - Challenges should not rely on externally-hosted services (such as third-party APIs) at runtime. We cannot guarantee that these services will remain accessible or compatible, which can lead to challenges breaking over time.
 
