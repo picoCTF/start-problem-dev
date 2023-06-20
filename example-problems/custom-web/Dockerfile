@@ -3,7 +3,7 @@ FROM nginx@sha256:1c13bc6de5dfca749c377974146ac05256791ca2fe1979fc8e8278bf0121d2
 
 
 # Install challenge dependencies within the image
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python3
 
 
