@@ -37,12 +37,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python3
 
 
-# Bring in all environment vars from cmgr
-ARG SEED
-ARG FLAG_FORMAT
-ARG FLAG
-
-
 COPY --from=builder /challenge/password.txt /tmp/password.txt
 COPY config-sshhost.py /challenge/config-sshhost.py
 COPY start.sh /opt/start.sh
