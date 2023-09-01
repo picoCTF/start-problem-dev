@@ -28,7 +28,7 @@ potentially more interesting:
 1. The use of a Dockerfile instead of a Makefile which vastly opens up the
    possibilities for problem development.
 
-Being able to specify a Dockerfile lets us bring the power and reproducibility
+Being able to specify a Dockerfile lets us bring the power and repeatability
 of containers to our problem development and deployment. We're going to create
 a container that runs a Python program through a given port using socat. To use
 a custom Dockerfile, we must specify the type of the problem as `custom` in the
@@ -100,10 +100,9 @@ error: failed to build image: The command '/bin/sh -c python3 /challenge/setup-c
     - `docker build . --build-arg FLAG=picoCTF{deadbeef}`
     - Expected output (tail end):
 ```
-Step 11/13 : RUN python3 /challenge/setup-challenge.py
- ---> Running in f696b2257959
-python3: can't open file '/challenge/setup-challenge.py': [Errno 2] No such file or directory
-The command '/bin/sh -c python3 /challenge/config-box.py' returned a non-zero code: 2
+ > [7/9] RUN python3 /challenge/setup-challenge.py:
+#0 0.333 python3: can't open file '/challenge/setup-challenge.py': [Errno 2] No such
+file or directory
 ```
 6. Fix the issue.
     - `RUN python3 /challenge/setup-challenge.py` needs to be `RUN python3 setup-challenge.py`
