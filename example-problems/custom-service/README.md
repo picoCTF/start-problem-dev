@@ -1,4 +1,4 @@
-# Docker Problem Creation Walkthrough
+# Custom Service Problem Creation Walkthrough
 
 
 ## Pre-requisites:
