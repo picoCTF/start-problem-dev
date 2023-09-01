@@ -1,4 +1,4 @@
-# Docker Problem Creation Walkthrough
+# Custom SSH Problem Creation Walkthrough
 
 
 ## Pre-requisites:
@@ -7,13 +7,10 @@
     - Refer to the [setup section in the index](/README.md#setup)
       if this is not the case for you.
 
-2. You have done the [Sanity Problem Creation Walkthrough](/example-problems/sanity-static-flag/README.md).
-   You do not have to do every walkthrough that is listed as easier than this
-   one, but you must at least do the Sanity Problem Creation Walkthrough. 
-   This walkthrough is presented as a set of changes from the sanity problem.
-   The sanity problem walkthrough is the core of cmgr challenges, and this 
-   problem presents what must be added on top of that for a more complicated
-   challenge.
+2. You have done the [Custom Service Problem Creation Walkthrough](/example-problems/custom-service/).
+   The Custom Service walkthrough is a more basic example of using a custom
+   Dockerfile for cmgr problem development. The file changes presented here
+   will be as compared to Custom Service.
 
 
 
@@ -22,22 +19,21 @@
 This problem uses a container as a ssh server and has 3 files scattered around
 the filesystem that together compose the flag.
 
-There is 1 main change in this problem that makes it more interesting:
+The new thing about this challenge is that it uses multiple build stages in the
+Dockerfile to make use of multiple containers instead of just one.
 
-1. The use of a Dockerfile instead of a Makefile which vastly opens up the
-   possibilities for problem development.
+In Custom SSH, we spin up an Ubuntu container called "builder" and use it to
+make the flag and store it in separate files and in `/challenge/metadata.json`.
+We spin up another container which we call "sshHost". This is the container
+that becomes the main focal point of the challenge. We copy the separate parts
+of the flag to sshHost and configure it to accept ssh connections.
 
-Being able to specify a Dockerfile lets cmgr spin up container(s) specific for
-our challenge. In Custom SSH, we spin up an Ubuntu container and make it an ssh
-server. Specifying our own Dockerfile gives us tremendous freedom but also
-comes at the cost of more frequent debugging. Building our own Docker container
-using our Dockerfile is key to properly debugging what is going wrong when we
-are developing a `custom` challenge for cmgr. Cmgr gives a decent error report,
-but the mechanics of the Docker build process remain opaque to the problem
-developer just looking at `cmgr build ...`. Manually building using your
-Dockerfile can give much greater insight into what is happening during your
-build. The final section in this walkthrough before the conclusion goes into
-greater depth on how to do this.
+It's a good practice to separate the work associated with building the
+challenge from the actual challenge itself. That's why we make a "builder"
+container and "sshHost" container. If we made the "builder" container accept
+ssh connections competitors might stumble across `metadata.json`! This can be
+mitigated with good permissions on the folder, but we consider best practice to 
+be separate containers, not just secure permissions.
 
 
 ## Walkthrough
@@ -50,7 +46,8 @@ greater depth on how to do this.
    "custom".
 
 2. instructions-to-Xof3.txt's contain verbal instructions on how to find the
-   next part of the flag. The Dockerfile copies these into the container.
+   next part of the flag. The Dockerfile copies these into the "sshHost" 
+   container.
 
 3. [profile](/example-problems/custom-ssh/profile) is a bash profile that
    places the newly logged in user into a different folder than their home
@@ -61,70 +58,41 @@ greater depth on how to do this.
    receives ssh connections. This script is ran as the last step in the
    Dockerfile.
    
-5. [config-box.py](/example-problems/custom-ssh/config-box.py) This script
-   is the meat of setting up the machine for our problem. It generates the
-   password for the ctf-player user, creates the user, creates supporting
-   directories and splits the flag into 3 parts, distributing them across the
-   filesystem.
+7. [Dockerfile](/example-problems/custom-ssh/Dockerfile), the first line is
+   different for this file. It's the "LAUNCH" directive which tells cmgr which
+   containers should be actively running for the challenge. For our challenge,
+   we don't need "builder" running, but we do need "sshHost" running. The next
+   line of code is the "FROM" statement. We've appended "AS builder" to the end
+   of this line to indicate that the following instructions are for the builder
+   container. "builder" is actually a special name to cmgr, it's the container
+   that it always expects to find `/challenge/metadata.json` and
+   `/challenge/artifacts.tar.gz` if applicable. The rest of "builder" is
+   similar to Custom Service. "sshHost" isn't too different either, but notice
+   the COPY instructions that grab files from "builder", such as line 40. This
+   is a critical ability to connect your containers and your other containers
+   are likely to need to know things from the "builder" container. We copy all
+   of the flag parts in the Dockerfile since it can access them easily with
+   `COPY --from=builder ...`.
    
-7. [Dockerfile](/example-problems/custom-ssh/Dockerfile) this file is quite
-   involved as it pulls an Ubuntu 18.04 image down, updates the container,
-   installs addtional packages and runs the config-box.py Python script to
-   ready the container to be the Custom SSH challenge. Please view the file
-   directly to view more specific comments on its functionality.
+5. [config-builder.py](/example-problems/custom-ssh/config-builder.py), this
+   script generates the password from the seed and puts it in the file for the
+   "sshHost" to use. Then it generates the flag and splits it into 3 parts and
+   writes a file for each, also for the "sshHost" container. Finally, it writes
+   the whole flag into `/challenge/metadata.json`, as needed by cmgr. It also
+   puts the "password" into this file, so that the problem description can give
+   the password to the competitor.
+   
+1. [config-sshhost.py](/example-problems/custom-ssh/config-sshhost.py), this
+   script creates the "ctf-player" user and the needed directories and also
+   changes the password of the account to be that which was generated by the
+   "builder" container.
 
-
-### Debugging your Dockerfile
-
-For typical problem playtest deployment and testing strategy, see 
-[this section](/example-problems/sanity-static-flag#Deployment).
-
-In this walkthrough we will demonstrate how to debug one's Dockerfile. Cmgr
-does a decent job on relaying the error that it received when it tried to
-build the Docker container, however, the entire build process is opaque to
-the cmgr user, and some more control and introspection of the docker build
-process goes a long way in being able to determine what is going wrong.
-
-1. Clone this repo
-2. Go to the custom-ssh directory
-    - `cd start-problem-dev/example-problems/custom-ssh/`
-3. Switch Dockerfiles. `Dockerfile.test` has 1 discrepancy in it.
-    - `mv Dockerfile Dockerfile.good`
-    - `mv Dockerfile.test Dockerfile`
-4. Build the problem with cmgr
-      - `cmgr update`
-      - `cmgr build syreal/examples/custom-ssh 9001`
-      - Expected output:
-```
-cmgr: [ERROR:  failed to build image: The command '/bin/sh -c python3 config-box.py' returned a non-zero code: 2]
-error: failed to build image: The command '/bin/sh -c python3 config-box.py' returned a non-zero code: 2
-```
-* We at least know which step failed, however, we can get much more info
-  by building the container manually with Docker:
-
-5. Build the container manually.
-    - `docker build .`
-    - Expected output (tail end):
-```
-Step 11/13 : RUN python3 config-box.py
- ---> Running in f696b2257959
-python3: can't open file 'config-box.py': [Errno 2] No such file or directory
-The command '/bin/sh -c python3 config-box.py' returned a non-zero code: 2
-```
-6. Fix the issue.
-    - `RUN python3 config-box.py` needs to be `RUN python3 /challenge/config-box.py`
 
 ## Conclusion
 
 With this walkthrough, we created an advanced problem that used a custom
-Dockerfile to create a container that could be ssh'd to and had parts of a
-flag scattered across the filesystem.
-
-Using the custom problem type in cmgr opens the doors to creativity but also
-needs more powerful debugging. This walkthrough also demonstrated how to
-gain more debugging insight into custom cmgr problems by building the
-container manually with docker which provides a lot more information about
-build failures.
+Dockerfile to create multiple containers to separate building the challenge
+from actually playing it. The result is an ssh host container that has no
+challenge metadata present on it and *never* had any on it.
 
 [Return to the index](/README.md#walkthroughs)
-
