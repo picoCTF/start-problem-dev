@@ -21,7 +21,8 @@ development with.
 1. [Sanity, static flag](/example-problems/sanity-static-flag/)
 2. [Forensics Grep](/example-problems/forensics-grep/)
 3. [Forensics Disk](/example-problems/forensics-disk/)
-4. [Custom Docker](/example-problems/custom-ssh/)
+1. [Custom Service](/example-problems/custom-service/)
+4. [Custom SSH (Multi-stage Dockerfile)](/example-problems/custom-ssh/)
 5. [Custom Web](/example-problems/custom-web/)
 
 In addition to these walkthroughs, you can also check the `cmgr` developers'
