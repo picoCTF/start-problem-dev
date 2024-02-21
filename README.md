@@ -8,7 +8,7 @@ suggestions [here](mailto:other@picoctf.org).
 
 ## Setup
 
-Install [cmgr](https://github.com/ArmyCyberInstitute/cmgr#quickstart).
+Install [cmgr](https://github.com/picoctf/cmgr#quickstart).
 
 
 
