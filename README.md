@@ -8,7 +8,44 @@ suggestions [here](mailto:other@picoctf.org).
 
 ## Setup
 
-Install [cmgr](https://github.com/picoctf/cmgr#quickstart).
+- Install [Docker](https://docs.docker.com/engine/install/).
+- Install [cmgr](https://github.com/picoCTF/cmgr/releases/latest).
+  - There are pre-built binaries for Mac and Linux
+  - For Windows, we recommend enabling and installing [WSL](https://learn.microsoft.com/en-us/windows/wsl/setup/environment), but if for some reason you want to run `cmgr` "natively" you can follow [these alternate instructions](/cmgr-native-windows.md) to build `cmgr` on Windows.
+    - For WSL, we recommend using the default distro (Ubuntu).
+    - Follow [these instructions](https://docs.docker.com/desktop/settings/windows/#wsl-integration) to ensure `cmgr` can talk to Docker.
+    - Proceed with these instructions from within your Ubuntu machine.
+      - Find and start the "Ubuntu" app using the start menu search
+  - Download the appropriate archive and decompress.
+    - Linux example commands:
+    - `cd ~/Downloads`
+    - `wget <url-of-release>` such as:
+      - `wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
+    - `tar xzvf cmgr_linux_amd64.tar.gz`
+  - Put `cmgr` and `cmgrd` in your path so they can be easily accessed on the command line.
+    - `cp cmgr /usr/local/bin/`
+    - `cp cmgrd /usr/local/bin/`
+- Configure cmgr.
+  - cmgr is configured using environment variables, see this [page](https://github.com/picoCTF/cmgr?tab=readme-ov-file#configuration) for more information.
+  - In these next steps, we create directories to separate our cmgr challenges. cmgr will traverse all subdirectories looking for challenges or updated challenges. It's good practice to keep your working directory distinct from your deploy directory. Especially if you're working with multiple challenges, you must keep these challenges in a single, shared directory tree.
+    - `sudo mkdir /challenges`
+    - `sudo chown yourUser:yourUser /challenges`
+    - `cd /challenges`
+    - `mkdir cmgr`
+    - `mkdir deploy`
+    - `mkdir cmgr/artifacts`
+  - Next, we set some cmgr enviroment variables in a persistent place.
+    - `echo "export CMGR_DB='/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
+    - `echo "export CMGR_DIR='/challenges/deploy'" >> ~/.bashrc`
+    - `echo "export CMGR_ARTIFACTS_DIR='/challenges/cmgr/artifacts'" >> ~/.bashrc`
+    - `source ~/.bashrc` (Loads these changes to your current shell)
+- Test cmgr.
+  - `git clone git@github.com:picoCTF/start-problem-dev`
+  - `cd start-problem-dev/example-problems/`
+  - `cp -r forensics-grep/ /challenges/deploy/`
+  - `cmgr update`
+  - `cmgr playtest picoctf/examples/forensics-grep`
+  - Once cmgr launches challenge, navigate to it with a browser
 
 
 
