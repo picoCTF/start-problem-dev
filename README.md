@@ -40,6 +40,8 @@ suggestions [here](mailto:other@picoctf.org).
     - `echo "export CMGR_ARTIFACTS_DIR='/challenges/cmgr/artifacts'" >> ~/.bashrc`
     - `source ~/.bashrc` (Loads these changes to your current shell)
 - Test cmgr.
+  - `mkdir ~/examples`
+  - `cd ~/examples`
   - `git clone git@github.com:picoCTF/start-problem-dev`
   - `cd start-problem-dev/example-problems/`
   - `cp -r forensics-grep/ /challenges/deploy/`
