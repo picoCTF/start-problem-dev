@@ -18,35 +18,35 @@ suggestions [here](mailto:other@picoctf.org).
       - Find and start the "Ubuntu" app using the start menu search
   - Download the appropriate archive and decompress.
     - Linux example commands:
-    - `cd ~/Downloads`
-    - `wget <url-of-release>` such as:
-      - `wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
-    - `tar xzvf cmgr_linux_amd64.tar.gz`
+    - `$ cd ~/Downloads`
+    - `$ wget <url-of-release>` such as:
+      - `$ wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
+    - `$ tar xzvf cmgr_linux_amd64.tar.gz`
   - Put `cmgr` and `cmgrd` in your path so they can be easily accessed on the command line.
-    - `cp cmgr /usr/local/bin/`
-    - `cp cmgrd /usr/local/bin/`
+    - `$ cp cmgr /usr/local/bin/`
+    - `$ cp cmgrd /usr/local/bin/`
 - Configure cmgr.
   - cmgr is configured using environment variables, see this [page](https://github.com/picoCTF/cmgr?tab=readme-ov-file#configuration) for more information.
   - In these next steps, we create directories to separate our cmgr challenges. cmgr will traverse all subdirectories looking for challenges or updated challenges. It's good practice to keep your working directory distinct from your deploy directory. Especially if you're working with multiple challenges, you must keep these challenges in a single, shared directory tree.
-    - `sudo mkdir /challenges`
-    - `sudo chown yourUser:yourUser /challenges`
-    - `cd /challenges`
-    - `mkdir cmgr`
-    - `mkdir deploy`
-    - `mkdir cmgr/artifacts`
+    - `$ sudo mkdir /challenges`
+    - `$ sudo chown yourUser:yourUser /challenges`
+    - `$ cd /challenges`
+    - `$ mkdir cmgr`
+    - `$ mkdir deploy`
+    - `$ mkdir cmgr/artifacts`
   - Next, we set some cmgr enviroment variables in a persistent place.
-    - `echo "export CMGR_DB='/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
-    - `echo "export CMGR_DIR='/challenges/deploy'" >> ~/.bashrc`
-    - `echo "export CMGR_ARTIFACTS_DIR='/challenges/cmgr/artifacts'" >> ~/.bashrc`
-    - `source ~/.bashrc` (Loads these changes to your current shell)
+    - `$ echo "export CMGR_DB='/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
+    - `$ echo "export CMGR_DIR='/challenges/deploy'" >> ~/.bashrc`
+    - `$ echo "export CMGR_ARTIFACTS_DIR='/challenges/cmgr/artifacts'" >> ~/.bashrc`
+    - `$ source ~/.bashrc` (Loads these changes to your current shell)
 - Test cmgr.
-  - `mkdir ~/examples`
-  - `cd ~/examples`
-  - `git clone https://github.com/picoCTF/start-problem-dev.git`
-  - `cd start-problem-dev/example-problems/`
-  - `cp -r sanity-static-flag/ /challenges/deploy/`
-  - `cmgr update`
-  - `cmgr playtest picoctf/examples/sanity-download`
+  - `$ mkdir ~/examples`
+  - `$ cd ~/examples`
+  - `$ git clone https://github.com/picoCTF/start-problem-dev.git`
+  - `$ cd start-problem-dev/example-problems/`
+  - `$ cp -r sanity-static-flag/ /challenges/deploy/`
+  - `$ cmgr update`
+  - `$ cmgr playtest picoctf/examples/sanity-download`
   - Once cmgr launches challenge, navigate to it with a browser
 
 
