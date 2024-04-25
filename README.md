@@ -11,9 +11,9 @@ suggestions [here](mailto:other@picoctf.org).
 - Install [Docker](https://docs.docker.com/engine/install/).
 - Install [cmgr](https://github.com/picoCTF/cmgr/releases/latest).
   - There are pre-built binaries for Mac and Linux
-  - For Windows, we recommend enabling and installing [WSL](https://learn.microsoft.com/en-us/windows/wsl/setup/environment), but if for some reason you want to run `cmgr` "natively" you can follow [these alternate instructions](/cmgr-native-windows.md) to build `cmgr` on Windows.
-    - For WSL, we recommend using the default distro (Ubuntu).
-    - Follow [these instructions](https://docs.docker.com/desktop/settings/windows/#wsl-integration) to ensure `cmgr` can talk to Docker.
+  - For Windows, we recommend enabling and installing [WSL](https://learn.microsoft.com/en-us/windows/wsl/setup/environment) and using the Linux pre-built binaries.
+    - We recommend using the default distro (Ubuntu).
+    - If you can't run `docker` within WSL Ubuntu, follow [these instructions](https://docs.docker.com/desktop/settings/windows/#wsl-integration).
     - Proceed with these instructions from within your Ubuntu machine.
       - Find and start the "Ubuntu" app using the start menu search
   - Download the appropriate archive and decompress.
