@@ -1,8 +1,8 @@
 # Start Problem Development
 
-Welcome! At the time of writing, this documentation is maintained by LT
-'syreal' Jones. Feel free to reach out with questions, comments or 
-suggestions [here](mailto:other@picoctf.org).
+Welcome! At the time of writing, this documentation is maintained by Luke
+'syreal' Jones. Feel free to reach out with questions, comments or suggestions
+[here](mailto:other@picoctf.org).
 
 
 
