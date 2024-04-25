@@ -42,11 +42,11 @@ suggestions [here](mailto:other@picoctf.org).
 - Test cmgr.
   - `mkdir ~/examples`
   - `cd ~/examples`
-  - `git clone git@github.com:picoCTF/start-problem-dev`
+  - `git clone https://github.com/picoCTF/start-problem-dev.git`
   - `cd start-problem-dev/example-problems/`
-  - `cp -r forensics-grep/ /challenges/deploy/`
+  - `cp -r sanity-static-flag/ /challenges/deploy/`
   - `cmgr update`
-  - `cmgr playtest picoctf/examples/forensics-grep`
+  - `cmgr playtest picoctf/examples/sanity-download`
   - Once cmgr launches challenge, navigate to it with a browser
 
 
