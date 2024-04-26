@@ -23,7 +23,7 @@ Welcome! At the time of writing, this documentation is maintained by Luke
   - Download the appropriate archive and decompress.
     - Linux example commands:
     - `$ cd ~/Downloads`
-    - `$ wget <url-of-release>` such as:
+    - `$ wget <url-of-release-tarball>` such as:
       - `$ wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
     - `$ tar xzvf cmgr_linux_amd64.tar.gz`
   - Put `cmgr` and `cmgrd` in your path so they can be easily accessed on the
@@ -40,27 +40,33 @@ Welcome! At the time of writing, this documentation is maintained by Luke
     your deploy directory. Especially if you're working with multiple
     challenges, you must keep these challenges in a single, shared directory
     tree.
-    - `$ sudo mkdir /challenges`
-    - `$ sudo chown yourUser:yourUser /challenges`
-    - `$ cd /challenges`
+    - `$ mkdir ~/challenges`
+    - `$ cd ~/challenges`
     - `$ mkdir cmgr`
     - `$ mkdir deploy`
     - `$ mkdir cmgr/artifacts`
   - Next, we set some cmgr enviroment variables in a persistent place.
     - `$ echo "export CMGR_DB='/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
+      - This file is cmgr's SQLite database. It contains everything cmgr knows
+        about your challenges. If cmgr gets in a bad state, you can delete this
+        file to *hard* reset cmgr.
     - `$ echo "export CMGR_DIR='/challenges/deploy'" >> ~/.bashrc`
+      - This is where you'll put all your challenges, in separate directories.
     - `$ echo "export CMGR_ARTIFACTS_DIR='/challenges/cmgr/artifacts'" >>
       ~/.bashrc`
+      - This is mostly behind the scenes, but this is where cmgr saves each
+        challenge's artifacts.tar.gz, renamed with the cmgr ID of the challenge.
     - `$ source ~/.bashrc` (Loads these changes to your current shell)
 - Test cmgr.
   - `$ mkdir ~/examples`
   - `$ cd ~/examples`
   - `$ git clone https://github.com/picoCTF/start-problem-dev.git`
   - `$ cd start-problem-dev/example-problems/`
-  - `$ cp -r sanity-static-flag/ /challenges/deploy/`
+  - `$ cp -r sanity-static-flag/ ~/challenges/deploy/`
   - `$ cmgr update`
   - `$ cmgr playtest picoctf/examples/sanity-download`
-  - Once cmgr launches challenge, navigate to it with a browser
+  - Once cmgr launches challenge, navigate to `http://localhost:4242/` with a
+    browser
 
 ## Walkthroughs
 
