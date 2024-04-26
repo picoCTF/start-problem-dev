@@ -37,9 +37,11 @@ Welcome! At the time of writing, this documentation is maintained by Luke
   - In these next steps, we create directories to separate our cmgr challenges.
     cmgr will traverse all subdirectories looking for challenges or updated
     challenges. It's good practice to keep your working directory distinct from
-    your deploy directory. Especially if you're working with multiple
-    challenges, you must keep these challenges in a single, shared directory
-    tree.
+    your deploy directory. We want our deploy directory to be like a practice
+    for production, and usually a working directory for a CTF challenge will
+    have many files that you don't want to include in the deployment. Especially
+    if you're working with multiple challenges, you must keep these challenges
+    in a single, shared directory tree.
     - `$ mkdir ~/challenges`
     - `$ cd ~/challenges`
     - `$ mkdir cmgr`
@@ -98,7 +100,12 @@ which are a good source for more complex problem development.
     Treasure](https://www.youtube.com/watch?v=Wc3Q7tBS8Gc)
 - Consider whether your problem is more pedagogical or more novel
   - More pedagogical problems are more towards 100 and 200 points
+    - Such as the [Time
+      Machine](https://play.picoctf.org/practice/challenge/425) problem
   - More novel problems are more towards 400 and 500 points
+    - Such as the
+      [high-frequency-troubles](https://play.picoctf.org/practice/challenge/441)
+      problem
 - Pedagogical problems should be solvable with the webshell
 - It's ok if 400/500 point problems cannot be solved reasonably within the
   webshell, but it's really cool if they can!
