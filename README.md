@@ -82,7 +82,8 @@ development with.
 6. [Custom Web](/example-problems/custom-web/)
 
 In addition to these walkthroughs, you can also check the `cmgr` developers'
-[example problems,](https://github.com/ArmyCyberInstitute/cmgr/tree/master/examples)
+[example
+problems,](https://github.com/ArmyCyberInstitute/cmgr/tree/master/examples)
 which are a good source for more complex problem development.
 
 ## Problem Developer Guidance
