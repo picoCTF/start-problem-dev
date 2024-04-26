@@ -11,6 +11,7 @@
 Test your internet connection!
 
 ## Details
+
 Download the flag {{url_for("flag", "here")}}.
 
 ## Hints
