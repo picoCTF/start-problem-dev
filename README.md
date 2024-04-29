@@ -153,7 +153,7 @@ which are a good source for more complex problem development.
   use the webshell
   - If a challenge requires an obscure command line tool to solve, let us know
     so that we can add it to the webshell
-  - Our users with the most potential to learn use the webshell
+  - Most users playing from school only have the webshell
   - Some previous winners have also used the webshell for certain problems
 - Also try to avoid challenges that require excessive client-side computation
   (especially for crypto challenges etc.), as some players will be using our
@@ -173,6 +173,7 @@ which are a good source for more complex problem development.
   netcat, please don’t wait indefinitely for user input, in case users leave
   connections open
   - Add a timeout that exits the process if the user does not respond
+    - See [this source](https://github.com/picoCTF/challenges/blob/main/cmgr/2022-beginner-picomini/hashingjopapp/hashingjobapp.py#L47)
   - Automatically exit the process after printing the flag
 - If a C program uses `scanf` make sure it handles EOF appropriately, see [this
   source](https://github.com/picoCTF/challenges/blob/main/cmgr/picoctf-2024/Binary%20Exploitation/heap-1/chall.c#L88)
@@ -189,6 +190,8 @@ which are a good source for more complex problem development.
 
 - For web challenges, make sure that it is not possible to read the flag via
   directory traversal
+  - Unless that's the intention, like with [this
+    problem](https://play.picoctf.org/practice/challenge/270)
 - For web challenges, include all vendor external scripts, stylesheets, etc.
   needed at runtime into the challenge source. We want to make sure files remain
   available and that players can access everything needed for a challenge via
