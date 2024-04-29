@@ -186,7 +186,7 @@ which are a good source for more complex problem development.
   running the challenge locally. In error cases like this, prefer a neutral
   message like “flag.txt not found in the current directory.”
 
-### Web and Web Challenges
+### Web
 
 - For web challenges, make sure that it is not possible to read the flag via
   directory traversal
