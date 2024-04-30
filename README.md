@@ -48,13 +48,13 @@ Welcome! At the time of writing, this documentation is maintained by Luke
     - `$ mkdir deploy`
     - `$ mkdir cmgr/artifacts`
   - Next, we set some cmgr enviroment variables in a persistent place
-    - `$ echo "export CMGR_DB='/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
+    - `$ echo "export CMGR_DB='~/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
       - This file is cmgr's SQLite database. It contains everything cmgr knows
         about your challenges. If cmgr gets in a bad state, you can delete this
         file to *hard* reset cmgr.
-    - `$ echo "export CMGR_DIR='/challenges/deploy'" >> ~/.bashrc`
+    - `$ echo "export CMGR_DIR='~/challenges/deploy'" >> ~/.bashrc`
       - This is where you'll put all your challenges, in separate directories.
-    - `$ echo "export CMGR_ARTIFACTS_DIR='/challenges/cmgr/artifacts'" >>
+    - `$ echo "export CMGR_ARTIFACTS_DIR='~/challenges/cmgr/artifacts'" >>
       ~/.bashrc`
       - This is mostly behind the scenes, but this is where cmgr saves each
         challenge's artifacts.tar.gz, renamed with the cmgr ID of the challenge.
