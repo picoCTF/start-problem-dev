@@ -6,11 +6,11 @@ Welcome! At the time of writing, this documentation is maintained by Luke
 
 ## Setup
 
-- Install [Docker Desktop](https://docs.docker.com/engine/install/).
+- Install [Docker Desktop](https://docs.docker.com/engine/install/)
   - If you're running a supported distro of Linux, you may want to install
     [Docker Engine](https://docs.docker.com/engine/install/#supported-platforms)
     instead of Docker Desktop for just command-line tools.
-- Install [cmgr](https://github.com/picoCTF/cmgr/releases/latest).
+- Install [cmgr](https://github.com/picoCTF/cmgr/releases/latest)
   - There are pre-built binaries for Mac and Linux
   - For Windows, we recommend enabling and installing
     [WSL](https://learn.microsoft.com/en-us/windows/wsl/setup/environment) and
@@ -20,17 +20,17 @@ Welcome! At the time of writing, this documentation is maintained by Luke
       instructions](https://docs.docker.com/desktop/settings/windows/#wsl-integration).
     - Proceed with these instructions from within your Ubuntu machine.
       - Find and start the "Ubuntu" app using the start menu search
-  - Download the appropriate archive and decompress.
+  - Download the appropriate archive and decompress
     - Linux example commands:
     - `$ cd ~/Downloads`
     - `$ wget <url-of-release-tarball>` such as:
       - `$ wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
     - `$ tar xzvf cmgr_linux_amd64.tar.gz`
   - Put `cmgr` and `cmgrd` in your path so they can be easily accessed on the
-    command line.
+    command line
     - `$ sudo cp cmgr /usr/local/bin/`
     - `$ sudo cp cmgrd /usr/local/bin/`
-- Configure cmgr.
+- Configure cmgr
   - cmgr is configured using environment variables, see this
     [page](https://github.com/picoCTF/cmgr?tab=readme-ov-file#configuration) for
     more information.
@@ -47,7 +47,7 @@ Welcome! At the time of writing, this documentation is maintained by Luke
     - `$ mkdir cmgr`
     - `$ mkdir deploy`
     - `$ mkdir cmgr/artifacts`
-  - Next, we set some cmgr enviroment variables in a persistent place.
+  - Next, we set some cmgr enviroment variables in a persistent place
     - `$ echo "export CMGR_DB='/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
       - This file is cmgr's SQLite database. It contains everything cmgr knows
         about your challenges. If cmgr gets in a bad state, you can delete this
@@ -59,7 +59,7 @@ Welcome! At the time of writing, this documentation is maintained by Luke
       - This is mostly behind the scenes, but this is where cmgr saves each
         challenge's artifacts.tar.gz, renamed with the cmgr ID of the challenge.
     - `$ source ~/.bashrc` (Loads these changes to your current shell)
-- Test cmgr.
+- Test cmgr
   - `$ mkdir ~/examples`
   - `$ cd ~/examples`
   - `$ git clone https://github.com/picoCTF/start-problem-dev.git`
@@ -110,7 +110,7 @@ which are a good source for more complex problem development.
 - It's ok if 400/500 point problems cannot be solved reasonably within the
   webshell, but it's really cool if they can!
 - Avoid situations where “correct looking” or red herring flags can be found -
-  this causes customer support issues later on.
+  this causes customer support issues later on
 
 ### General Technical Concerns
 
@@ -195,13 +195,13 @@ which are a good source for more complex problem development.
 - For web challenges, include all vendor external scripts, stylesheets, etc.
   needed at runtime into the challenge source. We want to make sure files remain
   available and that players can access everything needed for a challenge via
-  picoCTF-controlled domains.
+  picoCTF-controlled domains
 - Do not make outbound Internet requests from challenges at runtime, as access
   will be blocked on our servers
 - Assume that challenges will not have outbound Internet access at runtime. (We
   may be able to make exceptions in specific cases.) Note that you can add
   another container to the challenge’s network to support exfiltrating data to
-  another host.
+  another host
 - Challenges should not rely on externally-hosted services (such as third-party
   APIs) at runtime. We cannot guarantee that these services will remain
-  accessible or compatible, which can lead to challenges breaking over time.
+  accessible or compatible, which can lead to challenges breaking over time
