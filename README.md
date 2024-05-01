@@ -26,10 +26,17 @@ Welcome! At the time of writing, this documentation is maintained by Luke
     - `$ wget <url-of-release-tarball>` such as:
       - `$ wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
     - `$ tar xzvf cmgr_linux_amd64.tar.gz`
-  - Put `cmgr` and `cmgrd` in your path so they can be easily accessed on the
-    command line
-    - `$ sudo cp cmgr /usr/local/bin/`
-    - `$ sudo cp cmgrd /usr/local/bin/`
+  - Put `cmgr` in your path so it can be easily accessed on the command line
+    - `$ mkdir ~/cmgr`
+    - `$ mkdir ~/cmgr/bin`
+    - `$ cp cmgr ~/cmgr/bin/`
+    - Add `~/cmgr/bin/` to your path in a shell setup script
+      - Example Linux command:
+        - `$ echo "export PATH='$PATH:$HOME/cmgr/bin'" >> ~/.bashrc`
+      - To make these changes apply to your current shell:
+        - `$ source ~/.bashrc`
+      - If you're on a recent version of Mac, you may need to add this
+        configuration to `~/.zshrc` instead of `~/.bashrc`
 - Configure cmgr
   - cmgr is configured using environment variables, see this
     [page](https://github.com/picoCTF/cmgr?tab=readme-ov-file#configuration) for
@@ -42,20 +49,16 @@ Welcome! At the time of writing, this documentation is maintained by Luke
     have many files that you don't want to include in the deployment. Especially
     if you're working with multiple challenges, you must keep these challenges
     in a single, shared directory tree.
-    - `$ mkdir ~/challenges`
-    - `$ cd ~/challenges`
-    - `$ mkdir cmgr`
-    - `$ mkdir deploy`
-    - `$ mkdir cmgr/artifacts`
+    - `$ mkdir ~/cmgr/challenges`
+    - `$ mkdir ~/cmgr/artifacts`
   - Next, we set some cmgr enviroment variables in a persistent place
-    - `$ echo "export CMGR_DB='~/challenges/cmgr/cmgr.db'" >> ~/.bashrc`
+    - `$ echo "export CMGR_DB='~/cmgr/cmgr.db'" >> ~/.bashrc`
       - This file is cmgr's SQLite database. It contains everything cmgr knows
         about your challenges. If cmgr gets in a bad state, you can delete this
         file to *hard* reset cmgr.
-    - `$ echo "export CMGR_DIR='~/challenges/deploy'" >> ~/.bashrc`
+    - `$ echo "export CMGR_DIR='~/cmgr/challenges'" >> ~/.bashrc`
       - This is where you'll put all your challenges, in separate directories.
-    - `$ echo "export CMGR_ARTIFACTS_DIR='~/challenges/cmgr/artifacts'" >>
-      ~/.bashrc`
+    - `$ echo "export CMGR_ARTIFACTS_DIR='~/cmgr/artifacts'" >> ~/.bashrc`
       - This is mostly behind the scenes, but this is where cmgr saves each
         challenge's artifacts.tar.gz, renamed with the cmgr ID of the challenge.
     - `$ source ~/.bashrc` (Loads these changes to your current shell)
@@ -64,7 +67,7 @@ Welcome! At the time of writing, this documentation is maintained by Luke
   - `$ cd ~/examples`
   - `$ git clone https://github.com/picoCTF/start-problem-dev.git`
   - `$ cd start-problem-dev/example-problems/`
-  - `$ cp -r sanity-static-flag/ ~/challenges/deploy/`
+  - `$ cp -r sanity-static-flag/ ~/cmgr/challenges/`
   - `$ cmgr update`
   - `$ cmgr playtest picoctf/examples/sanity-download`
   - Once cmgr launches challenge, navigate to `http://localhost:4242/` with a
