@@ -15,7 +15,7 @@ Welcome! At the time of writing, this documentation is maintained by Luke
   - For Windows, we recommend enabling and installing
     [WSL](https://learn.microsoft.com/en-us/windows/wsl/setup/environment) and
     using the Linux pre-built binaries.
-    - For WSL, We recommend using the default distro (Ubuntu).
+    - For WSL, we recommend using the default distro (Ubuntu).
     - If you can't run `docker` within WSL Ubuntu, follow [these
       instructions](https://docs.docker.com/desktop/settings/windows/#wsl-integration).
     - Proceed with these instructions from within your Ubuntu machine.
