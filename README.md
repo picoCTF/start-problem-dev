@@ -26,7 +26,6 @@ Let's get started on turning your CTF dreams into reality!
 - Install and [setup cmgr](/setup-cmgr.md)
 - Look at some [example problems](/example-problems/)
 - Review extensive [problem developer advice](/dev-advice.md)
-- Do some walkthroughs
 
 ## Creating a challenge
 
