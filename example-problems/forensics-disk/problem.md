@@ -1,7 +1,7 @@
 # Forensics Disk
 
 - Namespace: picoctf/examples
-- Type: static-make
+- Type: custom
 - Category: Forensics
 - Points: 1
 - Templatable: yes

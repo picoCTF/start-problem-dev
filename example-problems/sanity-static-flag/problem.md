@@ -1,7 +1,7 @@
 # Sanity Download
 
 - Namespace: picoctf/examples
-- Type: static-make
+- Type: custom
 - Category: General Skills
 - Points: 1
 - Templatable: no
