@@ -37,5 +37,6 @@ Let's get started on turning your CTF dreams into reality!
 - Package the challenge for cmgr
 - Test the challenge in cmgr
 - Add `syreal17` as a collaborator on your repo
+- Fill out and send the [Use of Work form](/Agreement%20for%20use%20of%20work_picoCTF.pdf)
 - Receive feedback
 - Observe your challenge in the next competition!
