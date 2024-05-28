@@ -1,7 +1,7 @@
 # Sanity Download
 
 - Namespace: picoctf/examples
-- Type: static-make
+- Type: custom
 - Category: General Skills
 - Points: 1
 - Templatable: no
@@ -11,6 +11,7 @@
 Test your internet connection!
 
 ## Details
+
 Download the flag {{url_for("flag", "here")}}.
 
 ## Hints
