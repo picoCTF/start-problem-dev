@@ -11,6 +11,7 @@
 Can you find the flag in this large file?
 
 ## Details
+
 Download War and Peace {{url_for("war-and-peace.flag.txt", "here")}}.
 
 ## Hints

@@ -11,11 +11,12 @@
 Can you find the flag in this disk image?
 
 ## Details
+
 Download the disk image {{url_for("disk.flag.img.gz", "here")}}.
 
 ## Hints
 
-- Download the disk image and search slack space with a sleuthkit tool to find 
+- Download the disk image and search slack space with a sleuthkit tool to find
   the flag!
 
 ## Solution Overview
