@@ -35,6 +35,7 @@ Let's get started on turning your CTF dreams into reality!
 - Write a proof-of-concept challenge
 - Package the challenge for cmgr
 - Test the challenge in cmgr
+- Write a solve script
 - Add `syreal17` as a collaborator on your repo
 - Fill out and send the [Use of Work form](/Agreement%20for%20use%20of%20work_picoCTF.pdf)
 - Receive feedback
