@@ -63,6 +63,23 @@
   - `$ cd start-problem-dev/example-problems/`
   - `$ cp -r sanity-static-flag/ ~/cmgr/challenges/`
   - `$ cmgr update`
+    - Expected output:
+
+       ```terminal
+       Added:
+           picoctf/examples/sanity-download
+       ```
+
   - `$ cmgr playtest picoctf/examples/sanity-download`
-  - Once cmgr launches challenge, navigate to `http://localhost:4242/` with a
-    browser
+    - This might take a few minutes, it's building a container.
+    - Expected output:
+
+       ```terminal
+       cmgr: [WARN:  disk quota for picoctf/examples/sanity-download container 'challenge' ignored (disk quotas are not enabled)]
+       challenge information available at: http://localhost:4242/
+       ```
+
+  - Once cmgr launches the challenge, navigate to `http://localhost:4242/` with
+    a browser
+    - Expected output:
+      ![Sanity playtest page](/img/sanity-download-playtest.png)
