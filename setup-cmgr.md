@@ -82,4 +82,5 @@
   - Once cmgr launches the challenge, navigate to `http://localhost:4242/` with
     a browser
     - Expected output:
+
       ![Sanity playtest page](/img/sanity-download-playtest.png)
