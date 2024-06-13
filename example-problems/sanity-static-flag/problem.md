@@ -1,6 +1,7 @@
 # Sanity Download
 
 - Namespace: picoctf/examples
+- ID: sanity-download
 - Type: custom
 - Category: General Skills
 - Points: 1
@@ -12,7 +13,7 @@ Test your internet connection!
 
 ## Details
 
-Download the flag {{url_for("flag", "here")}}.
+Download the flag {{url_for("flag.txt", "here")}}.
 
 ## Hints
 
@@ -20,7 +21,7 @@ Download the flag {{url_for("flag", "here")}}.
 
 ## Solution Overview
 
-Download `flag` and open it.
+Download `flag.txt` and open it.
 
 ## Challenge Options
 

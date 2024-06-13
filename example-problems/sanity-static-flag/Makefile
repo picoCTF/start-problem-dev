@@ -15,3 +15,4 @@ metadata.json:
 
 clean:
 	rm -f flag
+	
