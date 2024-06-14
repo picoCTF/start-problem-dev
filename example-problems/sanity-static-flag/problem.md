@@ -39,10 +39,6 @@ init: true
 
 Test and verify your connectivity to our CTF
 
-## Tags
-
-- example
-
 ## Attributes
 
 - author: LT 'syreal' Jones
