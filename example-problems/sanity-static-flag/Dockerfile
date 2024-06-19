@@ -14,9 +14,9 @@ WORKDIR /app
 #   downloads in problem.md.
 # * Creates /challenge/metadata.json which defines the flag and potentially
 #   other metadata.
-RUN tar czvf /challenge/artifacts.tar.gz flag.txt \
-    && echo "{\"flag\":\"$(cat flag.txt)\"}" > /challenge/metadata.json
+RUN tar czvf /challenge/artifacts.tar.gz flag.txt && \
+    echo "{\"flag\":\"$(cat flag.txt)\"}" > /challenge/metadata.json
 
-# This is a dummy command that keeps the container running. It is only
-# necessary because of cmgr.
+# This is a dummy command that keeps the container running. cmgr will keep
+# restarting the container if it exits.
 CMD ["tail", "-f", "/dev/null"]
