@@ -28,7 +28,8 @@ The following walkthough has 3 parts:
 
 2. Deployment. We will demonstrate deploying this challenge for testing.
 
-3. Testing. We will demonstrate a good place to start with testing any challenge
+3. Testing. We will demonstrate a good place to start with testing any
+   challenge.
 
 ### File Listing
 
