@@ -70,11 +70,11 @@ The following walkthough has 3 parts:
           include it in reasonable detail.
         - The `Learning Objective` is also optional but is very useful to us as
           a one sentence statement about what a challenge aims to teach.
-  1. [flag.txt](/example-problems/sanity-static-flag/flag.txt) this is what
+  1. [flag.txt](/example-problems/sanity-static-flag/flag.txt). This is what
      everyone is trying to get! We pass it into our container, and it creates a
      tarball out of it called `artifacts.tar.gz` which cmgr looks for so it can
      provide links in the Description or Details of problem.md.
-  1. [.dockerignore](/example-problems/sanity-static-flag/.dockerignore) this
+  1. [.dockerignore](/example-problems/sanity-static-flag/.dockerignore). This
      lets us do `COPY . /app` in the Dockerfile and just copy `flag.txt`. We
      could've just done `COPY ./flag.txt /app` for this challenge, but if we
      have more challenge files the first method can be easier.
