@@ -61,15 +61,54 @@ The following walkthough has 3 parts:
             - `Points` this should be `Points: 1`. We won't know the points for
               any given challenge until we can calibrate them with the rest of
               the challenges in a competition.
-            - `Templatable` this is a bookkeeping value which indicates whether
-              a challenge has a static or dynamic flag. We try to keep as many
-              flags dynamic as possible as it helps us catch cheaters and allows
-              us to regenerate the instance flags if we need.
+            - `Templatable` this is a bookkeeping value (which means it serves
+              no functional purpose, it only exposes the intentions of the
+              challenge developer) which indicates whether a challenge has a
+              static or dynamic flag. We try to keep as many flags dynamic as
+              possible as it helps us catch cheaters and allows us to regenerate
+              the instance flags if we need.
+            - `MaxUsers` is another bookkeeping value which indicates whether
+              instances of the challenge will be shared (`MaxUsers: 0`) or
+              whether each user will get their own container (`MaxUsers: 1`). We
+              call challenges where every user gets their own container
+              "On-Demand". Indicate On-Demand if your container or service has
+              mutable state. Any challenge that makes it to the Gym becomes
+              On-Demand, because these are less expensive to host in the
+              long-run.
+        - The `Description` section is where you can explain your problem at a
+          high level or provide flavor. Please put artifact download links here
+          as the Details section is not visible for On-Demand challenges until
+          after the container(s) start.
+        - The `Details` section is where you can put instance connection
+          information. See the
+          [spec](https://github.com/picoCTF/cmgr/blob/master/examples/specification.md)
+          for more details. It can be empty if there is nothing relevant to
+          include.
+        - The `Hints` section should contain an unordered list of hints, but on
+          the picoCTF platform these hints will be numbered in the order that
+          they appear. This section can be empty. In our Gym, hints range from a
+          mini-walkthrough for more pedagogical problems to frustratingly
+          obscure references that don't really help until after you solve the
+          challenge.
         - The `Solution Overview` is technically optional but we rely heavily on
           it to determine difficulty, and to verify working instances so please
           include it in reasonable detail.
+        - The `Challenge Options` are actual container options that are applied
+          to your container(s). These are used to limit the amount of resources
+          that any given container can consume. The default options given are
+          sort of a minimum starting point. These options only apply to
+          containers that the players actually interact with. If everything
+          seems good, but your services won't start, you might have to bump up
+          these challenge options. However, they can't be too high, otherwise we
+          won't be able to support this challenge for the thousands of users
+          that we see in competitions. See [this
+          page](https://github.com/picoCTF/cmgr/blob/master/examples/specification.md#challenge-options)
+          for more detailed explanation.
         - The `Learning Objective` is also optional but is very useful to us as
           a one sentence statement about what a challenge aims to teach.
+        - The `Attributes` section can mostly be ignored by challenge authors,
+          but please include the author line you want to be published with your
+          challenge.
   1. [flag.txt](/example-problems/sanity-static-flag/flag.txt). This is what
      everyone is trying to get! We pass it into our container, and it creates a
      tarball out of it called `artifacts.tar.gz` which cmgr looks for so it can
