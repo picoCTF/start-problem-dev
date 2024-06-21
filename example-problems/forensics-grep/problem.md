@@ -1,18 +1,20 @@
 # Forensics Grep
 
 - Namespace: picoctf/examples
+- ID: forensics-grep
 - Type: custom
 - Category: Forensics
 - Points: 1
 - Templatable: yes
+- MaxUsers: 0
 
 ## Description
 
 Can you find the flag in this large file?
 
-## Details
-
 Download War and Peace {{url_for("war-and-peace.flag.txt", "here")}}.
+
+## Details
 
 ## Hints
 

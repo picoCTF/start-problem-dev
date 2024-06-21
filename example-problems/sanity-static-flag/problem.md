@@ -6,14 +6,15 @@
 - Category: General Skills
 - Points: 1
 - Templatable: no
+- MaxUsers: 0
 
 ## Description
 
 Test your internet connection!
 
-## Details
-
 Download the flag {{url_for("flag.txt", "here")}}.
+
+## Details
 
 ## Hints
 
