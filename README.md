@@ -31,7 +31,7 @@ Let's get started on turning your CTF dreams into reality!
 
 - Get an idea for a challenge
 - Reach out to us via [email](mailto:other@picoctf.org)
-- Create GitHub repository for your challenge(s)
+- Create a **private** GitHub repository for your challenge(s)
 - Write a proof-of-concept challenge
 - Package the challenge for cmgr
 - Test the challenge in cmgr
