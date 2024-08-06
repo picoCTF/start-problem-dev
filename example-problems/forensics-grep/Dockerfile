@@ -1,15 +1,16 @@
 # References base image by SHA to avoid drift. This is Python 3.12. You will
 # probably want to update the hash when working on a new challenge.
-FROM python@sha256:2fba8e70a87bcc9f6edd20dda0a1d4adb32046d2acbca7361bc61da5a106a914
+FROM python@sha256:2fba8e70a87bcc9f6edd20dda0a1d4adb32046d2acbca7361bc61da5a106a914 AS base
 
 # Challenge metadata and artifacts go here. Only root has access
-RUN install -d -m 0700 /challenge
+RUN mkdir /challenge && \
+    chmod 700 /challenge
 
-# * Copy all files from the build context to the image
-# * See .dockerignore for what is excluded
-COPY . /app
+# * Copy script and search media to the image
+COPY byteblast.py war-and-peace.txt /app/
 WORKDIR /app
 
+FROM base AS challenge
 # Bring in the pre-generated flag from cmgr. FLAG_FORMAT and SEED are also
 # available but not used in this problem.
 ARG FLAG
