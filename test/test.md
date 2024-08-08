@@ -1,0 +1,1 @@
+[external section link](https://github.com/picoCTF/cmgr/blob/master/examples/specification.md#challenge-options)
