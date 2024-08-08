@@ -119,6 +119,8 @@ The following walkthough has 3 parts:
 Follow [these steps](/setup-cmgr.md#test-cmgr) to deploy the sanity check
 problem.
 
+Test line [test](/example-problems/forensics-grep/README.md#overview)
+
 ### Testing
 
 Testing of problems involves at least 3 things:
