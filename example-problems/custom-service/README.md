@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
 2. You have done the [Sanity Problem Creation
    Walkthrough](/example-problems/sanity-static-flag/README.md). You do not have
@@ -116,4 +116,4 @@ gain more debugging insight into custom cmgr problems by building the
 container manually with docker which provides a lot more information about
 build failures.
 
-[Return to the index](/README.md#walkthroughs)
+[Return to the index](/example-problems)

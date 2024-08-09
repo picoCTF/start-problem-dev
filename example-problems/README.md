@@ -8,7 +8,7 @@ problem development with.
    - Presents the simplest of all CTF problems, the sanity check. Also goes over
      deploying and testing a problem.
 1. [Forensics Grep](/example-problems/forensics-grep/)
-   - Embeds the flag in a downloadable artifact. Also goes over testing
+   - Embeds a dynamic flag in a downloadable artifact. Also goes over testing
      templating.
 1. [Forensics Disk](/example-problems/forensics-disk/)
    - Embeds the flag in a more complex artifact.

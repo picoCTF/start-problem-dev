@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
 2. You have done the [Sanity Problem Creation
    Walkthrough](/example-problems/sanity-static-flag/README.md). You do not have
@@ -87,4 +87,4 @@ this problem happens outside of cmgr. The Makefile for this problem
 demonstrates handling this large uncompressed file and compressing it again
 before giving it as an artifact to the player.
 
-[Return to the index](/README.md#walkthroughs)
+[Return to the index](/example-problems)

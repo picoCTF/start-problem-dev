@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
 2. You have reviewed the [Sanity
    problem](/example-problems/sanity-static-flag/). This problem is presented as
@@ -140,4 +140,4 @@ series to teach the player about a tool and technique. The rest of the
 walkthroughs in this series will continue teaching the player about more and
 more advanced computer science and security practices.
 
-[Return to the index](/README.md#walkthroughs)
+[Return to the index](/example-problems)

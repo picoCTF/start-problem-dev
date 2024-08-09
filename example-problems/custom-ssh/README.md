@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
 2. You have done the [Custom Service Problem Creation
    Walkthrough](/example-problems/custom-service/). The Custom Service
@@ -89,4 +89,4 @@ Dockerfile to create multiple containers to separate building the challenge
 from actually playing it. The result is an ssh host container that has no
 challenge metadata present on it and *never* had any on it.
 
-[Return to the index](/README.md#walkthroughs)
+[Return to the index](/example-problems)
