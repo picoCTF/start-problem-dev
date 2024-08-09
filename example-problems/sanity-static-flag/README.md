@@ -12,7 +12,7 @@ This sanity challenge is a simple download of the flag in the file `flag.txt`.
 ## Pre-requisites
 
 1. You have `cmgr` installed.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the
+    - Refer to the [setup page](/setup-cmgr) if this is not the
       case for you.
 
 ## Overview
@@ -116,7 +116,7 @@ The following walkthough has 3 parts:
 
 ### Deployment
 
-Follow [these steps](/setup-cmgr.md#test-cmgr) to deploy the sanity check
+Follow [these steps](/setup-cmgr#test-cmgr) to deploy the sanity check
 problem.
 
 ### Testing
@@ -154,5 +154,5 @@ with the cmgr format for picoCTF problems. Other guides here will demonstrate
 generating a dynamic flag, creating challenges for other traditional CTF
 categories and more!
 
-Check out [forensics grep](/example-problems/forensics-grep/) to learn how to
+Check out [forensics grep](/example-problems/forensics-grep) to learn how to
 create and use dynamic flags!
