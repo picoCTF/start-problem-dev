@@ -22,12 +22,12 @@ There are 3 main changes in this problem that make it more interesting:
 1. The addition of 2 new files: war-and-peace.txt, and byteblast.py.
 
 1. Problem is marked as Templatable in problem.md. This means that multiple
-   instances of this problem can be ran, each having a different flag. This is
-   just a bookkeeping value.
+   instances of this problem can be ran, each having a different flag.
+   "Templatable" is just a bookkeeping value.
 
 1. All the mechanics of being Templatable (also referred to as having a dynamic
-   flag) flag happen in the Dockerfile which we will go over in more detail
-   during the File Listing below.
+   flag) happen in the Dockerfile which we will go over in more detail during
+   the File Listing below.
 
 By these changes we go from giving the flag out to anyone who can download it
 to hiding it deep within a large classic novel.
@@ -88,15 +88,17 @@ Sanity Walkthrough. The section in this walkthrough is going to demonstrate
 obtaining proof that two different instances of the same challenge have
 different flags.
 
-1. Clone this repo.
 1. `$ cd start-problem-dev/example-problems`
+1. `$ cp -r forensics-grep/ $CMGR_DIR/`
 1. Update cmgr with the grep problem:
-    - `$ cmgr update forensics-grep/`
+    - `$ cmgr update`
 1. Ensure problem appears in cmgr list:
     - `$ cmgr list`
-    - Expected output should include: `syreal/examples/forensics-grep`
+    - Expected output should include: `picoctf/examples/forensics-grep`
+1. At this point, you can either playtest this problem twice and make sure that
+   the flags are different. Or, a little more cleanly:
 1. Build two instances of the problem:
-    - `cmgr build syreal/examples/forensics-grep 9001 9002`
+    - `cmgr build picoctf/examples/forensics-grep 9001 9002`
     - This builds two instances of the grep problem. One is seeded with 9001
       and the other is seeded with 9002.
     - Expected output:
@@ -122,13 +124,12 @@ With this walkthrough, we created a classic problem that teaches the player
 about `grep`. Attempting to solve this problem manually is ill-advised, but it
 can be quickly solved using a finding tool.
 
-The Makefile of this problem is a bit more complex than the sanity check
+The Dockerfile of this problem is a bit more complex than the sanity check
 problem. It takes the flag and incorporates it into a large text, making it
 necessary to use a tool to efficiently solve this problem. We used a helper
 script of mine that I call 'byteblast'. This script can overwrite bytes of the
-file with the flag at arbitrary offsets. This script is useful (especially
-for forensics problems) but somewhat overpowered and should be used with
-caution.
+file with the flag at arbitrary offsets. This script is useful (especially for
+forensics problems) but somewhat overpowered and should be used with caution.
 
 We needed a programmatic way to write the flag in our large file because the
 flag is templated and therefore different for each build of our problem.
@@ -139,5 +140,7 @@ This is the first walkthrough (in order of ascending difficulty) in the cmgr
 series to teach the player about a tool and technique. The rest of the
 walkthroughs in this series will continue teaching the player about more and
 more advanced computer science and security practices.
+
+[Next problem](/example-problems/forensics-disk)
 
 [Return to the index](/example-problems#example-problems)
