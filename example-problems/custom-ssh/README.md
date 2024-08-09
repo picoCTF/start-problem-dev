@@ -89,4 +89,4 @@ Dockerfile to create multiple containers to separate building the challenge
 from actually playing it. The result is an ssh host container that has no
 challenge metadata present on it and *never* had any on it.
 
-[Return to the index](/example-problems)
+[Return to the index](/example-problems#example-problems)

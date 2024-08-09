@@ -116,4 +116,4 @@ gain more debugging insight into custom cmgr problems by building the
 container manually with docker which provides a lot more information about
 build failures.
 
-[Return to the index](/example-problems)
+[Return to the index](/example-problems#example-problems)

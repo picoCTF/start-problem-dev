@@ -87,4 +87,4 @@ this problem happens outside of cmgr. The Makefile for this problem
 demonstrates handling this large uncompressed file and compressing it again
 before giving it as an artifact to the player.
 
-[Return to the index](/example-problems)
+[Return to the index](/example-problems#example-problems)

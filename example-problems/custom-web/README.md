@@ -58,4 +58,4 @@ a web challenge type. By using the custom challenge type instead, this let us
 have more freedom in where to put the flag, but required developing a
 Dockerfile that spun up a web server.
 
-[Return to the index](/example-problems)
+[Return to the index](/example-problems#example-problems)
