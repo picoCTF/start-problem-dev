@@ -1,26 +1,39 @@
-FROM ubuntu:20.04 AS base
-ENV DEBIAN_FRONTEND=noninteractive
+# References base image by SHA to avoid drift. This is Python 3.12. You will
+# probably want to update the hash when working on a new challenge.
+FROM ubuntu@sha256:e3f92abc0967a6c19d0dfa2d55838833e947b9d74edbcb0113e48535ad4be12a AS base
 
-RUN apt-get update && apt-get install -y \
-    build-essential
-RUN install -d -m 0700 /challenge
-# End of shared layers for all flask challenges
+# Install python3
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y python3
 
-COPY Dockerfile packages.txt* ./
-RUN if [ -f packages.txt ]; then apt-get update && xargs -a packages.txt apt-get install -y; fi
+# Challenge metadata and artifacts go here. Only root has access
+RUN mkdir /challenge && \
+    chmod 700 /challenge
 
-COPY . /app
+# * Copy script and search media to the image
+COPY byteblast.py disk.img.gz /app/
 WORKDIR /app
 
-# End of share layers for all builds of the same flask challenge
 FROM base AS challenge
-
-ARG FLAG_FORMAT
+# Bring in the pre-generated flag from cmgr. FLAG_FORMAT and SEED are also
+# available but not used in this problem.
 ARG FLAG
-ARG SEED
 
-RUN make main
-RUN make artifacts.tar.gz && mv artifacts.tar.gz /challenge || true
-RUN make metadata.json && mv metadata.json /challenge
+# * Use the randomness from the cmgr flag to construct our own instanced flag
+# * byteblast.py is a script that overwrites bytes at an offset for a file
+RUN echo $FLAG | sed "s/.*{/picoCTF{d15k_513uth_/1" > flag.txt && \
+    cp disk.img.gz disk.flag.img.gz && \
+    gunzip disk.flag.img.gz && \
+    python3 byteblast.py disk.flag.img flag.txt 509014036 && \
+    gzip -c disk.flag.img > disk.flag.img.gz
 
-CMD tail -f /dev/null
+# * Creates /challenge/artifacts.tar.gz which cmgr uses to offer artifact
+#   downloads in problem.md.
+# * Creates /challenge/metadata.json which defines the flag and potentially
+#   other metadata.
+RUN tar czvf /challenge/artifacts.tar.gz disk.flag.img.gz && \
+    echo "{\"flag\":\"$(cat flag.txt)\"}" > /challenge/metadata.json
+
+# This is a dummy command that keeps the container running. cmgr will keep
+# trying to restart the container if it exits.
+CMD ["tail", "-f", "/dev/null"]
