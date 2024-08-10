@@ -22,7 +22,7 @@ exists in every CTF. We will demonstrate creating a very simple Docker container
 that just copies in `flag.txt` and makes it a downloadable artifact for cmgr and
 sets the flag for the challenge appropriately.
 
-The following walkthough has 3 parts:
+The following walkthrough has 3 parts:
 
 1. File listing. We will go over every file in the challenge directory.
 
