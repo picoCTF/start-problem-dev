@@ -46,19 +46,20 @@ to hiding it deep within a large classic novel.
      demonstrates how to minimize your docker commands, but
      [forensics-disk](/example-problems/forensics-disk/) demonstrates how to
      properly use `apt-get` for an ubuntu image.
-   - Line 15 is how we start to create our dynamic flag. cmgr passes in a few
+   - Line 19 is how we start to create our dynamic flag. cmgr passes in a few
      build arguments to Docker. We ignore `SEED` and `FLAG_FORMAT`, but bring in
      `FLAG`. FLAG by default looks something like this: `flag{abcd1234}`. Where
      `abcd1234` is a string of random hex digits crafted specifically for the
      challenge instance. In the first step of our next Docker command, we
      replace the default flag prefix with our own 'picoCTF' prefix, plus a
-     leetspeak phrase that relates to the challenge. Our flag is now
-     `picoCTF{gr3p_15_4_5up3rp0w3r_abcd1234}` and we write this to `flag.txt`.
-     In the next command, we create a copy of `war-and-peace.txt` to insert the
-     flag into. Finally, we use our byteblast.py script to insert the flag into
-     `war-and-peace.flag.txt` at an offset of 49998 bytes. This offset value was
-     selected so that the flag would be at the start of a line and not inserted
-     into the middle of a word which might be confusing.
+     leetspeak phrase that relates to the challenge using a regular expression
+     with `sed`. Our flag is now `picoCTF{gr3p_15_4_5up3rp0w3r_abcd1234}` and we
+     write this to `flag.txt`. In the next command, we create a copy of
+     `war-and-peace.txt` to insert the flag into. Finally, we use our
+     byteblast.py script to insert the flag into `war-and-peace.flag.txt` at an
+     offset of 49998 bytes. This offset value was selected so that the flag
+     would be at the start of a line and not inserted into the middle of a word
+     which might be confusing.
 
 1. There's not much new in
    [problem.md](/example-problems/forensics-grep/problem.md). The only major
