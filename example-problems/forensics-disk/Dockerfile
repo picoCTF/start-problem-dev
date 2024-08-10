@@ -14,6 +14,9 @@ RUN mkdir /challenge && \
 COPY byteblast.py disk.img.gz /app/
 WORKDIR /app
 
+# We specify a new stage here so that base layers can be reused for every
+# instance, but FLAG is always going to be different, so that will always bust
+# the cache.
 FROM base AS challenge
 # Bring in the pre-generated flag from cmgr. FLAG_FORMAT and SEED are also
 # available but not used in this problem.
