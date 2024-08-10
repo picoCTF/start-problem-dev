@@ -11,7 +11,8 @@ problem development with.
    - Embeds a dynamic flag in a downloadable artifact. Also goes over testing
      templating.
 1. [Forensics Disk](/example-problems/forensics-disk/)
-   - Embeds the flag in a more complex artifact.
+   - Embeds the flag in a more complex artifact, and discusses the problem of
+     cheesing.
 1. [Custom Web](/example-problems/custom-web/)
    - Demonstrates hosting a simple web-based problem.
 1. [Custom Service](/example-problems/custom-service/)
