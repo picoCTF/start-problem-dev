@@ -2,13 +2,10 @@
 # Configure a box for the custom web example challenge.
 ################################################################################
 
-
 import sys
 import os
 import re
 import json
-
-
 
 def main():
 
@@ -53,4 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
