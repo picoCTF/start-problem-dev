@@ -23,7 +23,14 @@ FROM base AS challenge
 # Bring in FLAG from cmgr. Busts the cache every time.
 ARG FLAG
 
+# Configuring the box can be nicer in Python rather than in Docker RUN commands,
+# but this particular config just does stuff (creating the flag and
+# metadata.json) that we have been doing in the Dockerfile so far.
 RUN python3 config-box.py
 
+# Open up this port for the web server
 EXPOSE 80
+
+# The comment below is parsed by cmgr. You can reference the port by the name
+# given, but if there is only one port published, you don't have to use the name
 # PUBLISH 80 AS web
