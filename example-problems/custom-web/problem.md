@@ -11,6 +11,7 @@
 Do you know how to use the web inspector?
 
 ## Details
+
 Browse {{link_as('/', 'here')}}, and find the flag!
 
 ## Hints
@@ -19,7 +20,7 @@ Browse {{link_as('/', 'here')}}, and find the flag!
 
 ## Solution Overview
 
-Inspect the landing page to find the css file. Open the css file to find the 
+Inspect the landing page to find the css file. Open the css file to find the
 flag.
 
 ## Challenge Options
