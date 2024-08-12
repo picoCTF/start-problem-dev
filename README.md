@@ -24,6 +24,7 @@ Let's get started on turning your CTF dreams into reality!
 ## Getting Started
 
 - Install and [setup cmgr](/setup-cmgr.md)
+- Familiarize yourself with [Docker](https://www.docker.com/101-tutorial/)
 - Look at some [example problems](/example-problems/)
 - Review extensive [problem developer advice](/dev-advice.md)
 
