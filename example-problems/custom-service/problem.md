@@ -1,6 +1,6 @@
 # Custom-Service
 
-- Namespace: picoctf
+- Namespace: picoctf/examples
 - ID: custom-service
 - Type: custom
 - Category: Reverse Engineering

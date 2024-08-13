@@ -165,3 +165,4 @@ while(True):
     eval(user_input + '()')
   except Exception as e:
     print(e)
+    break
