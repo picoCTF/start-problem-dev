@@ -1,4 +1,4 @@
-# Custom Web
+# Web CSS
 
 - Namespace: picoctf/examples
 - Type: custom

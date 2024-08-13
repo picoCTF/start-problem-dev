@@ -1,5 +1,5 @@
 ################################################################################
-# Configure a box for the custom web example challenge.
+# Configure a box for the web css example challenge.
 ################################################################################
 
 import sys

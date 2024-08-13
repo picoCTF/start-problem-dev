@@ -13,7 +13,7 @@ problem development with.
 1. [Forensics Disk](/example-problems/forensics-disk/)
    - Embeds the flag in a more complex artifact, and discusses the problem of
      cheesing.
-1. [Custom Web](/example-problems/custom-web/)
+1. [Web CSS](/example-problems/web-css/)
    - Demonstrates hosting a simple nginx-based web problem. Also introduces
      configuring the container with a Python script.
 1. [Custom Service](/example-problems/custom-service/)

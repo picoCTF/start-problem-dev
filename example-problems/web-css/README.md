@@ -1,4 +1,4 @@
-# Custom Web Problem Creation Walkthrough
+# Web CSS Problem Creation Walkthrough
 
 ## Pre-requisites
 
@@ -19,7 +19,7 @@ challenge.
 
 ### File Listing
 
-1. [Dockerfile](/example-problems/custom-web/Dockerfile). The only new aspect of
+1. [Dockerfile](/example-problems/web-css/Dockerfile). The only new aspect of
    this Dockerfile is the `EXPOSE` and `# PUBLISH` directives, and also using
    Python to configure the challenge instead of doing it with `RUN` commands in
    the Dockerfile directly. `EXPOSE` and `# PUBLISH` work in tandem in cmgr.
@@ -28,7 +28,7 @@ challenge.
    Please view the file directly to view more specific comments on its
    functionality.
 
-1. [problem.md](/example-problems/custom-web/problem.md). Note line 15. This is
+1. [problem.md](/example-problems/web-css/problem.md). Note line 15. This is
    how we present our website to the player. Since we only publish one port in
    the Dockerfile, we can omit the port name in the "link_as" template function,
    see this
@@ -36,10 +36,10 @@ challenge.
    This is actually the first time that "Challenge Options" will be used since
    the player interacts with a running container in this challenge.
 
-1. [public-html](/example-problems/custom-web/public-html) this directory holds
+1. [public-html](/example-problems/web-css/public-html) this directory holds
    all the files that our web server hosts.
 
-1. [config-box.py](/example-problems/custom-web/config-box.py) This script
+1. [config-box.py](/example-problems/web-css/config-box.py) This script
    generates the flag and appends it to the end of the stylesheet as well as
    generating metadata.json that holds the flag's correct value. In previous
    challenges, this was done in the Dockerfile, but this example shows how to
