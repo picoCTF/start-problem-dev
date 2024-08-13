@@ -16,7 +16,7 @@ problem development with.
 1. [Web CSS](/example-problems/web-css/)
    - Demonstrates hosting a simple nginx-based web problem. Also introduces
      configuring the container with a Python script.
-1. [Custom Service](/example-problems/custom-service/)
+1. [Reversing Python](/example-problems/reversing-python/)
    - Presents a vulnerable program through a port using socat. Also goes over
      some tips on debugging your Dockerfile.
 1. [Custom SSH (Multi-stage Dockerfile)](/example-problems/custom-ssh/)

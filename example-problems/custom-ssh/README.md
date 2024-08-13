@@ -5,11 +5,11 @@
 1. You have `cmgr` installed and configured.
     - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
-2. You have done the [Custom Service Problem Creation
-   Walkthrough](/example-problems/custom-service/). The Custom Service
+2. You have done the [Reversing Python Problem Creation
+   Walkthrough](/example-problems/reversing-python/). The Reversing Python
    walkthrough is a more basic example of using a custom Dockerfile for cmgr
    problem development. The file changes presented here will be as compared to
-   Custom Service.
+   Reversing Python.
 
 ## Overview
 
@@ -62,7 +62,7 @@ be separate containers, not just secure permissions.
    container. "builder" is actually a special name to cmgr, it's the container
    that it always expects to find `/challenge/metadata.json` and
    `/challenge/artifacts.tar.gz` if applicable. The rest of "builder" is
-   similar to Custom Service. "sshHost" isn't too different either, but notice
+   similar to Reversing Python. "sshHost" isn't too different either, but notice
    the COPY instructions that grab files from "builder", such as line 40. This
    is a critical ability to connect your containers and your other containers
    are likely to need to know things from the "builder" container. We copy all

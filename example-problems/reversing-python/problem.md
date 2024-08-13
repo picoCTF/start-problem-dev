@@ -1,7 +1,7 @@
-# Custom-Service
+# Reversing Python
 
 - Namespace: picoctf/examples
-- ID: custom-service
+- ID: reversing-python
 - Type: custom
 - Category: Reverse Engineering
 - Points: 100
