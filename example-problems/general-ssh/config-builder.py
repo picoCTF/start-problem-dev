@@ -1,5 +1,5 @@
 ################################################################################
-# Configure a box for the custom ssh example challenge.
+# Configure a box for the general ssh example challenge.
 ################################################################################
 
 

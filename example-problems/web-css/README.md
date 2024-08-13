@@ -57,11 +57,11 @@ our previous implementation of using sed in a Dockerfile will fail silently.
 Python is also helpful for writing `metadata.json`. Even writing one line for
 the flag is clunky using `echo` in the Dockerfile. Doing this is much cleaner
 in Python, and necessary if we end up writing more variables than just the flag,
-such as in this [config](/example-problems/custom-ssh/config-builder.py#L70).
+such as in this [config](/example-problems/general-ssh/config-builder.py#L70).
 
 Everything that can be done in the Dockerfile, can be done in Python, though
 usually more verbosely, but with better error handling and friendlier syntax.
-Here's an [example](/example-problems/custom-ssh/config-sshhost.py#L24) of
+Here's an [example](/example-problems/general-ssh/config-sshhost.py#L24) of
 running an arbitrary shell command in Python.
 
 ## Conclusion

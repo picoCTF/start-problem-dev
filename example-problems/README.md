@@ -19,7 +19,7 @@ problem development with.
 1. [Reversing Python](/example-problems/reversing-python/)
    - Presents a vulnerable program through a port using socat. Also goes over
      some tips on debugging your Dockerfile.
-1. [Custom SSH (Multi-stage Dockerfile)](/example-problems/custom-ssh/)
+1. [General SSH (Multi-container)](/example-problems/general-ssh/)
    - Demonstrates separating the challenge builder container from the
      interactive container.
 

@@ -73,7 +73,7 @@ the cmgr user, and some more control and introspection of the docker build
 process goes a long way in being able to determine what is going wrong.
 
 1. Clone this repo
-2. Go to the custom-ssh directory
+2. Go to the reversing-python directory
     - `cd start-problem-dev/example-problems/reversing-python/`
 3. Switch Dockerfiles. `Dockerfile.test` has 1 discrepancy in it.
     - `mv Dockerfile Dockerfile.good`
