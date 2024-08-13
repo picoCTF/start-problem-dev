@@ -34,3 +34,6 @@ EXPOSE 80
 # The comment below is parsed by cmgr. You can reference the port by the name
 # given, but if there is only one port published, you don't have to use the name
 # PUBLISH 80 AS web
+
+# Because we don't specify a CMD, it uses the one from the nginx base image
+# which is: CMD ["nginx", "-g", "daemon off;"]

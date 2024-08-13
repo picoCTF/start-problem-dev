@@ -39,7 +39,7 @@ def main():
     metadata['flag'] = str(new_flag)
     json_metadata = json.dumps(metadata)
     
-    with open("metadata.json", "w") as f:
+    with open("/challenge/metadata.json", "w") as f:
         f.write(json_metadata)
 
     # =====================================================================

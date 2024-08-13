@@ -14,7 +14,8 @@ problem development with.
    - Embeds the flag in a more complex artifact, and discusses the problem of
      cheesing.
 1. [Custom Web](/example-problems/custom-web/)
-   - Demonstrates hosting a simple web-based problem.
+   - Demonstrates hosting a simple nginx-based web problem. Also introduces
+     configuring the container with a Python script.
 1. [Custom Service](/example-problems/custom-service/)
    - Presents a vulnerable program through a port using socat. Also goes over
      some tips on debugging your Dockerfile.
