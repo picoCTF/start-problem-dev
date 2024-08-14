@@ -24,6 +24,7 @@ def main():
         else:
             flag_rand = flag_rand.group()
             flag_rand = flag_rand[1:-1]
+            flag_rand = flag_rand.zfill(8)
 
     new_flag = "picoCTF{1n5p3t0r_ftw_" + flag_rand + "}"
     
@@ -31,7 +32,6 @@ def main():
         f.write('/* ' + new_flag + ' */')
 
     # =====================================================================
-
 
     # Create and update metadata.json =====================================
 
@@ -44,9 +44,7 @@ def main():
 
     # =====================================================================
 
-
 # =============================================================================
-
 
 if __name__ == "__main__":
     main()

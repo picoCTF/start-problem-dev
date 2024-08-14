@@ -1,18 +1,12 @@
 ################################################################################
-# Setup level 4 password cracking challenge for multiple instances
+# Setup flag and metadata for the challenge
 ################################################################################
-
 
 import sys
 import subprocess
 import os
 import re
-import zlib
 import json
-import random
-import hashlib
-
-
 
 def main():
 
@@ -40,7 +34,6 @@ def main():
 
     # =====================================================================
 
-
     # Create and update metadata.json =====================================
 
     metadata = {}
@@ -56,10 +49,7 @@ def main():
     print("A subprocess got an error")
     sys.exit(1)
 
-
 # =============================================================================
-
 
 if __name__ == "__main__":
   main()
-

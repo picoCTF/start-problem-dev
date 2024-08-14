@@ -39,9 +39,9 @@ challenge.
 1. [public-html](/example-problems/web-css/public-html) this directory holds
    all the files that our web server hosts.
 
-1. [config-box.py](/example-problems/web-css/config-box.py) This script
-   generates the flag and appends it to the end of the stylesheet as well as
-   generating metadata.json that holds the flag's correct value. In previous
+1. [setup-challenge.py](/example-problems/web-css/setup-challenge.py) This
+   script generates the flag and appends it to the end of the stylesheet as well
+   as generating metadata.json that holds the flag's correct value. In previous
    challenges, this was done in the Dockerfile, but this example shows how to
    use Python instead, which opens up some doors to creativity.
 

@@ -13,7 +13,7 @@ RUN mkdir /challenge && \
 COPY ./public-html/ /usr/share/nginx/html/
 
 # Copy box configuration script to challenge directory
-COPY config-box.py /challenge/
+COPY setup-challenge.py /challenge/
 
 WORKDIR /challenge/
 
@@ -26,7 +26,7 @@ ARG FLAG
 # Configuring the box can be nicer in Python rather than in Docker RUN commands,
 # but this particular config just does stuff (creating the flag and
 # metadata.json) that we have been doing in the Dockerfile so far.
-RUN python3 config-box.py
+RUN python3 setup-challenge.py
 
 # Open up this port for the web server
 EXPOSE 80
