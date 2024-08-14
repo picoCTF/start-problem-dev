@@ -12,7 +12,7 @@ Do you know how to move between directories and read files in the shell?
 
 ## Details
 
-`ssh -p {{port("ssh")}} ctf-player@{{server("ssh")}}` using password 
+`ssh -p {{port("ssh")}} ctf-player@{{server("ssh")}}` using password
 `{{lookup("password")}}`
 
 ## Hints
