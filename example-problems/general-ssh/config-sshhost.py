@@ -20,17 +20,6 @@ def main():
 
         # =====================================================================
 
-        # Make new dirs =======================================================
-        #subprocess.run(
-        #    ["/bin/sh", "-c", "mkdir /home/ctf-player"], check=True
-        #)
-        
-        #subprocess.run(
-        #    ["/bin/sh", "-c", "mkdir /home/ctf-player/drop-in"], check=True
-        #)
-
-        # =====================================================================
-
         # Create ctf-player user
         subprocess.run(
             [
