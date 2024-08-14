@@ -1,10 +1,12 @@
 # Web CSS
 
 - Namespace: picoctf/examples
+- ID: web-css
 - Type: custom
 - Category: Web Exploitation
 - Points: 1
 - Templatable: yes
+- MaxUsers: 1
 
 ## Description
 
