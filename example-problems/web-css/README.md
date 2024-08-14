@@ -72,4 +72,5 @@ order to hide the flag in one of these files. We used Python to configure this
 container which leads to a cleaner implementation.
 
 [Next problem](/example-problems/reversing-python)
+
 [Return to the index](/example-problems#example-problems)

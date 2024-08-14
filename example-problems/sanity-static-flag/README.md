@@ -156,3 +156,5 @@ categories and more!
 
 Check out [forensics grep](/example-problems/forensics-grep) to learn how to
 create and use dynamic flags!
+
+[Return to index](/example-problems#example-problems)

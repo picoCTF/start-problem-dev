@@ -131,4 +131,5 @@ downloadable artifacts, with base64 encoding probably being the preferred
 method. Salting a flag can help a base64 blob be nearly impossible to grep for.
 
 [Next problem](/example-problems/web-css)
+
 [Return to the index](/example-problems#example-problems)
