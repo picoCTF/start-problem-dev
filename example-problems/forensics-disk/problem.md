@@ -1,10 +1,12 @@
 # Forensics Disk
 
 - Namespace: picoctf/examples
+- ID: forensics-disk
 - Type: custom
 - Category: Forensics
 - Points: 1
 - Templatable: yes
+- MaxUsers: 0
 
 ## Description
 

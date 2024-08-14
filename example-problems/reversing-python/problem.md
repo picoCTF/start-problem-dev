@@ -4,8 +4,9 @@
 - ID: reversing-python
 - Type: custom
 - Category: Reverse Engineering
-- Points: 100
+- Points: 1
 - Templatable: yes
+- MaxUsers: 1
 
 ## Description
 

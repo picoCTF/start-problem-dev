@@ -5,6 +5,8 @@
 - Type: custom
 - Category: General Skills
 - Points: 1
+- Templatable: yes
+- MaxUsers: 1
 
 ## Description
 
