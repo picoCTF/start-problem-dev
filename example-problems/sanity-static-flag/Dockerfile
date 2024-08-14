@@ -1,26 +1,22 @@
-FROM ubuntu:20.04 AS base
-ENV DEBIAN_FRONTEND=noninteractive
+# References base image by SHA to avoid drift. This is Ubuntu 24.04. You will
+# probably want to update the hash when working on a new challenge.
+FROM ubuntu@sha256:e3f92abc0967a6c19d0dfa2d55838833e947b9d74edbcb0113e48535ad4be12a AS challenge
 
-RUN apt-get update && apt-get install -y \
-    build-essential
-RUN install -d -m 0700 /challenge
-# End of shared layers for all flask challenges
+# Challenge metadata and artifacts go here. Only root has access
+RUN mkdir /challenge && \
+    chmod 700 /challenge
 
-COPY Dockerfile packages.txt* ./
-RUN if [ -f packages.txt ]; then apt-get update && xargs -a packages.txt apt-get install -y; fi
-
-COPY . /app
+# * Copy flag.txt to the image
+COPY flag.txt /app/
 WORKDIR /app
 
-# End of share layers for all builds of the same flask challenge
-FROM base AS challenge
+# * Creates /challenge/artifacts.tar.gz which cmgr uses to offer artifact
+#   downloads in problem.md.
+# * Creates /challenge/metadata.json which defines the flag and potentially
+#   other metadata.
+RUN tar czvf /challenge/artifacts.tar.gz flag.txt && \
+    echo "{\"flag\":\"$(cat flag.txt)\"}" > /challenge/metadata.json
 
-ARG FLAG_FORMAT
-ARG FLAG
-ARG SEED
-
-RUN make main
-RUN make artifacts.tar.gz && mv artifacts.tar.gz /challenge || true
-RUN make metadata.json && mv metadata.json /challenge
-
-CMD tail -f /dev/null
+# This is a dummy command that keeps the container running. cmgr will keep
+# restarting the container if it exits.
+CMD ["tail", "-f", "/dev/null"]

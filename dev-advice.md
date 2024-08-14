@@ -54,7 +54,7 @@
     [problem.md](https://github.com/picoCTF/start-problem-dev/blob/master/example-problems/sanity-static-flag/problem.md?plain=1#L24)
 - When writing custom Dockerfiles, reference base images by SHA to avoid drift
   - See this
-    [Dockerfile](https://github.com/picoCTF/start-problem-dev/blob/master/example-problems/custom-service/Dockerfile#L1)
+    [Dockerfile](https://github.com/picoCTF/start-problem-dev/blob/master/example-problems/reversing-python/Dockerfile#L1)
 
 ## Challenge Accessibility
 

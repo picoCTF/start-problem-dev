@@ -3,15 +3,11 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
-2. You have done the [Sanity Problem Creation
-   Walkthrough](/example-problems/sanity-static-flag/README.md). You do not have
-   to do every walkthrough that is listed as easier than this one, but you must
-   at least do the Sanity Problem Creation Walkthrough. This walkthrough is
-   presented as a set of changes from the sanity problem. The sanity problem
-   walkthrough is the core of cmgr challenges, and this problem presents what
-   must be added on top of that for a more complicated challenge.
+2. You have done the [Forensics Grep Problem Creation
+   Walkthrough](/example-problems/forensics-grep). This document builds on
+   everything in the Forensics Grep walkthrough.
 
 ## Overview
 
@@ -24,6 +20,12 @@ to put this process of virtual machine creation in the cmgr/Docker pipeline.
 Instead, we copy the raw disk image to our problem folder when it is ready for
 templating. After that, the problem is much like previous walkthroughs such as
 [Forensics Grep](/example-problems/forensics-grep/).
+
+We'll look at the following points:
+
+1. The strategy of creating a disk image
+1. The file listing and any significant changes
+1. The problem of cheesing
 
 ## Walkthrough
 
@@ -48,6 +50,20 @@ straightforward method for this endeavor.
 
 ### File Listing
 
+1. [Dockerfile](/example-problems/forensics-disk/Dockerfile). Most of the
+   changes here have been explained in the previous walkthrough. One new thing
+   is that we're back to using `ubuntu` as a base image. We could've used a
+   `python` base like in the previous walkthrough, but I wanted to demonstrate
+   how to use `apt-get` for a challenge. `DEBIAN_FRONTEND=noninteractive`
+   ensures that the `apt-get` process doesn't get halted by some interactive
+   prompt. This directive needs to be specified right before `apt-get install`.
+   Since there was only 1 package we needed, I kept it on the same line, but if
+   there are multiple packages, each package should be on its own line and each
+   item should be alphabetized. Other than that, for the offset for byteblast, I
+   created a file and this offset is the first byte after the end of the file.
+   For more information, look up [slack
+   space](https://stackoverflow.com/a/71760523/4798333).
+
 1. There's not much new in
    [problem.md](/example-problems/forensics-disk/problem.md). The only major
    difference between this problem.md and the static sanity's problem.md is that
@@ -58,33 +74,62 @@ straightforward method for this endeavor.
    benefits. Most importantly for problem developers, it means we can detect
    cheating and regenerate flags on the fly.
 
-2. There's a bit more new in
-   [Makefile](/example-problems/forensics-disk/Makefile). Since we are not just
-   immediately handing over the flag like in the sanity problem, we create a
-   target for a challenge artifact that contains the flag, namely
-   `disk.flag.img.gz`. We byteblast in the flag past the end of a suspicious
-   file and there are multiple ways to recover this using sleuthkit tools.
-
-3. [packages.txt](/example-problems/forensics-disk/packages.txt) specifies
-   installing python3 so that we can use my byteblast.py python script in the
-   make process.
-
-4. [disk.img.gz](/example-problems/forensics-disk/disk.img.gz) is the image of
+1. [disk.img.gz](/example-problems/forensics-disk/disk.img.gz) is the image of
    the disk before it has the flag in it. For templating, adding the flag needs
    to happen at build time so that the flag can be different for each build.
 
-5. [byteblast.py](/example-problems/forensics-disk/byteblast.py) is a script
+1. [byteblast.py](/example-problems/forensics-disk/byteblast.py) is a script
    that I use in many problems that can insert bytes at arbitrary points in a
    file. This comes in hand for inserting templated flags in artifacts
    programmatically at build-time.
 
+### The Problem of Cheesing
+
+This problem is great, but it actually has a little problem. It can be solved
+very easily while totally bypassing the intended learning objective. It's meant
+to be solved using the Sleuthkit, but it can more easily solved just using
+`grep`.
+
+`strings disk.flag.img | grep picoCTF`
+
+This is called "cheesing" the problem. It's finding an easier, unintended
+solution to a CTF problem. The most common cheese is `grep`. it's always good to
+try it on your own problem to make sure it's not greppable. Forensics and
+Reverse Engineering problems are particularly susceptible because they often
+embed the flag in downloadable artifacts. Besides just making sure the flag
+isn't greppable, testing the problems with good CTF players is the most helpful
+thing, and it's the only way for more complex problems like Binary and Web
+Exploitation to have a good pre-launch check.
+
+For text like this, there are a couple simple "obfuscation" techniques. One of
+the most used is base64 encoding the flag. If you use this method, I recommend
+"salting" the flag and base64 encoding something like this: `aaaa picoCTF{...`
+otherwise, the beginning of the base64 encoded string will still be greppable
+(though admittedly unlikely).
+
+Other options include: encoding the flag as ASCII art, introducing spaces
+between characters, encoding text as UTF-16, or using the "in-scope" problem
+material, like for this problem, you could split the flag between multiple slack
+spaces, ordered such that using `blkls -s` still prints the right string.
+
+While external testing is critical for reducing the cheese in a competition, you
+as the problem author need to think outside the box with your problem as much as
+possible to anticipate alternate solutions and determine whether they are
+acceptable or not.
+
 ## Conclusion
 
 With this walkthrough, we demonstrated using highly developed computer system
-artifacts as part of a cmgr problem. Thankfully, the static-make cmgr problem
-type can be used for this advanced forensics problem but most of the work for
-this problem happens outside of cmgr. The Makefile for this problem
-demonstrates handling this large uncompressed file and compressing it again
-before giving it as an artifact to the player.
+artifacts as part of a cmgr problem. We don't attempt to generate this disk
+image artifact in Docker, we generate a template using a traditional VM and
+overwrite the bytes at a very specific location.
 
-[Return to the index](/README.md#walkthroughs)
+We also discuss the problem of cheesing which is when players solve a challenge
+in a much easier way that sidesteps the learning objective of the problem. There
+are multiple obfuscation techniques that can be applied to flags hidden in
+downloadable artifacts, with base64 encoding probably being the preferred
+method. Salting a flag can help a base64 blob be nearly impossible to grep for.
+
+[Next problem](/example-problems/web-css)
+
+[Return to the index](/example-problems#example-problems)

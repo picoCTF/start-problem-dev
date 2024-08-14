@@ -1,16 +1,19 @@
-# Custom Web
+# Web CSS
 
 - Namespace: picoctf/examples
+- ID: web-css
 - Type: custom
 - Category: Web Exploitation
 - Points: 1
 - Templatable: yes
+- MaxUsers: 1
 
 ## Description
 
 Do you know how to use the web inspector?
 
 ## Details
+
 Browse {{link_as('/', 'here')}}, and find the flag!
 
 ## Hints
@@ -19,7 +22,7 @@ Browse {{link_as('/', 'here')}}, and find the flag!
 
 ## Solution Overview
 
-Inspect the landing page to find the css file. Open the css file to find the 
+Inspect the landing page to find the css file. Open the css file to find the
 flag.
 
 ## Challenge Options

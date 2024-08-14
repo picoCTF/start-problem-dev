@@ -1,14 +1,11 @@
 ################################################################################
-# Configure a box for the custom web example challenge.
+# Configure a box for the web css example challenge.
 ################################################################################
-
 
 import sys
 import os
 import re
 import json
-
-
 
 def main():
 
@@ -27,6 +24,7 @@ def main():
         else:
             flag_rand = flag_rand.group()
             flag_rand = flag_rand[1:-1]
+            flag_rand = flag_rand.zfill(8)
 
     new_flag = "picoCTF{1n5p3t0r_ftw_" + flag_rand + "}"
     
@@ -35,22 +33,18 @@ def main():
 
     # =====================================================================
 
-
     # Create and update metadata.json =====================================
 
     metadata = {}
     metadata['flag'] = str(new_flag)
     json_metadata = json.dumps(metadata)
     
-    with open("metadata.json", "w") as f:
+    with open("/challenge/metadata.json", "w") as f:
         f.write(json_metadata)
 
     # =====================================================================
 
-
 # =============================================================================
-
 
 if __name__ == "__main__":
     main()
-

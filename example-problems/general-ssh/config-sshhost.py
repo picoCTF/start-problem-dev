@@ -1,16 +1,9 @@
 ################################################################################
-# Configure a box for the custom ssh example challenge.
+# Configure a box for the general ssh example challenge.
 ################################################################################
 
-
 import sys
-import os
 import subprocess
-import re
-import zlib
-import json
-
-
 
 def main():
 
@@ -23,18 +16,6 @@ def main():
 
         subprocess.run(
             ["/bin/sh", "-c", "rm /tmp/password.txt"], check=True
-        )
-
-        # =====================================================================
-
-
-        # Make new dirs =======================================================
-        subprocess.run(
-            ["/bin/sh", "-c", "mkdir /home/ctf-player"], check=True
-        )
-        
-        subprocess.run(
-            ["/bin/sh", "-c", "mkdir /home/ctf-player/drop-in"], check=True
         )
 
         # =====================================================================
@@ -86,4 +67,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

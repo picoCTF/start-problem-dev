@@ -3,31 +3,31 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
 
-2. You have done the [Sanity Problem Creation
-   Walkthrough](/example-problems/sanity-static-flag/README.md). You do not have
-   to do every walkthrough that is listed as easier than this one, but you must
-   at least do the Sanity Problem Creation Walkthrough. This walkthrough is
-   presented as a set of changes from the sanity problem. The sanity problem
-   walkthrough is the core of cmgr challenges, and this problem presents what
-   must be added on top of that for a more complicated challenge.
+2. You have reviewed the [Sanity
+   problem](/example-problems/sanity-static-flag/). This problem is presented as
+   a set of changes from the sanity problem. The sanity problem walkthrough is
+   the core of cmgr challenges, and this problem presents what must be added on
+   top of that for a more sophisticated challenge.
 
 ## Overview
 
-This problem is the perennial grep problem. We have a problem like this almost
-every year. It is different from Sanity because though it is still simple, it
-does teach a computer skill: using grep.
+This problem is the perennial grep problem. We had a problem like this almost
+every year before the Gym. It is different from Sanity because though it is
+still simple, it does teach a computer skill: using grep.
 
 There are 3 main changes in this problem that make it more interesting:
 
-1. The addition of 3 new files: packages.txt, war-and-peace.txt, and
-   byteblast.py.
+1. The addition of 2 new files: war-and-peace.txt, and byteblast.py.
 
-2. Makefile has more targets.
-
-3. Problem is marked as Templatable in problem.md. This means that multiple
+1. Problem is marked as Templatable in problem.md. This means that multiple
    instances of this problem can be ran, each having a different flag.
+   "Templatable" is just a bookkeeping value.
+
+1. All the mechanics of being Templatable (also referred to as having a dynamic
+   flag) happen in the Dockerfile which we will go over in more detail during
+   the File Listing below.
 
 By these changes we go from giving the flag out to anyone who can download it
 to hiding it deep within a large classic novel.
@@ -35,6 +35,31 @@ to hiding it deep within a large classic novel.
 ## Walkthrough
 
 ### File Listing
+
+1. [Dockerfile](/example-problems/forensics-grep/Dockerfile). There are a few
+   differences between this file and the
+   [Dockerfile](/example-problems/sanity-static-flag/Dockerfile) for Sanity.
+   - Right away, we're actually using a different base image for the container
+     (python vs. ubuntu). Using this python image gives us Python in a Debian
+     environment. If we had used ubuntu instead, we would've needed to `apt-get
+     install` python. That's really not a big deal either way. This problem
+     demonstrates how to minimize your docker commands, but
+     [forensics-disk](/example-problems/forensics-disk/) demonstrates how to
+     properly use `apt-get` for an ubuntu image.
+   - Line 19 is how we start to create our dynamic flag. cmgr passes in a few
+     build arguments to Docker. We ignore `SEED` and `FLAG_FORMAT`, but bring in
+     `FLAG`. FLAG by default looks something like this: `flag{abcd1234}`. Where
+     `abcd1234` is a string of random hex digits crafted specifically for the
+     challenge instance. In the first step of our next Docker command, we
+     replace the default flag prefix with our own 'picoCTF' prefix, plus a
+     leetspeak phrase that relates to the challenge using a regular expression
+     with `sed`. Our flag is now `picoCTF{gr3p_15_4_5up3rp0w3r_abcd1234}` and we
+     write this to `flag.txt`. In the next command, we create a copy of
+     `war-and-peace.txt` to insert the flag into. Finally, we use our
+     byteblast.py script to insert the flag into `war-and-peace.flag.txt` at an
+     offset of 49998 bytes. This offset value was selected so that the flag
+     would be at the start of a line and not inserted into the middle of a word
+     which might be confusing.
 
 1. There's not much new in
    [problem.md](/example-problems/forensics-grep/problem.md). The only major
@@ -46,25 +71,12 @@ to hiding it deep within a large classic novel.
    benefits. Most importantly for problem developers, it means we can detect
    cheating and regenerate flags on the fly.
 
-2. There's a bit more new in
-   [Makefile](/example-problems/forensics-grep/Makefile). Since we are not just
-   immediately handing over the flag like in the sanity problem, we create a
-   target for a challenge artifact that contains the flag, namely
-   `war-and-peace.flag.txt`. This file is `war-and-peace.txt` with the flag
-   inserted in it 50,000 bytes into the file, which ends up only being roughly
-   1,600 lines in.
-
-3. [war-and-peace.txt](/example-problems/forensics-grep/war-and-peace.txt) is
+1. [war-and-peace.txt](/example-problems/forensics-grep/war-and-peace.txt) is
    just a large, public domain, literary work that assures the CTF player needs
    to use grep or some other finding tool in order to get the flag. The file is
    66,000 lines long, so it accomplishes this purpose well!
 
-4. [packages.txt](/example-problems/forensics-grep/packages.txt) is a list of
-   packages that the cmgr build environment must install for problem creation
-   to work. For this grep problem, we only need `python3` in order for this
-   problem to build correctly.
-
-5. [byteblast.py](/example-problems/forensics-grep/byteblast.py) is a script
+1. [byteblast.py](/example-problems/forensics-grep/byteblast.py) is a script
    that I use in many problems that can insert bytes at arbitrary points in a
    file. This comes in hand for inserting templated flags in artifacts
    programmatically at build-time.
@@ -77,15 +89,17 @@ Sanity Walkthrough. The section in this walkthrough is going to demonstrate
 obtaining proof that two different instances of the same challenge have
 different flags.
 
-1. Clone this repo.
 1. `$ cd start-problem-dev/example-problems`
+1. `$ cp -r forensics-grep/ $CMGR_DIR/`
 1. Update cmgr with the grep problem:
-    - `$ cmgr update forensics-grep/`
+    - `$ cmgr update`
 1. Ensure problem appears in cmgr list:
     - `$ cmgr list`
-    - Expected output should include: `syreal/examples/forensics-grep`
+    - Expected output should include: `picoctf/examples/forensics-grep`
+1. At this point, you can either playtest this problem twice and make sure that
+   the flags are different. Or, a little more cleanly:
 1. Build two instances of the problem:
-    - `cmgr build syreal/examples/forensics-grep 9001 9002`
+    - `cmgr build picoctf/examples/forensics-grep 9001 9002`
     - This builds two instances of the grep problem. One is seeded with 9001
       and the other is seeded with 9002.
     - Expected output:
@@ -98,7 +112,7 @@ different flags.
 
 1. Dump build info and verify flags are different for each build:
     - `cmgr system-dump --json | grep \"flag\"`
-    - Expected output:
+    - Expected output (with different hashes):
 
       ```terminal
       "flag": "flag{gr3p_15_4_5up3rp0w3r_72dce069}",
@@ -111,13 +125,12 @@ With this walkthrough, we created a classic problem that teaches the player
 about `grep`. Attempting to solve this problem manually is ill-advised, but it
 can be quickly solved using a finding tool.
 
-The Makefile of this problem is a bit more complex than the sanity check
+The Dockerfile of this problem is a bit more complex than the sanity check
 problem. It takes the flag and incorporates it into a large text, making it
 necessary to use a tool to efficiently solve this problem. We used a helper
 script of mine that I call 'byteblast'. This script can overwrite bytes of the
-file with the flag at arbitrary offsets. This script is useful (especially
-for forensics problems) but somewhat overpowered and should be used with
-caution.
+file with the flag at arbitrary offsets. This script is useful (especially for
+forensics problems) but somewhat overpowered and should be used with caution.
 
 We needed a programmatic way to write the flag in our large file because the
 flag is templated and therefore different for each build of our problem.
@@ -129,4 +142,6 @@ series to teach the player about a tool and technique. The rest of the
 walkthroughs in this series will continue teaching the player about more and
 more advanced computer science and security practices.
 
-[Return to the index](/README.md#walkthroughs)
+[Next problem](/example-problems/forensics-disk)
+
+[Return to the index](/example-problems#example-problems)

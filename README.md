@@ -24,6 +24,7 @@ Let's get started on turning your CTF dreams into reality!
 ## Getting Started
 
 - Install and [setup cmgr](/setup-cmgr.md)
+- Familiarize yourself with [Docker](https://www.docker.com/101-tutorial/)
 - Look at some [example problems](/example-problems/)
 - Review extensive [problem developer advice](/dev-advice.md)
 
@@ -33,6 +34,7 @@ Let's get started on turning your CTF dreams into reality!
 - Reach out to us via [email](mailto:other@picoctf.org)
 - Create a **private** GitHub repository for your challenge(s)
 - Write a proof-of-concept challenge
+- Theme or provide flavor for the challenge
 - Package the challenge for cmgr
 - Test the challenge in cmgr
 - Write a solve script

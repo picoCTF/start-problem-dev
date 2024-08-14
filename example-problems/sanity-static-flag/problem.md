@@ -1,18 +1,20 @@
 # Sanity Download
 
 - Namespace: picoctf/examples
+- ID: sanity-download
 - Type: custom
 - Category: General Skills
 - Points: 1
 - Templatable: no
+- MaxUsers: 0
 
 ## Description
 
 Test your internet connection!
 
-## Details
+Download the flag {{url_for("flag.txt", "here")}}.
 
-Download the flag {{url_for("flag", "here")}}.
+## Details
 
 ## Hints
 
@@ -20,7 +22,7 @@ Download the flag {{url_for("flag", "here")}}.
 
 ## Solution Overview
 
-Download `flag` and open it.
+Download `flag.txt` and open it.
 
 ## Challenge Options
 
@@ -37,10 +39,6 @@ init: true
 ## Learning Objective
 
 Test and verify your connectivity to our CTF
-
-## Tags
-
-- example
 
 ## Attributes
 

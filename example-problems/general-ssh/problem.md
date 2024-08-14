@@ -1,17 +1,20 @@
-# Custom SSH
+# General SSH
 
 - Namespace: picoctf/examples
-- ID: custom-ssh
+- ID: general-ssh
 - Type: custom
 - Category: General Skills
 - Points: 1
+- Templatable: yes
+- MaxUsers: 1
 
 ## Description
 
 Do you know how to move between directories and read files in the shell?
 
 ## Details
-`ssh -p {{port("ssh")}} ctf-player@{{server("ssh")}}` using password 
+
+`ssh -p {{port("ssh")}} ctf-player@{{server("ssh")}}` using password
 `{{lookup("password")}}`
 
 ## Hints
