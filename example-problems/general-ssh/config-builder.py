@@ -2,15 +2,12 @@
 # Configure a box for the general ssh example challenge.
 ################################################################################
 
-
 import sys
 import os
 import subprocess
 import re
 import zlib
 import json
-
-
 
 def main():
 
@@ -62,7 +59,6 @@ def main():
 
         # =====================================================================
 
-
         # Create and update metadata.json =====================================
 
         metadata = {}
@@ -79,10 +75,7 @@ def main():
         print("A subprocess has returned an error code")
         sys.exit(1)
 
-
-
 # =============================================================================
-
 
 if __name__ == "__main__":
     main()
