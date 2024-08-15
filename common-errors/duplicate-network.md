@@ -17,6 +17,10 @@ stop cmgr containers.
 
 ```terminal
 $ docker stop $(docker ps -q)
+1222925026a3
+15eaaf240e3b
+dd5cbb06e859
+61e4a6fcd525
 ```
 
 Once those containers are stopped, you can prune networks which should take care
