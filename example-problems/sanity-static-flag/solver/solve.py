@@ -1,4 +1,3 @@
-import subprocess
 
 def main():
     # Copy the flag from the flag file
