@@ -4,9 +4,6 @@ def main():
     # Connect to server
     conn = remote("challenge", 5555)
 
-    # Receive initial message
-    #print(conn.recvline())
-
     # Send payload
     conn.sendline(b"win")
 
