@@ -26,4 +26,6 @@ Let's get started on turning your CTF dreams into reality!
 - Install and [setup cmgr](/setup-cmgr.md)
 - Familiarize yourself with [Docker](https://www.docker.com/101-tutorial/)
 - Look at some [example problems](/example-problems/)
+- Peruse common [topics](/topics/README.md#topical-index) in cmgr problem dev
+- Become aware of [common errors](/common-errors/) with cmgr
 - Review extensive [problem developer advice](/dev-advice.md)

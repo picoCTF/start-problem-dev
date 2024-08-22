@@ -1,5 +1,9 @@
 # Creating a challenge
 
+This is an outline of a problem creation process that works and includes some of
+the needs we have for picoCTF (like filling out the Use of Work form). This is
+just a suggestion, feel free to develop challenges however feels right to you!
+
 - Get an idea for a challenge
 - Reach out to us via [email](mailto:other@picoctf.org)
 - Create a **private** GitHub repository for your challenge(s)
