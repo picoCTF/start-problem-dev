@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 1. You have `cmgr` installed and configured.
-    - Refer to the [setup page](/setup-cmgr) if this is not the case for you.
+    - Refer to the [setup page](/setup-cmgr.md) if this is not the case for you.
 
 2. You have reviewed the [Sanity
    problem](/example-problems/sanity-static-flag/). This problem is presented as

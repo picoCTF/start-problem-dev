@@ -12,7 +12,7 @@ This sanity challenge is a simple download of the flag in the file `flag.txt`.
 ## Pre-requisites
 
 1. You have `cmgr` installed.
-    - Refer to the [setup page](/setup-cmgr) if this is not the
+    - Refer to the [setup page](/setup-cmgr.md) if this is not the
       case for you.
 
 ## Overview
