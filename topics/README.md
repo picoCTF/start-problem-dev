@@ -15,6 +15,8 @@ challenges and provided short answers with examples of how to do certain things.
   Minimal steps in testing a new challenge.
 - [Creating a dynamic flag](/example-problems/forensics-grep/). Check out this
   example problem to learn how to create a dynamic flag.
+- [Writing and using a cmgr solver](/topics/cmgr-solver.md). Learn how to make
+  use of cmgr's built-in problem checker.
 - [Addressing
   cheesing](/example-problems/forensics-disk/README.md#the-problem-of-cheesing).
   Presents some strategies to mitigate the problem of cheesing.
