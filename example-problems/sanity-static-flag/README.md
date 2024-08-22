@@ -116,7 +116,7 @@ The following walkthrough has 3 parts:
 
 ### Deployment
 
-Follow [these steps](/setup-cmgr#test-cmgr) to deploy the sanity check
+Follow [these steps](/setup-cmgr.md#test-cmgr) to deploy the sanity check
 problem.
 
 ### Testing
