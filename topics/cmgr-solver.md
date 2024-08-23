@@ -43,8 +43,13 @@ the solution is reasonable (read "not guessy").
 To use your solver, copy your problem to your cmgr directory:
 
 ```terminal
-$ cp -r sanity-static-flag/ $CMGR_DIR/
-$ cmgr test $CMGR_DIR/sanity-static-flag/
+cp -r sanity-static-flag/ $CMGR_DIR/
+```
+
+Then run a test:
+
+```terminal
+cmgr test $CMGR_DIR/sanity-static-flag/
 ```
 
 Unfortunately, what you're hoping for is no output. That means that your solver
