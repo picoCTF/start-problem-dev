@@ -1,7 +1,7 @@
-# rsa_oracle
+# Crypto Oracle
 
-- Namespace: picoctf
-- ID: rsa-oracle
+- Namespace: picoctf/examples
+- ID: crypto-oracle
 - Type: custom
 - Category: Cryptography
 - Points: 300
@@ -25,6 +25,7 @@ After some intensive reconassainance they found out that the bank has an oracle 
 - Minimum requirements for a useful cryptosystem is CPA security.
 
 ## Challenge Options
+
 ```yaml
 cpus: 0.5
 memory: 128m
