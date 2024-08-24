@@ -34,8 +34,6 @@ def main():
 
     with open("plaintext","w+") as f:
         f.write(new_flag)
-    
-    
    
     # print(f"the password is {password}")
     cmd = 'openssl enc -aes-256-cbc -salt -in plaintext -out secret.enc -k '+password
@@ -43,12 +41,9 @@ def main():
 
     os.remove('plaintext')
     
-    #==============================================
-    os.environ['PASSWORD']=str(password)
+    #======================================================================
         
-
     # =====================================================================
-
 
     # Create and update metadata.json =====================================
 
