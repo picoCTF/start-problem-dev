@@ -42,6 +42,7 @@ def main():
             else:
                 flag_rand = flag_rand.group()
                 flag_rand = flag_rand[1:-1]
+                flag_rand = flag_rand.zfill(8)
 
         flag_1of3 = "picoCTF{sh311_"
         flag_2of3 = "n4v1g4t10n_ftw_"
