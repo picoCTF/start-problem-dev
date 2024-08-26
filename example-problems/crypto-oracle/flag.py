@@ -32,6 +32,9 @@ def main():
 
     password=flag_rand[:-3]
 
+    with open("password","w+") as f:
+        f.write(password)
+
     with open("plaintext","w+") as f:
         f.write(new_flag)
    
