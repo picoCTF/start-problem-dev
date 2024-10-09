@@ -29,6 +29,7 @@ Let's get started on turning your CTF dreams into reality!
 - Peruse common [topics](/topics/README.md#topical-index) in cmgr problem dev
 - Become aware of [common errors](/common-errors/) with cmgr
 - Review extensive [problem developer advice](/dev-advice.md)
+- BONUS: Review crucially relevant [CTF lore](https://web.archive.org/web/20201212081922/https://captf.com/maxims.html)
 
 ## Creating a challenge
 
