@@ -23,6 +23,10 @@
   - `$ wget <url-of-release-tarball>` such as:
     - `$ wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
   - `$ tar xzvf cmgr_linux_amd64.tar.gz`
+  - Make sure the binaries run:
+    - `$ ./cmgr`
+    - Should print cmgr help text. If it prints exec format error, you'll need to pick a
+      different tarball from the [cmgr release page](https://github.com/picoCTF/cmgr/releases/latest)
 - Put `cmgr` in your path so it can be easily accessed on the command line
   - `$ mkdir ~/cmgr`
   - `$ mkdir ~/cmgr/bin`
