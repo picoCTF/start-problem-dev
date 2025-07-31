@@ -24,7 +24,17 @@ Let's get started on turning your CTF dreams into reality!
 ## Getting Started
 
 - Install and [setup cmgr](/setup-cmgr.md)
+    - Helpful cmgr commands are:
+        - cmgr test challenges/yourchallenge (test build)
+        - cmgr playtest namespace/to/yourchallenge (run a web server hosting your challenge)
+        - cmgr update
+        - cmgr update-schema schema.yaml
 - Familiarize yourself with [Docker](https://www.docker.com/101-tutorial/)
+    - Helpful docker commands are:
+        - sudo docker build --build-arg FLAG="picoCTF{exampleflag}"
+        - sudo docker run sha256:... (result of last command)
+        - sudo docker ps
+        - sudo docker exec -u root -it HEXSTRING bash (HEXSTRING from ps, gives root shell on Docker image)
 - Look at some [example problems](/example-problems/)
 - Peruse common [topics](/topics/README.md#topical-index) in cmgr problem dev
 - Become aware of [common errors](/common-errors/) with cmgr
@@ -45,6 +55,7 @@ just a suggestion, feel free to develop challenges however feels right to you!
 - Write a proof-of-concept challenge
 - Theme or provide flavor for the challenge
 - Package the challenge for cmgr
+- Ensure the docker container builds correctly
 - Test the challenge in cmgr
 - Write a solve script
 - Fill out and send the [Use of Work form](/Agreement%20for%20use%20of%20work_picoCTF.pdf)
