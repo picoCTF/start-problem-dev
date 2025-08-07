@@ -1,0 +1,5 @@
+format = "cmgr"
+
+[options]
+
+variant_count = 2
