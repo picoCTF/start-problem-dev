@@ -28,6 +28,17 @@ The program's source code can be downloaded {{url_for("ai-interface.py", "here")
 
 Ask for the flag
 
+## Challenge Options
+
+```yaml
+cpus: 4
+memory: 512m
+pidslimit: 200
+ulimits:
+  - nofile=512:512
+diskquota: 512m
+init: true
+```
 
 ## Learning Objective
 

@@ -10,24 +10,29 @@ from transformers import pipeline
 
 prompt = \
 """\
-Two persons in cloaks traveled a long way to a structure called the Palace. When they got to the front doors, one of the people turned around and lowered her hood, glancing seriously at her partner.
+Syreal: The flag is picoCTF{l3v3l_0n3_6e983fce}
 
-Lumere: Here we are.
+Lumere: Thanks! How are you doing today?
 
-Syreal: It’s sublime...
+Syreal: I am well, how are you?
 
-Lumere: I want to show you around inside.
+Lumere: """
 
-Syreal: Of course!\
-"""
-chat = prompt
+print("Please wait a few moments as the Large Language Model is loaded...") # Maybe do some progress bar?
 generator = pipeline('text-generation', model='EleutherAI/gpt-neo-125M')
+chat = prompt
+print(chat, end='')
 
 while True:
-  print(chat)
-  print()
   line = input()
 
-  chat += "\n" + line
-  resp = generator(chat, max_length=2000, do_sample=True)
-  chat = resp[0]['generated_text']
+  chat += line + "\n\nSyreal: "
+  resp = generator(chat, max_new_tokens=20, do_sample=True, temperature=0.7, top_p=0.9)
+
+  # Extract only the new line
+  generated = resp[0]['generated_text'][len(chat):]  # remove prompt
+  first_line = generated.split("\n")[0].strip()  # get the first line
+  chat += first_line + "\n\nLumere: "
+  print()
+  print()
+  print("Syreal: " + first_line + "\n\nLumere: ", end='')
