@@ -21,6 +21,9 @@ advanced customization and challenge configuration.
 
 Let's get started on turning your CTF dreams into reality!
 
+Check out our new [Quick Start Guide](/Building%20with%20CMGR%20-%20Quick%20Start%20Guide.pdf)
+thanks to David Gaviria!
+
 ## Getting Started
 
 - Install and [setup cmgr](/setup-cmgr.md)
