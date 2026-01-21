@@ -34,7 +34,7 @@ thanks to David Gaviria!
         - cmgr update-schema schema.yaml
 - Familiarize yourself with [Docker](https://www.docker.com/101-tutorial/)
     - Helpful docker commands are:
-        - sudo docker build . --build-arg FLAG="picoCTF{exampleflag}"
+        - sudo docker build . --build-arg FLAG="picoCTF{exampleflag}" --build-arg SEED=53
         - sudo docker run sha256:... (result of last command)
         - sudo docker ps
         - sudo docker exec -u root -it HEXSTRING bash (HEXSTRING from ps, gives root shell on Docker image)
