@@ -1,0 +1,38 @@
+{
+  "name": "Claude Code Sandbox",
+  "image": "mcr.microsoft.com/devcontainers/universal:6-linux",
+  // ── Filesystem ────────────────────────────────────────────────────────────
+  // Only the repo root is mounted into the container.
+  // Claude cannot see your host filesystem beyond this directory.
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    // Persist Claude auth + settings across rebuilds, isolated per project.
+    "source=claude-code-config-${devcontainerId},target=/home/codespace/.claude,type=volume"
+  ],
+  // ── Claude Code ───────────────────────────────────────────────────────────
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
+  },
+  // ── Environment ───────────────────────────────────────────────────────────
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/codespace/.claude",
+    // Raise the memory ceiling for Claude + subagents in larger repos.
+    "NODE_OPTIONS": "--max-old-space-size=4096",
+    "CLAUDE_CODE_OAUTH_TOKEN": "${localEnv:CLAUDE_CODE_OAUTH_TOKEN}"
+  },
+  "containerUser": "codespace",
+  "remoteUser": "codespace",
+  // ── VS Code ───────────────────────────────────────────────────────────────
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+      }
+    }
+  }
+}
