@@ -1,0 +1,7 @@
+format = "cmgr"
+
+[options]
+variant_count = 2
+compatibility = "picoCTF/v2.0.0"
+preserve_namespace = false
+flag_format = "picoCTF{%s}"
