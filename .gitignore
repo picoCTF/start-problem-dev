@@ -2,6 +2,7 @@
 *.swp
 *~
 .vscode*
+*pcm.toml*
 deploy.sh
 testing-dir
 staging-dir
