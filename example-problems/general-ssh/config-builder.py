@@ -43,7 +43,7 @@ def main():
                 flag_rand = flag_rand.group()
                 flag_rand = flag_rand[1:-1]
 
-        flag_1of3 = "picoCTF{sh311_"
+        flag_1of3 = "academy{sh311_"
         flag_2of3 = "n4v1g4t10n_ftw_"
         flag_3of3 = flag_rand + "}"
         flag = flag_1of3 + flag_2of3 + flag_3of3

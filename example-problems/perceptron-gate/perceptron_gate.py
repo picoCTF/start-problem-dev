@@ -29,7 +29,7 @@ def read_flag():
         with open("flag.txt") as f:
             return f.read().strip()
     except Exception:
-        return "picoCTF{flag_missing_contact_admin_00000000}"
+        return "academy{flag_missing_contact_admin_00000000}"
 
 def main():
     rng = random.Random(os.urandom(16))

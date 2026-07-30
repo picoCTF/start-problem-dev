@@ -22,7 +22,7 @@ ARG FLAG
 # * Use the randomness from the cmgr flag to construct our own instanced flag
 # * byteblast.py is a script that overwrites bytes at an offset for a file
 RUN set -eu; \
-    printf '%s\n' "$FLAG" | sed "s/.*{/picoCTF{gr3p_15_4_5up3rp0w3r_/1" > flag.txt; \
+    printf '%s\n' "$FLAG" | sed "s/.*{/academy{gr3p_15_4_5up3rp0w3r_/1" > flag.txt; \
     cp war-and-peace.txt war-and-peace.flag.txt; \
     python3 byteblast.py war-and-peace.flag.txt flag.txt 49998
 

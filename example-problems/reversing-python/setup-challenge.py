@@ -29,7 +29,7 @@ def main():
         flag_rand = flag_rand[1:-1]
         flag_rand = flag_rand.zfill(8)
 
-    flag = "picoCTF{4_d14m0nd_1n_7h3_r0ugh_" + flag_rand + "}"
+    flag = "academy{4_d14m0nd_1n_7h3_r0ugh_" + flag_rand + "}"
     open('flag.txt', 'w').write(flag)
 
     # =====================================================================

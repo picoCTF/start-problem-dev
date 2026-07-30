@@ -9,7 +9,7 @@ def main():
     response = r.text
 
     # Create regex pattern to search for flag
-    pattern = "picoCTF{.*}"
+    pattern = "academy{.*}"
 
     # Search for flag in response
     flag = re.search(pattern, response)

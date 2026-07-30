@@ -51,9 +51,9 @@ to hiding it deep within a large classic novel.
      `FLAG`. FLAG by default looks something like this: `flag{abcd1234}`. Where
      `abcd1234` is a string of random hex digits crafted specifically for the
      challenge instance. In the first step of our next Docker command, we
-     replace the default flag prefix with our own 'picoCTF' prefix, plus a
+     replace the default flag prefix with our own 'academy' prefix, plus a
      leetspeak phrase that relates to the challenge using a regular expression
-     with `sed`. Our flag is now `picoCTF{gr3p_15_4_5up3rp0w3r_abcd1234}` and we
+     with `sed`. Our flag is now `academy{gr3p_15_4_5up3rp0w3r_abcd1234}` and we
      write this to `flag.txt`. In the next command, we create a copy of
      `war-and-peace.txt` to insert the flag into. Finally, we use our
      byteblast.py script to insert the flag into `war-and-peace.flag.txt` at an

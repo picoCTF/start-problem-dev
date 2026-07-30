@@ -103,7 +103,7 @@ Exploitation to have a good pre-launch check.
 
 For text like this, there are a couple simple "obfuscation" techniques. One of
 the most used is base64 encoding the flag. If you use this method, I recommend
-"salting" the flag and base64 encoding something like this: `aaaa picoCTF{...`
+"salting" the flag and base64 encoding something like this: `aaaa academy{...`
 otherwise, the beginning of the base64 encoded string will still be greppable
 (though admittedly unlikely).
 

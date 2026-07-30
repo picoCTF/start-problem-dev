@@ -16,7 +16,7 @@ def main():
         sys.exit(3)
 
     rand = m.group(1).lower().zfill(8)[:8]
-    flag = f"picoCTF{{perceptron_party_{rand}}}"
+    flag = f"academy{{perceptron_party_{rand}}}"
 
     # Write plaintext flag for the service to read
     with open("flag.txt", "w") as f:

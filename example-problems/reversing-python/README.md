@@ -83,7 +83,7 @@ process goes a long way in being able to determine what is going wrong.
       by building the container manually with Docker:
 
 5. Build the container manually.
-    - `docker build . --build-arg FLAG=picoCTF{deadbeef}`
+    - `docker build . --build-arg FLAG=academy{deadbeef}`
     - Expected output (tail end):
 
       ```terminal

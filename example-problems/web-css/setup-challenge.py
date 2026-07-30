@@ -26,7 +26,7 @@ def main():
             flag_rand = flag_rand[1:-1]
             flag_rand = flag_rand.zfill(8)
 
-    new_flag = "picoCTF{1n5p3t0r_ftw_" + flag_rand + "}"
+    new_flag = "academy{1n5p3t0r_ftw_" + flag_rand + "}"
     
     with open("/usr/share/nginx/html/style.css", "a") as f:
         f.write('/* ' + new_flag + ' */')
