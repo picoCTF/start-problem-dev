@@ -1,6 +1,6 @@
 # Forensics Grep
 
-- Namespace: picoctf/examples
+- Namespace: academy/examples
 - ID: forensics-grep
 - Type: custom
 - Category: Forensics
@@ -49,5 +49,5 @@ Usage of command line tools
 ## Attributes
 
 - author: LT 'syreal' Jones
-- organization: picoCTF
+- organization: CyLab Security Academy
 - event: picoCTF Problem Developer Training

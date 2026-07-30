@@ -1,6 +1,6 @@
 # Reversing Python
 
-- Namespace: picoctf/examples
+- Namespace: academy/examples
 - ID: reversing-python
 - Type: custom
 - Category: Reverse Engineering
@@ -51,5 +51,5 @@ Examining source code to identify functionality
 ## Attributes
 
 - author: LT 'syreal' Jones
-- organization: picoCTF
+- organization: CyLab Security Academy
 - event: picoCTF Problem Developer Training

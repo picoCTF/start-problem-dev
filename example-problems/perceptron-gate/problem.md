@@ -1,6 +1,6 @@
 # Perceptron Gate
 
-- Namespace: picoctf/examples
+- Namespace: academy/examples
 - ID: perceptron-gate
 - Type: custom
 - Category: Reverse Engineering
@@ -56,5 +56,5 @@ Understand perceptron decision boundaries and practice black-box modeling.
 ## Attributes
 
 - author: LT 'syreal' Jones
-- organization: picoCTF
+- organization: CyLab Security Academy
 - event: picoCTF Problem Developer Training

@@ -1,6 +1,6 @@
 # Sanity Download
 
-- Namespace: picoctf/examples
+- Namespace: academy/examples
 - ID: sanity-download
 - Type: custom
 - Category: General Skills
@@ -43,5 +43,5 @@ Test and verify your connectivity to our CTF
 ## Attributes
 
 - author: LT 'syreal' Jones
-- organization: picoCTF
+- organization: CyLab Security Academy
 - event: picoCTF Problem Developer Training

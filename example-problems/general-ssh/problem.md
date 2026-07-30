@@ -1,6 +1,6 @@
 # General SSH
 
-- Namespace: picoctf/examples
+- Namespace: academy/examples
 - ID: general-ssh
 - Type: custom
 - Category: General Skills
@@ -51,5 +51,5 @@ Usage of ssh and bash commands
 ## Attributes
 
 - author: LT 'syreal' Jones
-- organization: picoCTF
+- organization: CyLab Security Academy
 - event: picoCTF Problem Developer Training

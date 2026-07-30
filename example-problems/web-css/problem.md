@@ -1,6 +1,6 @@
 # Web CSS
 
-- Namespace: picoctf/examples
+- Namespace: academy/examples
 - ID: web-css
 - Type: custom
 - Category: Web Exploitation
@@ -48,5 +48,5 @@ Usage of web inspector
 ## Attributes
 
 - author: LT 'syreal' Jones
-- organization: picoCTF
+- organization: CyLab Security Academy
 - event: picoCTF Problem Developer Training
