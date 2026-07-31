@@ -71,7 +71,7 @@ process goes a long way in being able to determine what is going wrong.
     - `mv Dockerfile.test Dockerfile`
 4. Build the problem with cmgr
       - `cmgr update`
-      - `cmgr playtest picoctf/examples/reversing-python`
+      - `cmgr playtest academy/examples/reversing-python`
       - Expected output:
 
          ```terminal

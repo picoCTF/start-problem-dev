@@ -90,7 +90,7 @@ very easily while totally bypassing the intended learning objective. It's meant
 to be solved using the Sleuthkit, but it can more easily solved just using
 `grep`.
 
-`strings disk.flag.img | grep picoCTF`
+`strings disk.flag.img | grep academy`
 
 This is called "cheesing" the problem. It's finding an easier, unintended
 solution to a CTF problem. The most common cheese is `grep`. it's always good to

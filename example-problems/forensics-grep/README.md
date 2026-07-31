@@ -95,11 +95,11 @@ different flags.
     - `$ cmgr update`
 1. Ensure problem appears in cmgr list:
     - `$ cmgr list`
-    - Expected output should include: `picoctf/examples/forensics-grep`
+   - Expected output should include: `academy/examples/forensics-grep`
 1. At this point, you can either playtest this problem twice and make sure that
    the flags are different. Or, a little more cleanly:
 1. Build two instances of the problem:
-    - `cmgr build picoctf/examples/forensics-grep 9001 9002`
+   - `cmgr build academy/examples/forensics-grep 9001 9002`
     - This builds two instances of the grep problem. One is seeded with 9001
       and the other is seeded with 9002.
     - Expected output:

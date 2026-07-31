@@ -1,4 +1,4 @@
-# Start picoCTF Problem Development
+# Start CyLab Security Academy Problem Development
 
 Hello and welcome to the official documentation for our Capture-The-Flag (CTF)
 challenge manager! This guide is designed to help you navigate and utilize the
@@ -6,7 +6,7 @@ features of this powerful tool to create and configure your own CTF problems.
 
 This documentation is currently maintained by Luke 'syreal' Jones. If you have
 any questions, comments, or suggestions, feel free to reach out via email
-[here](mailto:other@picoctf.org).
+[here](mailto:other@cylabacademy.org).
 
 Our team has been exclusively using
 [cmgr](https://github.com/picoCTF/cmgr/releases/latest) for problem development
@@ -34,7 +34,7 @@ thanks to David Gaviria!
         - cmgr update-schema schema.yaml
 - Familiarize yourself with [Docker](https://www.docker.com/101-tutorial/)
     - Helpful docker commands are:
-        - sudo docker build . --build-arg FLAG="picoCTF{exampleflag}"
+        - sudo docker build . --build-arg FLAG="academy{exampleflag}"
         - sudo docker run sha256:... (result of last command)
         - sudo docker ps
         - sudo docker exec -u root -it HEXSTRING bash (HEXSTRING from ps, gives root shell on Docker image)
@@ -47,11 +47,11 @@ thanks to David Gaviria!
 ## Creating a challenge
 
 This is an outline of a problem creation process that works and includes some of
-the needs we have for picoCTF (like filling out the Use of Work form). This is
+the needs we have for CyLab Security Academy (like filling out the Use of Work form). This is
 just a suggestion, feel free to develop challenges however feels right to you!
 
 - Get an idea for a challenge
-- Reach out to us via [email](mailto:other@picoctf.org) so we can review your
+- Reach out to us via [email](mailto:other@cylabacademy.org) so we can review your
   problem idea
 - Create a **private** GitHub repository for your challenge(s)
 - Add `syreal17` as a collaborator on your repo
@@ -61,6 +61,6 @@ just a suggestion, feel free to develop challenges however feels right to you!
 - Ensure the docker container builds correctly
 - Test the challenge in cmgr
 - Write a solve script
-- Fill out and send the [Use of Work form](/Agreement%20for%20use%20of%20work_picoCTF.pdf)
+- Fill out and send the [Use of Work form](/Agreement%20for%20use%20of%20work_academy.pdf)
 - Receive feedback
 - Observe your challenge in the next competition!

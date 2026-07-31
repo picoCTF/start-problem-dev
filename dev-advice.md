@@ -27,7 +27,7 @@
 
 ## General Technical Concerns
 
-- Use the standard picoCTF{} flag wrapper. Even if the flag must be displayed
+- Use the standard academy{} flag wrapper. Even if the flag must be displayed
   differently within the challenge due to technical limitations (e.g. can only
   return integers), make sure that this is clearly explained in the challenge
   description and that the standard wrapped form is the accepted flag
@@ -105,7 +105,7 @@
 - For web challenges, include all vendor external scripts, stylesheets, etc.
   needed at runtime into the challenge source. We want to make sure files remain
   available and that players can access everything needed for a challenge via
-  picoCTF-controlled domains
+  CyLab Security Academy-controlled domains
 - Do not make outbound Internet requests from challenges at runtime, as access
   will be blocked on our servers
 - Assume that challenges will not have outbound Internet access at runtime. (We

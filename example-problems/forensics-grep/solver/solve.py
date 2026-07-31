@@ -4,7 +4,7 @@ def main():
     with open("./war-and-peace.flag.txt", "r") as r:
         # Search for flag in lines
         for line in r:
-            if "picoCTF" in line:
+            if "academy{" in line:
                 print(line)
                 with open("./flag", "w") as w:
                     w.write(line)

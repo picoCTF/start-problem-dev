@@ -49,7 +49,7 @@ The following walkthrough has 3 parts:
         - The first block contains important cmgr metadata and some
           problem-specific values.
             - `Namespace` this is the namespace in cmgr that your problem will
-              be named under. Please use: `Namespace: picoctf`
+              be named under. Please use: `Namespace: academy`
             - `ID` this is the actual name of the problem for cmgr. If not
               specified, it will be the first heading converted to all lowercase
               and hyphens, but we like to specify it directly.
@@ -85,7 +85,7 @@ The following walkthrough has 3 parts:
           for more details. It can be empty if there is nothing relevant to
           include.
         - The `Hints` section should contain an unordered list of hints, but on
-          the picoCTF platform these hints will be numbered in the order that
+          the CyLab Security Academy platform these hints will be numbered in the order that
           they appear. This section can be empty. In our Gym, hints range from a
           mini-walkthrough for more pedagogical problems to frustratingly
           obscure references that don't really help until after you solve the
@@ -150,7 +150,7 @@ flag is incorrect, a correct flag is correct, and that the player can get the
 correct flag from the materials given.
 
 This is the simplest challenge in a series designed to familiarize new authors
-with the cmgr format for picoCTF problems. Other guides here will demonstrate
+with the cmgr format for CyLab Security Academy problems. Other guides here will demonstrate
 generating a dynamic flag, creating challenges for other traditional CTF
 categories and more!
 

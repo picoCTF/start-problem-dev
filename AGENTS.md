@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file is an opinionated, practical playbook for building working picoCTF
+This file is an opinionated, practical playbook for building working CyLab Security Academy
 challenges with cmgr. It is based on:
 
 - Building with CMGR - Quick Start Guide
@@ -18,7 +18,7 @@ able to stand up a working challenge quickly and avoid common cmgr pitfalls.
 - cmgr discovers challenges from a single configured challenge tree
   (`CMGR_DIR`). If your challenge is outside that tree, cmgr will not find it.
 - You reference challenges by namespace and ID (for example,
-  `picoctf/examples/sanity-download`), not by filesystem path.
+  `academy/examples/sanity-download`), not by filesystem path.
 
 ## 2) Required Local Setup
 
@@ -67,14 +67,14 @@ Every cmgr challenge must have:
 Most challenges should also have:
 
 - `/challenge/artifacts.tar.gz` if users need downloadable files
-- `solver/solve.py` (required in picoCTF authoring workflow)
+- `solver/solve.py` (required in CyLab Security Academy authoring workflow)
 - `solver/requirements.txt` if solver uses non-stdlib packages
 
 ## 5) problem.md Rules That Matter
 
 The first metadata block should include at least:
 
-- `Namespace: picoctf/...`
+- `Namespace: academy/...`
 - `ID: ...`
 - `Type: custom`
 - `Category: ...`
@@ -147,7 +147,7 @@ This separation reduces accidental metadata exposure on exploitable services.
 
 - cmgr supplies build args like `FLAG` (and often `SEED`) automatically.
 - If you run `docker build` manually, you must pass required args yourself:
-  - `docker build . --build-arg FLAG='picoCTF{deadbeef}'`
+  - `docker build . --build-arg FLAG='academy{deadbeef}'`
   - Add `--build-arg SEED='1234'` if your build logic needs seed.
 
 Practical recommendation from examples:

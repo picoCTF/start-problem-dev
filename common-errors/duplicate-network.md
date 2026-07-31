@@ -1,7 +1,7 @@
 # Duplicate Network Exists
 
 ```terminal
-$ cmgr playtest picoctf/binary-instrumentation-1
+$ cmgr playtest academy/binary-instrumentation-1
 cmgr: [ERROR:  could not create challenge network (cmgr-2): Error response from daemon: network with name cmgr-2 already exists]
 error creating instance: Error response from daemon: network with name cmgr-2 already exists
 cmgr: [ERROR:  failed to delete build (2): FOREIGN KEY constraint failed]
@@ -42,16 +42,16 @@ cmgr will want you to update again.
 ```terminal
 $ cmgr update
 cmgr: [WARN:  skipped removing network (not found): cmgr-2]
-cmgr: [WARN:  disk quota for picoctf/binary-instrumentation-1 container 'challenge' ignored (disk quotas are not enabled)]
+cmgr: [WARN:  disk quota for academy/binary-instrumentation-1 container 'challenge' ignored (disk quotas are not enabled)]
 cmgr: [WARN:  skipped removing network (not found): cmgr-1]
-cmgr: [WARN:  disk quota for picoctf/binary-instrumentation-1 container 'challenge' ignored (disk quotas are not enabled)]
+cmgr: [WARN:  disk quota for academy/binary-instrumentation-1 container 'challenge' ignored (disk quotas are not enabled)]
 Updated:
-    picoctf/binary-instrumentation-1
+    academy/binary-instrumentation-1
 ```
 
 And now you can finally playtest.
 
 ```terminal
-$ cmgr playtest picoctf/binary-instrumentation-1
+$ cmgr playtest academy/binary-instrumentation-1
 challenge information available at: http://localhost:4242/
 ```
