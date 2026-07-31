@@ -21,7 +21,7 @@
   - Linux example commands:
   - `$ cd ~/Downloads`
   - `$ wget <url-of-release-tarball>` such as:
-    - `$ wget https://github.com/picoCTF/cmgr/releases/download/v1.2.1/cmgr_linux_amd64.tar.gz`
+    - `$ wget https://github.com/picoCTF/cmgr/releases/download/v3.0.0/cmgr_linux_amd64.tar.gz`
   - `$ tar xzvf cmgr_linux_amd64.tar.gz`
   - Make sure the binaries run:
     - `$ ./cmgr`
