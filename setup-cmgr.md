@@ -78,15 +78,15 @@
 
       ```terminal
       Added:
-          picoctf/examples/sanity-download
+          academy/examples/sanity-download
       ```
 
-- `$ cmgr playtest picoctf/examples/sanity-download`
+- `$ cmgr playtest academy/examples/sanity-download`
   - This might take a few minutes, it's building a container.
   - Expected output:
 
       ```terminal
-      cmgr: [WARN:  disk quota for picoctf/examples/sanity-download container 'challenge' ignored (disk quotas are not enabled)]
+      cmgr: [WARN:  disk quota for academy/examples/sanity-download container 'challenge' ignored (disk quotas are not enabled)]
       challenge information available at: http://localhost:4242/
       ```
 
