@@ -10,6 +10,46 @@ challenges with cmgr. It is based on:
 Use this as a hands-on checklist. If you follow it top-to-bottom, you should be
 able to stand up a working challenge quickly and avoid common cmgr pitfalls.
 
+## 0) 5-Minute Quickstart (Golden Path)
+
+If you are new to cmgr, do only this first:
+
+1. Pick the closest template from `example-problems/` and copy it into your
+  `CMGR_DIR` tree.
+2. Edit `problem.md` metadata (`Namespace`, `ID`, `Category`, `Templatable`,
+  `MaxUsers`) and challenge text.
+3. Ensure your Docker build writes `/challenge/metadata.json`.
+4. If players need files, package them into `/challenge/artifacts.tar.gz` and
+  link with `url_for(...)`.
+5. If you expose a service port, include `EXPOSE <port>` and
+  `# PUBLISH <port> AS <name>`, then reference it in `problem.md`.
+6. Build once with Docker (faster errors), then test with cmgr.
+7. Confirm wrong flag fails, correct flag passes, and intended solve path works.
+
+Fast command sequence:
+
+```terminal
+cp -r example-problems/sanity-static-flag "$CMGR_DIR/my-first-challenge"
+cd "$CMGR_DIR/my-first-challenge"
+
+# Quick sanity build (cmgr supplies FLAG automatically; Docker does not)
+docker build . --build-arg FLAG='academy{deadbeef}'
+
+# Register and run in cmgr
+cmgr update
+cmgr list
+cmgr playtest academy/examples/my-first-challenge
+
+# Optional solver validation (expects solver/solve.py writing ./flag)
+cmgr test academy/examples/my-first-challenge
+```
+
+If `cmgr update` does not discover your challenge, it is almost always outside
+`CMGR_DIR` or has invalid `problem.md` metadata.
+
+If playtest errors with duplicate cmgr networks, stop stale containers, prune
+unused Docker networks, then run `cmgr update` again.
+
 ## 1) Core Mental Model
 
 - cmgr is a Docker wrapper with challenge-specific metadata, templating, and
@@ -70,6 +110,15 @@ Most challenges should also have:
 - `solver/solve.py` (required in CyLab Security Academy authoring workflow)
 - `solver/requirements.txt` if solver uses non-stdlib packages
 
+Two high-frequency wiring rules from `topics/`:
+
+- Downloadable artifact requires both:
+  1. Add file to `/challenge/artifacts.tar.gz`.
+  2. Link it in `problem.md` with `url_for(...)`.
+- Extra instance data requires both:
+  1. Add key/value to `/challenge/metadata.json`.
+  2. Reference it in `problem.md` with `lookup("key")`.
+
 ## 5) problem.md Rules That Matter
 
 The first metadata block should include at least:
@@ -98,6 +147,11 @@ Useful template functions used in examples:
 - `{{server}}`, `{{port}}` for default network endpoint
 - `{{server("name")}}`, `{{port("name")}}` for named endpoints
 - `{{lookup("key")}}` for values stored in `metadata.json`
+
+Authoring note:
+
+- Ensure Markdown renders correctly in `problem.md` (headings, lists, code
+  blocks, and template snippets).
 
 ## 6) Dockerfile Patterns (Copy/Adjust)
 
@@ -172,7 +226,24 @@ Typical sequence:
 For templating verification, build multiple seeds and compare generated flags
 using `cmgr` system dump tooling (as shown in forensics-grep walkthrough).
 
-## 9) Critical Gotchas (Do Not Skip)
+## 9) Solvers (cmgr test) That Actually Prove Something
+
+- Place solver at `solver/solve.py`.
+- Solver must write recovered answer to `./flag`.
+- If solver uses extra packages (for example `pwntools`), declare them in
+  `solver/requirements.txt`.
+- Solver container receives challenge artifacts in its working directory.
+- Solver can reach challenge containers by Docker stage name as DNS hostnames.
+
+Important nuance from `topics/cmgr-solver.md`:
+
+- `cmgr test` often prints nothing on success.
+- `metadata.json` in solver context is for instance data (for example SSH
+  password); do not assume it contains the flag.
+- A solver may use an implementation shortcut; it only proves solvability, not
+  player-friendliness. Keep separate human playtesting.
+
+## 10) Critical Gotchas (Do Not Skip)
 
 ### Challenge discovery and naming
 
@@ -219,6 +290,8 @@ Fix (careful if you run other Docker projects):
 - Interactive services should not block forever.
 - Exit after flag output.
 - Set minimal challenge options in `problem.md` and increase only if required.
+- Handle EOF safely in interactive programs (for example `scanf`/stdin loops).
+- Prefer not writing user-interaction temp files to disk; if used, clean them up.
 
 ### Anti-cheese checks for artifact-heavy problems
 
@@ -226,7 +299,29 @@ Fix (careful if you run other Docker projects):
 - If needed, obfuscate or encode flag placement to preserve intended learning
   objective.
 
-## 10) Pre-Submission Checklist
+### Web runtime assumptions
+
+- Do not rely on outbound Internet access at runtime.
+- Vendor external JS/CSS/assets into challenge source.
+- Do not depend on third-party APIs/services remaining online.
+- Check for unintended directory traversal reads to flag files.
+
+### Flag UX and supportability
+
+- Avoid red-herring “correct-looking” flags that create support incidents.
+- If challenge output must display non-standard format, clearly document the
+  accepted wrapped flag format in `problem.md`.
+
+## 11) Design and Accessibility Guardrails
+
+- Avoid guess-based solves; difficulty should come from skill application.
+- Prefer open-source tools and workflows that are feasible in webshell-style
+  environments.
+- Keep client-side compute requirements reasonable for constrained runners.
+- If challenge has mutable state, mark and deploy as on-demand (`MaxUsers: 1`).
+- For high-compute or brute-force-prone tasks, add rate limiting / controls.
+
+## 12) Pre-Submission Checklist
 
 1. Challenge builds cleanly in Docker with explicit build args.
 2. Challenge is discovered by `cmgr update` from `CMGR_DIR` tree.
@@ -240,8 +335,15 @@ Fix (careful if you run other Docker projects):
 9. Solver script works and writes recovered flag to `./flag`.
 10. If templated, verify multiple generated instances produce different flags and
     remain solvable.
+11. Artifact links in Description/Details match files included in
+  `artifacts.tar.gz`.
+12. Any instance-specific values shown to players come from keys present in
+  `metadata.json`.
+13. Web challenges function without outbound Internet and with locally bundled
+  assets.
+14. Interactive services exit cleanly after success and on inactivity/EOF.
 
-## 11) Quick Start Authoring Recipe
+## 13) Quick Start Authoring Recipe
 
 When creating a new challenge quickly:
 
