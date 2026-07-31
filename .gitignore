@@ -1,6 +1,7 @@
 *.bak
 *.swp
 *~
+*__pycache__*
 .vscode*
 *pcm.toml*
 deploy.sh
