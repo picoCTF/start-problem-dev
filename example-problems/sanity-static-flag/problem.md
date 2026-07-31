@@ -44,4 +44,4 @@ Test and verify your connectivity to our CTF
 
 - author: LT 'syreal' Jones
 - organization: CyLab Security Academy
-- event: picoCTF Problem Developer Training
+- event: Problem Developer Training

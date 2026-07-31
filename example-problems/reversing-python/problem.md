@@ -52,4 +52,4 @@ Examining source code to identify functionality
 
 - author: LT 'syreal' Jones
 - organization: CyLab Security Academy
-- event: picoCTF Problem Developer Training
+- event: Problem Developer Training

@@ -57,4 +57,4 @@ Understand perceptron decision boundaries and practice black-box modeling.
 
 - author: LT 'syreal' Jones
 - organization: CyLab Security Academy
-- event: picoCTF Problem Developer Training
+- event: Problem Developer Training

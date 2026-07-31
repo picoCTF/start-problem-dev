@@ -50,4 +50,4 @@ Usage of command line tools
 
 - author: LT 'syreal' Jones
 - organization: CyLab Security Academy
-- event: picoCTF Problem Developer Training
+- event: Problem Developer Training
