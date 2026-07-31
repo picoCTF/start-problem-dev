@@ -11,7 +11,7 @@
 ## Overview
 
 This problem uses a container as a service host and presents this service
-through a port. This problem is adapted from the live picoGym problem, [Picker-I](https://play.picoctf.org/practice/challenge/400).
+through a port. This problem is adapted from the live picoGym problem, [Picker-I](https://learn.cylabacademy.org/library/400).
 
 This problem can be used as a template for any challenge that needs to host a
 service that players connect to with netcat.

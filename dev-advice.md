@@ -11,10 +11,10 @@
 - Consider whether your problem is more pedagogical or more novel
   - More pedagogical problems are more towards 100 and 200 points
     - Such as the [Time
-      Machine](https://play.picoctf.org/practice/challenge/425) problem
+      Machine](https://learn.cylabacademy.org/library/425) problem
   - More novel problems are more towards 400 and 500 points
     - Such as the
-      [high-frequency-troubles](https://play.picoctf.org/practice/challenge/441)
+      [high-frequency-troubles](https://learn.cylabacademy.org/library/441)
       problem
 - Pedagogical problems should be solvable with the webshell
 - It's ok if 400/500 point problems cannot be solved reasonably within the
@@ -31,7 +31,7 @@
   differently within the challenge due to technical limitations (e.g. can only
   return integers), make sure that this is clearly explained in the challenge
   description and that the standard wrapped form is the accepted flag
-  - See the [C3](https://play.picoctf.org/practice/challenge/407) challenge.
+  - See the [C3](https://learn.cylabacademy.org/library/407) challenge.
 - Whenever possible, use templating so that challenge instances have unique
   flags (this should be possible except for certain types of forensics
   challenges)
@@ -73,7 +73,7 @@
 
 - Try to avoid excessive computational complexity in challenges, and/or limit
   bruteforceability (via PoW wrapper and provided solver binary, etc.)
-  - The [Virtual Machine 1](https://play.picoctf.org/practice/challenge/386)
+  - The [Virtual Machine 1](https://learn.cylabacademy.org/library/386)
     challenge would be vulnerable to bruteforce if there wasn't heavy
     rate-limiting and variability of the requested output
 - If a challenge contains mutable state (such as an exploitable SQL database),
@@ -101,7 +101,7 @@
 - For web challenges, make sure that it is not possible to read the flag via
   directory traversal
   - Unless that's the intention, like with [this
-    problem](https://play.picoctf.org/practice/challenge/270)
+    problem](https://learn.cylabacademy.org/library/270)
 - For web challenges, include all vendor external scripts, stylesheets, etc.
   needed at runtime into the challenge source. We want to make sure files remain
   available and that players can access everything needed for a challenge via
