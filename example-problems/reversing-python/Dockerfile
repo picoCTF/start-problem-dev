@@ -1,16 +1,19 @@
-FROM ubuntu@sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322 AS base
+FROM ubuntu:24.04 AS base
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    --no-install-recommends \
     python3 \
-    socat
+    socat \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /challenge && chmod 700 /challenge
+RUN install -d -m 700 /challenge
 
 COPY picker-I.py setup-challenge.py /app/
 COPY start.sh /opt/
 WORKDIR /app/
-RUN tar czvf /challenge/artifacts.tar.gz picker-I.py
+RUN set -eu; \
+    tar -czf /challenge/artifacts.tar.gz picker-I.py
 
 FROM base AS challenge
 ARG FLAG

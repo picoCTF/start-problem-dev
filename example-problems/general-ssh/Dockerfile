@@ -1,13 +1,15 @@
 # LAUNCH ssh_host
 
-FROM ubuntu@sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322 AS builder_base
+FROM ubuntu:24.04 AS builder_base
 
 # Install challenge dependencies within the image
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    python3
+    --no-install-recommends \
+    python3 && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create challenge dir for metadata.json and other file artifacts
-RUN mkdir /challenge && chmod 700 /challenge
+RUN install -d -m 700 /challenge
 COPY config-builder.py /challenge/
 
 FROM builder_base as builder
@@ -20,13 +22,15 @@ RUN python3 /challenge/config-builder.py
 #######################
 #### Host: sshHost ####
 #######################
-FROM ubuntu@sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322 AS ssh_host_base
+FROM ubuntu:24.04 AS ssh_host_base
 
 # Install challenge dependencies within the image
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    --no-install-recommends \
     openssh-server \
     python3 \
-    socat
+    socat && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY config-sshhost.py /challenge/
 COPY start.sh /opt/
